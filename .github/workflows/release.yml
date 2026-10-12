@@ -1,0 +1,41 @@
+name: Release launcher
+
+# Push a tag like v1.0.0 to build the launcher for every platform
+# and attach the binaries to a GitHub release.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - name: Build
+        run: |
+          mkdir dist
+          FLAGS="-s -w -X main.repo=${GITHUB_REPOSITORY} -X main.version=${GITHUB_REF_NAME}"
+          build() { GOOS=$1 GOARCH=$2 CGO_ENABLED=0 go build -trimpath -ldflags "$FLAGS" -o "dist/$3" ./cmd/jraft; }
+          build windows amd64 jraft-windows.exe
+          build linux   amd64 jraft-linux
+          build linux   arm64 jraft-linux-arm64
+          build darwin  arm64 jraft-macos-apple-silicon
+          build darwin  amd64 jraft-macos-intel
+          chmod +x dist/jraft-linux* dist/jraft-macos*
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: jraft-launcher
+          path: dist/*

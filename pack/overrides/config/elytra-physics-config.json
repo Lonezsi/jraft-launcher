@@ -1,0 +1,15 @@
+{
+  "adaptive_gravity": true,
+  "gravity_multiplier": 1.0,
+  "inject_layers": [
+    "com.illusivesoulworks.colytra.client.ColytraLayer",
+    "com.illusivesoulworks.elytraslot.client.ElytraSlotLayer",
+    "com.kyanite.deeperdarker.client.render.SoulElytraRenderer",
+    "pw.lakuna.elytra_trinket.ElytraTrinketFeatureRenderer",
+    "org.betterx.betterend.client.render.ArmoredElytraLayer"
+  ],
+  "elytra_spread_multiplier": 1.0,
+  "enabled": true,
+  "prevent_snapping": true,
+  "elytra_lean_multiplier": 1.0
+}

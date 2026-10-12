@@ -1,0 +1,10 @@
+{
+  "mode": "ENABLED",
+  "pixelFormat": "RGBA16F",
+  "stbnSize": 128,
+  "stbnDepth": 64,
+  "stbnSeed": 0,
+  "strength": 1.0,
+  "notifyChat": true,
+  "notifyToast": true
+}

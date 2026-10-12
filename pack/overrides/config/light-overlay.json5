@@ -1,0 +1,15 @@
+{
+	lightLevelThreshold: 1,
+	chunkScanRange: 4,
+	rendererMode: "CROSS",
+	hideGreen: false,
+	hideTransparent: true,
+	hideWater: true,
+	showSpecialSpawningConditionBlocks: false,
+	showWhenPaused: true,
+	enableIrisFlickerFix: true,
+	nearbyCheckDistanceSquared: 256,
+	validColor: -16711936,
+	invalidColor: -65536,
+	maxComputationsPerTick: 32
+}

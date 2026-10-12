@@ -1,0 +1,93 @@
+{
+  "enableMod": "ALL",
+  "wetDuration": 10,
+  "secPerPrint": 5,
+  "printLifetime": 5.0,
+  "watermarkLifetime": 5.0,
+  "lifeTimeAcc": 0,
+  "footprintAlpha": 7,
+  "watermarkAlpha": 4,
+  "printHeight": 0,
+  "applyBlocks": [
+    "#minecraft:wool"
+  ],
+  "hardnessGate": 0.7,
+  "excludedBlocks": [
+    "minecraft:beehive",
+    "#minecraft:flower",
+    "#minecraft:crop",
+    "#minecraft:leaves",
+    "#minecraft:sapling",
+    "#minecraft:replaceable_plants"
+  ],
+  "blockHeight": [
+    "minecraft:snow,0.125",
+    "minecraft:soul_sand,0.125",
+    "minecraft:mud,0.125"
+  ],
+  "canGenWhenInvisible": true,
+  "excludedMobs": [
+    "#aquatic",
+    "minecraft:parrot",
+    "minecraft:bee",
+    "minecraft:allay",
+    "minecraft:bat",
+    "minecraft:phantom",
+    "minecraft:endermite",
+    "minecraft:blaze",
+    "minecraft:ghast",
+    "minecraft:wither",
+    "minecraft:ender_dragon"
+  ],
+  "mobInterval": [
+    "minecraft:spider,0.5",
+    "minecraft:cave_spider,0.5",
+    "minecraft:camel,2",
+    "minecraft:sniffer,3",
+    "minecraft:iron_golem,2",
+    "minecraft:creeper,0.8"
+  ],
+  "sizePerMob": [
+    "minecraft:chicken,0.6",
+    "minecraft:pig,0.8",
+    "minecraft:cat,0.5",
+    "minecraft:ocelot,0.5",
+    "minecraft:wolf,0.6",
+    "minecraft:sniffer,1.6",
+    "minecraft:enderman,0.6",
+    "minecraft:slime,2",
+    "minecraft:magma_cube,2",
+    "minecraft:creeper,0.8",
+    "minecraft:iron_golem,1.2",
+    "minecraft:ravager,2",
+    "minecraft:armadillo,0.7"
+  ],
+  "horseLikeMobs": [
+    "minecraft:horse",
+    "minecraft:donkey",
+    "minecraft:mule",
+    "minecraft:zombie_horse",
+    "minecraft:skeleton_horse",
+    "minecraft:camel",
+    "minecraft:sniffer,0.8",
+    "minecraft:ravager,0.5",
+    "minecraft:creeper,0.3"
+  ],
+  "spiderLikeMobs": [
+    "minecraft:spider",
+    "minecraft:cave_spider",
+    "minecraft:camel,0.3",
+    "minecraft:sniffer,0.3",
+    "minecraft:iron_golem,0.3",
+    "minecraft:ravager,0.3"
+  ],
+  "customPrint": [
+    "mod_id:mob_id,fileName_NoExtend"
+  ],
+  "footprintSize": 5,
+  "railFlameRange": 2,
+  "enableBoatTrail": true,
+  "swimPopLevel": "ALL",
+  "snowDustLevel": "ALL",
+  "waterSplashLevel": "PLAYER_ONLY"
+}

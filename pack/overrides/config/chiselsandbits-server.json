@@ -1,0 +1,14 @@
+{
+  "balancing": {
+    "blacklist-random-ticking-blocks": false,
+    "enable-compatibility-mode": false,
+    "bit-bag-stack-size": 512,
+    "change-tracker-size": 20,
+    "delete-excess-bits": true,
+    "light-factor-multiplier": 1.0,
+    "require-chisel-in-off-hand-for-bit-breaking": false
+  },
+  "style": {
+    "bit-size": "ONE_SIXTEENTH"
+  }
+}

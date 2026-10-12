@@ -1,0 +1,19 @@
+{
+  "isShowed": true,
+  "isAdvancedShowed": false,
+  "overlayPosition": "TOP_LEFT",
+  "colorOnThreshold": false,
+  "colorThreshold": 30,
+  "overlayText": "{fps} FPS",
+  "overlayBackgroundColor": "#000000",
+  "overlayTextColor": "#ffffff",
+  "overlayTransparency": 50,
+  "overlayDynamicText": "",
+  "overlayDynamicInterval": 3,
+  "advancedText": "{minFps} / {maxFps}",
+  "advancedBackgroundColor": "#000000",
+  "advancedTextColor": "#ffffff",
+  "advancedTransparency": 50,
+  "advancedDynamicText": "",
+  "advancedDynamicInterval": 3
+}

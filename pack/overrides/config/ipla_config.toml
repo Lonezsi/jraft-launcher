@@ -1,0 +1,8 @@
+# IPLA config
+oldRendering = false
+absSize = 1.0
+iSize = 1.0
+bSize = 1.0
+rotPower = 1
+blockScale = 2.0
+itemScale = 2.0
