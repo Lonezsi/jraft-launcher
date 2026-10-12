@@ -107,7 +107,7 @@
       "url": "https://cdn.modrinth.com/data/XYnKrsxH/versions/NDNvqH73/InventoryParticles-3.3.0%2B26.3%2Bfabric.jar",
       "sha512": "631df49db20ff0506d1e08dcb1de4998226830cfb19f429b919d675dc1402945b1f7cb373c79b5158de463a49502edbeaa71f0c88cabb028739b9c19b1175a03",
       "size": 1752422,
-      "comment": "XYnKrsxH 3.3.0+26.3+fabric"
+      "comment": "inventory-particles 3.3.0+26.3+fabric"
     },
     {
       "path": "mods/MossyLib-1.6.0+26.3+fabric.jar",
@@ -166,11 +166,11 @@
       "comment": "structory 1.3.18+26.3"
     },
     {
-      "path": "mods/SubtleEffects-fabric-26.3-1.15.0-hotfix.1.jar",
-      "url": "https://cdn.modrinth.com/data/4q8UOK1d/versions/P53h6JUz/SubtleEffects-fabric-26.3-1.15.0-hotfix.1.jar",
-      "sha512": "4279eae649a976be69064933ba0af3bd7c8f954153f1f500a68ca43f65fb5b878b99fbd4ad65c472e89d066523dc4cc6fe166052a7c0011f460ca9fa22617ee9",
-      "size": 3508430,
-      "comment": "subtle-effects 1.15.0-hotfix.1"
+      "path": "mods/SubtleEffects-fabric-26.3-1.15.1.jar",
+      "url": "https://cdn.modrinth.com/data/4q8UOK1d/versions/vrXA98VM/SubtleEffects-fabric-26.3-1.15.1.jar",
+      "sha512": "43347d2c44d300913c67920e7777b5ee33d994a7b03b8c1149c6d8d259099dd168460b458c7f6038b834d51ed32407a214d6482d4266b92208c9e21ca85d30ee",
+      "size": 3513732,
+      "comment": "subtle-effects 1.15.1"
     },
     {
       "path": "mods/Terralith_26.3_v2.6.5+26.3.jar",
