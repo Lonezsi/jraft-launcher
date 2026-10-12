@@ -80,15 +80,17 @@ func ensurePrism(dir string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	fmt.Println("Downloading Prism Launcher", rel.Tag+"...")
+	logf("Downloading Prism Launcher %s...", rel.Tag)
 	archive := filepath.Join(dir, asset)
 	url := "https://github.com/PrismLauncher/PrismLauncher/releases/download/" + rel.Tag + "/" + asset
-	if err := download(url, archive, ""); err != nil {
+	if err := downloadProgress(url, archive, "", setProgress); err != nil {
 		return "", err
 	}
 	defer os.Remove(archive)
 
 	staging := filepath.Join(dir, "staging")
+	logf("Unpacking Prism Launcher...")
+	setProgress(0, 0)
 	os.RemoveAll(staging)
 	if strings.HasSuffix(asset, ".zip") {
 		err = unzip(archive, staging)

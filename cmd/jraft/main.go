@@ -3,7 +3,6 @@
 package main
 
 import (
-	"bufio"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -27,7 +26,7 @@ var (
 )
 
 // For testing: JRAFT_PACK_DIR reads lock.json and overrides from a local
-// pack folder, JRAFT_DIR replaces the data folder, JRAFT_NO_LAUNCH skips starting the game.
+// pack folder, JRAFT_DIR replaces the data folder, JRAFT_NO_LAUNCH stops before starting the game.
 func rawURL(p string) string {
 	if d := os.Getenv("JRAFT_PACK_DIR"); d != "" {
 		return "file://" + filepath.ToSlash(filepath.Join(d, p))
@@ -61,105 +60,6 @@ func get(u string) (*http.Response, error) {
 	return resp, nil
 }
 
-func main() {
-	fmt.Printf("JRAFT launcher %s\n\n", version)
-	if err := run(); err != nil {
-		fmt.Println("\nSomething went wrong:", err)
-		fmt.Println("Send a screenshot of this window to whoever runs the pack.")
-		waitForEnter()
-		os.Exit(1)
-	}
-	time.Sleep(3 * time.Second)
-}
-
-func waitForEnter() {
-	fmt.Print("\nPress Enter to close...")
-	bufio.NewReader(os.Stdin).ReadString('\n')
-}
-
-func run() error {
-	checkSelfUpdate()
-
-	dataDir, err := dataDir()
-	if err != nil {
-		return err
-	}
-	if err := os.MkdirAll(dataDir, 0o755); err != nil {
-		return err
-	}
-	// Use the player's own Prism Launcher (and its accounts) if they have
-	// one; otherwise a portable copy is downloaded into our folder below.
-	prism, prismData := findPrism()
-	if prismData == "" {
-		prismData = filepath.Join(dataDir, "prism-data")
-	} else {
-		fmt.Println("Using your Prism Launcher:", prismData)
-	}
-	instDir := filepath.Join(instancesDir(prismData), instanceID)
-	gameDir := filepath.Join(instDir, "minecraft")
-	fmt.Println("Game folder:", gameDir)
-
-	fmt.Println("\nChecking for pack updates...")
-	resp, err := get(rawURL("lock.json") + "?t=" + fmt.Sprint(time.Now().Unix()))
-	if err != nil {
-		return fmt.Errorf("could not reach GitHub: %w", err)
-	}
-	var lock pack.Lock
-	err = json.NewDecoder(resp.Body).Decode(&lock)
-	resp.Body.Close()
-	if err != nil {
-		return fmt.Errorf("bad lock.json: %w", err)
-	}
-	fmt.Printf("%s for Minecraft %s, Fabric %s\n", lock.Name, lock.Minecraft, lock.LoaderVersion)
-
-	if err := syncFiles(gameDir, lock); err != nil {
-		return err
-	}
-	if err := writeDefaultOptions(gameDir, lock); err != nil {
-		return err
-	}
-	if err := writeInstance(prismData, instDir, lock); err != nil {
-		return fmt.Errorf("setting up the instance: %w", err)
-	}
-	if prism == "" {
-		prism, err = ensurePrism(filepath.Join(dataDir, "prism"))
-		if err != nil {
-			return fmt.Errorf("installing Prism Launcher: %w", err)
-		}
-	}
-	forceAsk := len(os.Args) > 1 && os.Args[1] == "--choose-account"
-	if p := loadPrefs(dataDir); !forceAsk && p.Account != "" && len(prismAccounts(prismData)) > 1 {
-		fmt.Printf("\nPlaying as %s. Press Enter within 3 seconds to switch account...", p.Account)
-		forceAsk = enterPressedWithin(3 * time.Second)
-		fmt.Println()
-	}
-	account, err := chooseAccount(dataDir, prismData, forceAsk)
-	if err != nil {
-		return err
-	}
-	if os.Getenv("JRAFT_NO_LAUNCH") != "" {
-		fmt.Printf("\n(test mode) would launch %s as %q\n", prism, account)
-		return nil
-	}
-	fmt.Println("\nStarting Minecraft...")
-	return launch(prism, prismData, account)
-}
-
-func enterPressedWithin(d time.Duration) bool {
-	ch := make(chan struct{}, 1)
-	go func() {
-		if _, err := bufio.NewReader(os.Stdin).ReadString('\n'); err == nil {
-			ch <- struct{}{}
-		}
-	}()
-	select {
-	case <-ch:
-		return true
-	case <-time.After(d):
-		return false
-	}
-}
-
 func checkSelfUpdate() {
 	if version == "dev" {
 		return
@@ -174,7 +74,7 @@ func checkSelfUpdate() {
 		URL string `json:"html_url"`
 	}
 	if json.NewDecoder(resp.Body).Decode(&rel) == nil && rel.Tag != "" && rel.Tag != version {
-		fmt.Printf("A newer launcher (%s) is available: %s\n\n", rel.Tag, rel.URL)
+		logf("A newer launcher (%s) is available: %s", rel.Tag, rel.URL)
 	}
 }
 
@@ -246,16 +146,17 @@ func syncFiles(gameDir string, lock pack.Lock) error {
 	for p := range old.Files {
 		if !want[p] && pack.SafePath(p) == nil {
 			if os.Remove(filepath.Join(gameDir, filepath.FromSlash(p))) == nil {
-				fmt.Println("  removed", p)
+				logf("Removed %s", p)
 				removed++
 			}
 		}
 	}
 
 	if len(jobs) == 0 && removed == 0 {
-		fmt.Println("Everything is up to date.")
+		logf("Everything is up to date.")
 	} else if len(jobs) > 0 {
-		fmt.Printf("Downloading %d file(s)...\n", len(jobs))
+		logf("Downloading %d file(s)...", len(jobs))
+		setProgress(0, int64(len(jobs)))
 	}
 
 	var (
@@ -273,11 +174,12 @@ func syncFiles(gameDir string, lock pack.Lock) error {
 				err := download(j.url, filepath.Join(gameDir, filepath.FromSlash(j.f.Path)), j.f.SHA512)
 				mu.Lock()
 				done++
+				setProgress(int64(done), int64(len(jobs)))
 				if err != nil {
 					errs = append(errs, fmt.Errorf("%s: %w", j.f.Path, err))
-					fmt.Printf("  [%d/%d] FAILED %s\n", done, len(jobs), j.f.Path)
+					logf("[%d/%d] FAILED %s", done, len(jobs), j.f.Path)
 				} else {
-					fmt.Printf("  [%d/%d] %s\n", done, len(jobs), j.f.Path)
+					logf("[%d/%d] %s", done, len(jobs), j.f.Path)
 				}
 				mu.Unlock()
 			}
@@ -305,12 +207,17 @@ func syncFiles(gameDir string, lock pack.Lock) error {
 
 // download fetches url to dest, checking the sha512 when one is given.
 func download(url, dest, sha string) error {
+	return downloadProgress(url, dest, sha, nil)
+}
+
+// downloadProgress is download with an optional (bytes so far, total) callback.
+func downloadProgress(url, dest, sha string, progress func(n, total int64)) error {
 	if err := os.MkdirAll(filepath.Dir(dest), 0o755); err != nil {
 		return err
 	}
 	var lastErr error
 	for attempt := 0; attempt < 3; attempt++ {
-		if lastErr = tryDownload(url, dest, sha); lastErr == nil {
+		if lastErr = tryDownload(url, dest, sha, progress); lastErr == nil {
 			return nil
 		}
 		time.Sleep(time.Second * time.Duration(attempt+1))
@@ -318,7 +225,7 @@ func download(url, dest, sha string) error {
 	return lastErr
 }
 
-func tryDownload(url, dest, sha string) error {
+func tryDownload(url, dest, sha string, progress func(n, total int64)) error {
 	resp, err := get(url)
 	if err != nil {
 		return err
@@ -329,7 +236,11 @@ func tryDownload(url, dest, sha string) error {
 	if err != nil {
 		return err
 	}
-	_, err = io.Copy(out, resp.Body)
+	var body io.Reader = resp.Body
+	if progress != nil {
+		body = &progressReader{r: resp.Body, total: resp.ContentLength, fn: progress}
+	}
+	_, err = io.Copy(out, body)
 	out.Close()
 	if err != nil {
 		os.Remove(tmp)
@@ -353,4 +264,17 @@ func writeDefaultOptions(gameDir string, lock pack.Lock) error {
 	}
 	packs, _ := json.Marshal(append([]string{"vanilla"}, lock.ResourcePacks...))
 	return os.WriteFile(p, []byte("resourcePacks:"+string(packs)+"\n"), 0o644)
+}
+
+type progressReader struct {
+	r        io.Reader
+	n, total int64
+	fn       func(n, total int64)
+}
+
+func (p *progressReader) Read(b []byte) (int, error) {
+	n, err := p.r.Read(b)
+	p.n += int64(n)
+	p.fn(p.n, p.total)
+	return n, err
 }

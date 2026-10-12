@@ -1,7 +1,8 @@
 name: Release launcher
 
 # Push a tag like v1.0.0 to build the launcher for every platform
-# and attach the binaries to a GitHub release.
+# and attach the files to a GitHub release. The window uses Gio, which
+# needs cgo on macOS and Linux, so each OS builds on its own runner.
 on:
   push:
     tags: ["v*"]
@@ -12,30 +13,71 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - { os: ubuntu-latest, target: windows }
+          - { os: ubuntu-latest, target: linux-amd64 }
+          - { os: ubuntu-24.04-arm, target: linux-arm64 }
+          - { os: macos-latest, target: macos }
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
           go-version: stable
+      - name: Linux build dependencies
+        if: startsWith(matrix.target, 'linux')
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc pkg-config libwayland-dev libx11-dev libx11-xcb-dev \
+            libxkbcommon-x11-dev libgles2-mesa-dev libegl1-mesa-dev libffi-dev libxcursor-dev libvulkan-dev
       - name: Build
+        shell: bash
         run: |
           mkdir dist
           FLAGS="-s -w -X main.repo=${GITHUB_REPOSITORY} -X main.version=${GITHUB_REF_NAME}"
-          build() { GOOS=$1 GOARCH=$2 CGO_ENABLED=0 go build -trimpath -ldflags "$FLAGS" -o "dist/$3" ./cmd/jraft; }
-          build windows amd64 jraft-windows.exe
-          build linux   amd64 jraft-linux
-          build linux   arm64 jraft-linux-arm64
-          build darwin  arm64 jraft-macos-apple-silicon
-          build darwin  amd64 jraft-macos-intel
-          chmod +x dist/jraft-linux* dist/jraft-macos*
-      - name: Publish release
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v2
+          case "${{ matrix.target }}" in
+            windows)
+              GOOS=windows GOARCH=amd64 go build -trimpath -ldflags "$FLAGS -H windowsgui" -o dist/jraft-windows.exe ./cmd/jraft ;;
+            linux-*)
+              go build -trimpath -ldflags "$FLAGS" -o "dist/jraft-${{ matrix.target }}" ./cmd/jraft
+              chmod +x dist/jraft-* ;;
+            macos)
+              CGO_ENABLED=1 GOARCH=arm64 go build -trimpath -ldflags "$FLAGS" -o jraft-arm64 ./cmd/jraft
+              CGO_ENABLED=1 GOARCH=amd64 CC="clang -arch x86_64" go build -trimpath -ldflags "$FLAGS" -o jraft-amd64 ./cmd/jraft
+              APP=JRAFT.app
+              mkdir -p $APP/Contents/MacOS
+              lipo -create -output $APP/Contents/MacOS/jraft jraft-arm64 jraft-amd64
+              cat > $APP/Contents/Info.plist <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>CFBundleName</key><string>JRAFT</string>
+            <key>CFBundleIdentifier</key><string>io.github.lonezsi.jraft</string>
+            <key>CFBundleExecutable</key><string>jraft</string>
+            <key>CFBundlePackageType</key><string>APPL</string>
+            <key>CFBundleShortVersionString</key><string>${GITHUB_REF_NAME#v}</string>
+            <key>NSHighResolutionCapable</key><true/>
+          </dict></plist>
+          EOF
+              codesign --force --deep -s - $APP
+              ditto -c -k --keepParent $APP dist/jraft-macos.zip ;;
+          esac
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jraft-${{ matrix.target }}
+          path: dist/*
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
         with:
           files: dist/*
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: jraft-launcher
-          path: dist/*
