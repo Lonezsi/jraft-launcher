@@ -58,6 +58,7 @@ func run() error {
 	if err := syncFiles(gameDir, lock); err != nil {
 		return err
 	}
+	checkForeignMods(gameDir, lock)
 	if err := writeDefaultOptions(gameDir, lock); err != nil {
 		return err
 	}
