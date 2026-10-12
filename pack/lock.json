@@ -89,6 +89,13 @@
       "comment": "immediatelyfast 1.17.1+26.3-fabric"
     },
     {
+      "path": "mods/Incendium_26.3_v5.5.3+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/ZVzW5oNS/versions/vMABj7fb/Incendium_26.3_v5.5.3%2B26.3.jar",
+      "sha512": "55822efb17af8e67849341e2021ad2086a564c9e7e9638cc887b523ff56b46e45509eb1e75df5beb019a210941f6ec917fbf8e06c60ed293c5d0f8d178f4c3a9",
+      "size": 4152072,
+      "comment": "incendium 5.5.3+26.3"
+    },
+    {
       "path": "mods/InvMove-0.9.6+26.3-Fabric.jar",
       "url": "https://cdn.modrinth.com/data/REfW2AEX/versions/wjZzQM0p/InvMove-0.9.6%2B26.3-Fabric.jar",
       "sha512": "992428998c7e05e287b0c36a094bd1404c984989c6cb08dc2101be125338ad4d513cfc39de6c254dd9a6cacd937e9ec986fb10d81f9a8d8157ab088f476b8774",
@@ -131,6 +138,13 @@
       "comment": "no-chat-reports Fabric-26.3-v2.21.0"
     },
     {
+      "path": "mods/Nullscape_26.3_v2.0.1+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/LPjGiSO4/versions/79OyFQtd/Nullscape_26.3_v2.0.1%2B26.3.jar",
+      "sha512": "ae84946fd6a62ea0863cbc9fd2766ad08635a856d2e15af861af7d00807c98e606d1a2a06eb176ea6275031b66b6a186b245c7a4097797d3c12244ca9a4fe968",
+      "size": 259205,
+      "comment": "nullscape 2.0.1+26.3"
+    },
+    {
       "path": "mods/PresenceFootsteps-1.14.0+26.3.jar",
       "url": "https://cdn.modrinth.com/data/rcTfTZr3/versions/UUNiN7Tm/PresenceFootsteps-1.14.0%2B26.3.jar",
       "sha512": "70525da0c631f50608b67ecdfe62fd9410fdec7bc95510946716a6465cc109fe6b93be7c75022c47a0036f9954ff5912567a393e1356a75940e9b1da5580698b",
@@ -152,6 +166,13 @@
       "comment": "fuuu3xnx 1.0.3"
     },
     {
+      "path": "mods/Structory_26.3_v1.3.18+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/aKCwCJlY/versions/GjOkOVW4/Structory_26.3_v1.3.18%2B26.3.jar",
+      "sha512": "a9b7c7ce45a38c4be68563337e413adbf486a8e47fecc450d3ee59dadf807faee39d49a098c2dbfc2a466f0d36c71ca8e051f161efdbfc19b069f0c70e6b4223",
+      "size": 1261901,
+      "comment": "structory 1.3.18+26.3"
+    },
+    {
       "path": "mods/SubtleEffects-fabric-26.3-1.15.0-hotfix.1.jar",
       "url": "https://cdn.modrinth.com/data/4q8UOK1d/versions/P53h6JUz/SubtleEffects-fabric-26.3-1.15.0-hotfix.1.jar",
       "sha512": "4279eae649a976be69064933ba0af3bd7c8f954153f1f500a68ca43f65fb5b878b99fbd4ad65c472e89d066523dc4cc6fe166052a7c0011f460ca9fa22617ee9",
@@ -159,11 +180,25 @@
       "comment": "subtle-effects 1.15.0-hotfix.1"
     },
     {
+      "path": "mods/Terralith_26.3_v2.6.5+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/8oi3bsk5/versions/aGE3hYAA/Terralith_26.3_v2.6.5%2B26.3.jar",
+      "sha512": "918b232df7a855bae89c7fa85affb5ce134e236c4726fa14a5bdaa179eb1e010f040a9fa981f006a0e26e421a2a961bc29a75e99a4500fd18361a8ba81478071",
+      "size": 2954218,
+      "comment": "terralith 2.6.5+26.3"
+    },
+    {
       "path": "mods/appleskin-fabric-mc26.3-3.0.10.jar",
       "url": "https://cdn.modrinth.com/data/EsAfCjCV/versions/PHjDtQay/appleskin-fabric-mc26.3-3.0.10.jar",
       "sha512": "17d257af419b7530aa8617c2e8c0e4bbfabcf888f26655790e0188e7957e0bcd931f85f9a4c69fd27e889dee5082cf7b2b8741a14a6ed4425e9ef4bfe13a8b8c",
       "size": 180194,
       "comment": "appleskin 3.0.10+mc26.3"
+    },
+    {
+      "path": "mods/better-trees-2.0.0.jar",
+      "url": "https://cdn.modrinth.com/data/cfXIpi12/versions/xoBqxOVe/better-trees-2.0.0.jar",
+      "sha512": "857770176846aaf101390ad47f1ceea58ea27b692fab88f40513e3fcd45439a92bb0cad145fdf9c7362ec1a0eb6950178a167bd2abb9bb3e7c6982142d9818e9",
+      "size": 716294,
+      "comment": "better-trees 2.0.0+mod"
     },
     {
       "path": "mods/cbbg-1.5.0+mc26.3-fabric.jar",
@@ -375,6 +410,13 @@
       "comment": "lightoverlay 2.13.0+26.3"
     },
     {
+      "path": "mods/lithostitched-2.0.5-fabric-26.3.jar",
+      "url": "https://cdn.modrinth.com/data/XaDC71GB/versions/ekwE8Gez/lithostitched-2.0.5-fabric-26.3.jar",
+      "sha512": "4cff36e6093ead456c5481bcdb72727165a6447c494e42f44b06c47deee4f6f81643490e4d4dd77e9b77f6fc5e777199620804f36d09a3d66c63bc5b2f0fc76c",
+      "size": 955147,
+      "comment": "XaDC71GB 2.0.5-fabric-26.3"
+    },
+    {
       "path": "mods/make_bubbles_pop-0.3.4-fabric-mc26.2.x.jar",
       "url": "https://cdn.modrinth.com/data/gPCdW0Wr/versions/CAFPNCYd/make_bubbles_pop-0.3.4-fabric-mc26.2.x.jar",
       "sha512": "c5f4e6ecf5029014a6f3ca4fea156700dca522cb91ce3bca8f1b1c58c6d4e70239821b1bd55964d44ef06c82f31affbcbe392637f1a429cbf8b817536b88ea28",
@@ -562,6 +604,20 @@
       "sha512": "3d258e40e4166d96fdcdcc8f0246bd6e2ab961c27aba5fccbfdd52dde521f4b5127d49a3ff4eb3a7b92a55c335ec6b144a84f9fcc4a11d9652944bfb32cba515",
       "size": 8143246,
       "comment": "sound 2.6.0+26.3-fabric"
+    },
+    {
+      "path": "mods/tectonic-3.0.31-fabric-26.3.jar",
+      "url": "https://cdn.modrinth.com/data/lWDHr9jE/versions/j2jmkU85/tectonic-3.0.31-fabric-26.3.jar",
+      "sha512": "8adbd91ee3e7c925465ef88367ce3a13bd958838b9df1e8ba9e3f0c5e719719475ef484491b93194914800cc5b7523104cb09452619bf307555c649f5d2e02bc",
+      "size": 390019,
+      "comment": "tectonic 3.0.31-fabric-26.3"
+    },
+    {
+      "path": "mods/tree-vein-miner-4.3.2.jar",
+      "url": "https://cdn.modrinth.com/data/wEhW4ceB/versions/dZmWRxVs/tree-vein-miner-4.3.2.jar",
+      "sha512": "052eca259e3a6ecb658391e1dcc8e312c54fa7abf10083b484f6f4e21b1ee1fbfef4785c366b61cba4485c184145404bab422ac2f0759a10858f8c33abc2a9c3",
+      "size": 230605,
+      "comment": "tree-vein-miner 4.3.2+mod"
     },
     {
       "path": "mods/variants-cit-5.7.0+26.3.jar",

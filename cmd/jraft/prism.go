@@ -4,6 +4,7 @@ import (
 	"archive/tar"
 	"archive/zip"
 	"compress/gzip"
+	_ "embed"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -17,6 +18,9 @@ import (
 )
 
 const instanceID = "jraft"
+
+//go:embed instance-icon.png
+var instanceIcon []byte
 
 // prismAsset is the portable Prism Launcher build for this OS, by release tag.
 func prismAsset(tag string) (string, error) {
@@ -308,6 +312,13 @@ func writeInstance(prismData, instDir string, lock pack.Lock) error {
 	if err != nil {
 		return err
 	}
+	// Our icon for the instance in Prism's list (and its taskbar entry).
+	if err := os.MkdirAll(filepath.Join(prismData, "icons"), 0o755); err != nil {
+		return err
+	}
+	if err := os.WriteFile(filepath.Join(prismData, "icons", "jraft.png"), instanceIcon, 0o644); err != nil {
+		return err
+	}
 	err = mergeCfg(filepath.Join(instDir, "instance.cfg"), map[string]string{
 		// If Prism had to show a sign-in window, close it once the game is
 		// running and quit Prism when the game exits, so only Minecraft stays.
@@ -316,7 +327,7 @@ func writeInstance(prismData, instDir string, lock pack.Lock) error {
 		"QuitAfterGameStop":     "true",
 		"InstanceType":          "OneSix",
 		"name":                  lock.Name,
-		"iconKey":               "grass",
+		"iconKey":               "jraft",
 		"OverrideMemory":        "true",
 		"MinMemAlloc":           "2048",
 		"MaxMemAlloc":           "6144",

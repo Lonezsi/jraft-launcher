@@ -1,5 +1,6 @@
 // icon turns assets/icon-source.png (any square-ish PNG) into the app icon
-// files: assets/icon.png (512px, used for the Mac app) and assets/icon.ico.
+// files: assets/icon.png (512px, used for the Mac app), assets/icon.ico and
+// cmd/jraft/instance-icon.png (the icon shown in Prism).
 //
 //	go run ./tools/icon
 package main
@@ -25,6 +26,8 @@ func main() {
 		panic(err)
 	}
 	write("assets/icon.png", encode(fit(src, 512)))
+	// Embedded in the launcher and used as the Prism instance icon.
+	write("cmd/jraft/instance-icon.png", encode(fit(src, 256)))
 
 	// ICO with PNG-compressed entries (supported since Windows Vista).
 	sizes := []int{16, 24, 32, 48, 64, 128, 256}
