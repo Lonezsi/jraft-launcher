@@ -564,6 +564,13 @@
       "comment": "visuality 0.7.15+26.3"
     },
     {
+      "path": "mods/voicechat-fabric-2.6.24+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/9eGKb6K1/versions/OLnMVWXy/voicechat-fabric-2.6.24%2B26.3.jar",
+      "sha512": "414eb51967305fe7740d34016bc8e3e4e2fa1590e1278ad06bcdfa0687f65007b825d345dc09f79a992704a51ec93baf01fe727e0bbc32fdf506828b5a65d85a",
+      "size": 5612855,
+      "comment": "simple-voice-chat fabric-2.6.24+26.3"
+    },
+    {
       "path": "mods/weaponmaster_ydm-4.4.4-fabric.jar",
       "url": "https://cdn.modrinth.com/data/qi1sj2da/versions/M0qt6sse/weaponmaster_ydm-4.4.4-fabric.jar",
       "sha512": "fd2c5167d06d518efa8871d9df2406bf29fc1aeab50f200f7718f747492cab104ae5352173ad19b3b681dc14453ef0f7cc8d38fbf83c38ff5f44d5572ef41017",
@@ -659,18 +666,6 @@
     {
       "path": "config/chatpatches.json",
       "sha512": "9352d27d3a20ba47fd2b9e1ac20e22e6ddda8d3b2306fff7f8767164722f831a62e5f05ffc03f88f8b8218abf288243402d5eb7d8e8e13e7260a40738c654568"
-    },
-    {
-      "path": "config/chiselsandbits-client.json",
-      "sha512": "776e77a7001ba69c6bbbdb5be16d76a0f4d52811fa0248999601a89fa0163a0515108c6ff33e1a86851d3571a694a469f6d89dd84c7fd0e24c9814bac97e9be4"
-    },
-    {
-      "path": "config/chiselsandbits-common.json",
-      "sha512": "89d2248b9a09c8c4f67c0bdfb5f4268afe4ca767d25737a68471406a3a2d04652c038fb0d9601435bbfd15d06c3dcc3a2f28ead940927a418d6571d2e2be850a"
-    },
-    {
-      "path": "config/chiselsandbits-server.json",
-      "sha512": "9218ac3066f48a64e3d621b296d7f8f28c941a19a177892c8b839cb499bec44d88fe1986cca080bb2da3d6cc2ea324069882b5d83bdaea8c0e330888a79e9421"
     },
     {
       "path": "config/collective/entity_names.json",
