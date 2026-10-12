@@ -13,8 +13,8 @@ import (
 
 // Hardware detection and per-PC graphics presets. The first time the pack is
 // set up on a PC (and again if its graphics card changes), the launcher picks
-// a preset and writes the matching video, shader, Distant Horizons and
-// render-scale settings. After that the player's own changes are kept.
+// a preset and writes the matching video, shader and Distant Horizons
+// settings. After that the player's own changes are kept.
 
 type hardware struct {
 	GPUs  []string
@@ -144,9 +144,6 @@ type preset struct {
 	dh        bool
 	dhRadius  int
 	dhQuality string
-	scale     string // render scale (1.0 = native)
-	fsr       bool
-	targetFPS int // render scale lowers resolution to keep this frame rate, 0 = off
 }
 
 var presets = map[string]preset{
@@ -158,7 +155,6 @@ var presets = map[string]preset{
 			"weatherRadius": "5", "chunkSectionFadeInTime": "0", "entityDistanceScaling": "0.75",
 			"mipmapLevels": "2", "enableVsync": "false", "maxFps": "60",
 		},
-		scale: "0.7", fsr: true, targetFPS: 45,
 	},
 	tierMedium: {
 		options: map[string]string{
@@ -168,21 +164,21 @@ var presets = map[string]preset{
 			"weatherRadius": "8", "chunkSectionFadeInTime": "0.5", "entityDistanceScaling": "1.0",
 			"mipmapLevels": "4", "maxFps": "120",
 		},
-		dh: true, dhRadius: 64, dhQuality: "LOW", scale: "0.9", fsr: true, targetFPS: 60,
+		dh: true, dhRadius: 64, dhQuality: "LOW",
 	},
 	tierHigh: {
 		options: map[string]string{
 			"renderDistance": "8", "simulationDistance": "8", "biomeBlendRadius": "2",
 			"particles": "0", "maxFps": "144",
 		},
-		shaders: true, dh: true, dhRadius: 128, dhQuality: "MEDIUM", scale: "1.0",
+		shaders: true, dh: true, dhRadius: 128, dhQuality: "MEDIUM",
 	},
 	tierUltra: {
 		options: map[string]string{
 			"renderDistance": "12", "simulationDistance": "10", "biomeBlendRadius": "3",
 			"particles": "0", "maxFps": "260",
 		},
-		shaders: true, dh: true, dhRadius: 256, dhQuality: "HIGH", scale: "1.0",
+		shaders: true, dh: true, dhRadius: 256, dhQuality: "HIGH",
 	},
 }
 
@@ -236,13 +232,6 @@ func applyPreset(gameDir string, p preset) {
 		"horizontalQuality":            "client.advanced.graphics.quality",
 		"verticalQuality":              "client.advanced.graphics.quality",
 		"enableSsao":                   "client.advanced.graphics",
-	})
-
-	setJSONFields(filepath.Join(cfg, "renderscale.json5"), map[string]string{
-		"scale":           p.scale,
-		"fsr":             strconv.FormatBool(p.fsr),
-		"targetFrameRate": strconv.Itoa(p.targetFPS),
-		"minimumScale":    "0.5",
 	})
 }
 

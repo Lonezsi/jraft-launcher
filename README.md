@@ -14,7 +14,7 @@
   <a href="https://github.com/Lonezsi/jraft-launcher/releases/latest/download/jraft-linux-amd64"><img src="https://img.shields.io/badge/Linux-8a62e6?style=for-the-badge&logo=linux&logoColor=white&labelColor=5b3ca8" height="44" alt="Download for Linux"></a>
 </p>
 
-Client-side JRAFT mods for **Minecraft 26.3 (Fabric)**, plus Euphoria Patches (with Complementary Reimagined) and Toast Control. One small app installs everything and keeps it updated.
+Client-side JRAFT mods for **Minecraft 26.3 (Fabric)**, plus Grassrise, Grassrise Better Lighting, Euphoria Patches (with Complementary Reimagined) and Toast Control. One small app installs everything and keeps it updated.
 
 ## For players
 
@@ -26,7 +26,7 @@ Client-side JRAFT mods for **Minecraft 26.3 (Fabric)**, plus Euphoria Patches (w
 
 The app:
 
-- downloads or updates the mods and shaders,
+- downloads or updates the mods, resource pack and shaders,
 - uses your Prism Launcher if you already have one (your accounts and other instances stay as they are), or downloads a portable [Prism Launcher](https://prismlauncher.org) if you don't (nothing gets installed, and the app keeps it updated for you),
 - adds a JRAFT instance to it,
 - starts the game.
@@ -74,6 +74,6 @@ The app writes a log to `launcher.log` in its folder (`%APPDATA%\jraft` on Windo
 
 Distant Horizons draws far terrain, with render distance set to 5 by default. Voxy is left out until it has a 26.3 build; swap it in for `distanthorizons` in `pack.json` then (never both). Sound Physics Perfected joins automatically once it updates.
 
-Dropped on purpose: Grassrise and Grassrise Better Lighting (they break shaders), Chisels & Bits (not on Modrinth), Physics Mod (FPS), Super Fast Math (not on Modrinth), server-side mods like Item Rename, Noisium, Lithium, C2ME, Clumps, Collective, Villager Names and IPLA (Simple Voice Chat stays, so put it on the server too). The original pack's custom resource packs aren't included.
+Dropped on purpose: Chisels & Bits (not on Modrinth), Physics Mod (FPS), Super Fast Math (not on Modrinth), server-side mods like Item Rename, Noisium, Lithium, C2ME, Clumps, Collective, Villager Names and IPLA (Simple Voice Chat stays, so put it on the server too). The original pack's custom resource packs aren't included.
 
 **Icon:** Replace `assets/icon-source.png`, then `go run ./tools/icon` rebuilds `assets/icon.png` and `assets/icon.ico`. After changing it, regenerate the Windows resource with `go run github.com/tc-hib/go-winres@v0.3.3 simply --icon assets/icon.png --arch amd64,arm64 --product-name JRAFT --file-description "JRAFT launcher" --out cmd/jraft/rsrc`.

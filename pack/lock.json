@@ -103,13 +103,6 @@
       "comment": "invmove 0.9.6+26.3-fabric"
     },
     {
-      "path": "mods/InventoryInteractions-2.2.0+26.3+fabric.jar",
-      "url": "https://cdn.modrinth.com/data/FCzmUKBr/versions/9dCHnYUV/InventoryInteractions-2.2.0%2B26.3%2Bfabric.jar",
-      "sha512": "7a91aca237e56d1bdf7cebe0c41a8099a4f4e5449650f31166fc29558344739619adb353e4154a8a198ca3d8b7229a47c4f315685ca1eae595c0f9a20847c48e",
-      "size": 438802,
-      "comment": "inventory-interactions 2.2.0+26.3+fabric"
-    },
-    {
       "path": "mods/InventoryParticles-3.3.0+26.3+fabric.jar",
       "url": "https://cdn.modrinth.com/data/XYnKrsxH/versions/NDNvqH73/InventoryParticles-3.3.0%2B26.3%2Bfabric.jar",
       "sha512": "631df49db20ff0506d1e08dcb1de4998226830cfb19f429b919d675dc1402945b1f7cb373c79b5158de463a49502edbeaa71f0c88cabb028739b9c19b1175a03",
@@ -199,13 +192,6 @@
       "sha512": "857770176846aaf101390ad47f1ceea58ea27b692fab88f40513e3fcd45439a92bb0cad145fdf9c7362ec1a0eb6950178a167bd2abb9bb3e7c6982142d9818e9",
       "size": 716294,
       "comment": "better-trees 2.0.0+mod"
-    },
-    {
-      "path": "mods/cbbg-1.5.0+mc26.3-fabric.jar",
-      "url": "https://cdn.modrinth.com/data/UBlXUQbC/versions/JWSgxxzZ/cbbg-1.5.0%2Bmc26.3-fabric.jar",
-      "sha512": "cbcbb9ae517e7c0da574f36c608e0d438c5ae4611f2f98bdfd7b3582456e386acb2de78d34324b6c1656259fc63a510801a984a65968d4ad39058446d99e8320",
-      "size": 145704,
-      "comment": "cbbg 1.5.0+mc26.3-fabric"
     },
     {
       "path": "mods/chat_heads-1.3.2-fabric-26.3.jar",
@@ -376,6 +362,12 @@
       "comment": "hYykXjDp 0.7.7+fix3+26.3"
     },
     {
+      "path": "mods/grassrise-better-lighting-1.0.0+mc26.3.jar",
+      "url": "https://mediafilez.forgecdn.net/files/8897/806/grassrise-better-lighting-1.0.0%2Bmc26.3.jar",
+      "sha512": "8aacbd2d841c0c0f9d2237b3f3420ec22b6aa062b395dccacbc9ed651a7eadca89ee087e0964a930dc3b697deaacabdd56b16eb29c5fd43c108cdf914224274f",
+      "comment": "Grassrise - Better Lighting (CurseForge only). https://www.curseforge.com/minecraft/mc-mods/grassrise-better-lighting/files/8897806"
+    },
+    {
       "path": "mods/immersiveoverlays-1.8.5+26.3-fabric.jar",
       "url": "https://cdn.modrinth.com/data/PKoLkD98/versions/4kNndntn/immersiveoverlays-1.8.5%2B26.3-fabric.jar",
       "sha512": "8af535d3f9c943144b0fab93e8e88b570871331df4e056e7fce8473a7975c931e3ac7d8a9b5e1774c699a240f86ca611dd0038cfec249ff62ee306c876c40127",
@@ -523,13 +515,6 @@
       "comment": "QAGBst4M 26.3.14"
     },
     {
-      "path": "mods/renderscale-1.4.0-alpha.6-fabric+26.3.jar",
-      "url": "https://cdn.modrinth.com/data/Va8PJBFX/versions/Qr4y3YLK/renderscale-1.4.0-alpha.6-fabric%2B26.3.jar",
-      "sha512": "a88437220a4324eecc186e0d70a3902612686faf33ba299e6f53c31b735d3e3133d87de0b268b48ac191af93a02e3bf2ebba1029ed7494f8a6201e2d95b71eb3",
-      "size": 131200,
-      "comment": "renderscale 1.4.0-alpha.6-fabric+26.3"
-    },
-    {
       "path": "mods/resourcepackoverrides-v26.3.0-mc26.3.x+fabric.jar",
       "url": "https://cdn.modrinth.com/data/YsFycamt/versions/SpIS4iHy/resourcepackoverrides-v26.3.0-mc26.3.x%2Bfabric.jar",
       "sha512": "0cdbd1ca168673435156f028301168ab00db1ae506c4967e85f0463c9792d3bde0884f88ec5a2ecd856d6972171502ccac301038f4101d04ac2a1353cb234460",
@@ -649,6 +634,13 @@
       "comment": "1eAoo2KR 3.9.7+26.3-fabric"
     },
     {
+      "path": "resourcepacks/Grassrise-1.0.3-mc26.3.zip",
+      "url": "https://cdn.modrinth.com/data/S5FvlY0N/versions/WFG9Lpck/Grassrise-1.0.3-mc26.3.zip",
+      "sha512": "8e03a816e982adb2059a2472c81efaf8616396486d17b7c6c3df87b5eccdad7377666a85a55492cd6a8a5c3d3890ef00a2821fbec55cce4668ef798747567d82",
+      "size": 35425,
+      "comment": "grassrise 1.0.3"
+    },
+    {
       "path": "shaderpacks/ComplementaryReimagined_r5.9.3.zip",
       "url": "https://cdn.modrinth.com/data/HVnmMxH1/versions/Bqen1mJX/ComplementaryReimagined_r5.9.3.zip",
       "sha512": "45304b1d7862afdb2177b7e6226fc9c6737911d17a4ad46cc9c519ca4deb935f05072cd337cd8b19a15bb8062b57b54eceec7bdee4cd572d94858e2946d37d85",
@@ -700,10 +692,6 @@
     {
       "path": "config/cardinal-components-api.properties",
       "sha512": "03eb025757260aec750d8a4bdee77c2a0e83f1b22e579d062fb299b78c5e71fe5af9e5e6a80f65c947dfd480c95c8b1ef8484db706908017538c74a107cff918"
-    },
-    {
-      "path": "config/cbbg.json",
-      "sha512": "750e9f3304a0fe61317f575247d3fa36c0079f2f19b182981e3cd13703829271607150917fd3d83ae3662f94a15664ded35307c3dbce473aca142ec5ce0a923d"
     },
     {
       "path": "config/chat_heads.json5",
@@ -824,10 +812,6 @@
     {
       "path": "config/immersiveoverlays.json",
       "sha512": "e002e9ed561a878cbbc4c0dfc268c07c6c9d6428a2a8a2dd1dbc79627c3a6027aab9289a186560bbc5c2eb14aa692a5347d0d0fdebe81e92e35c18500c10ca45"
-    },
-    {
-      "path": "config/inventory_interactions.json5",
-      "sha512": "051275978cd497d36557b12b4a46172cdf7cd083b604eda0b3fbcfe05bf35325e6d22be935f447cc854a1ee91c9f6d5125b4dbfe7232bb3bed5e6e41569c25f0"
     },
     {
       "path": "config/inventory_particles.json5",
@@ -990,10 +974,6 @@
       "sha512": "0a9f06256e7ea0e13ca8d758cfd54cd2ab44402feec29e9a36c03e4a05204e353dabf3efb418c54f60b9ed63bbf7adde71e597f324421fbfae10298a663bf9d2"
     },
     {
-      "path": "config/renderscale.json5",
-      "sha512": "6595d1e1442b89ecccd38777b1da000499eacf2f2865fd3c40e2f704edf8b9cbaea273dba09a5df2888c62f8e6bcaed8fdde01035d8f738e3246383e7899a702"
-    },
-    {
       "path": "config/resourcepackoverrides.json",
       "sha512": "c66fb81fe8c45e9f35fdf4032f535d6e826f7971f80eb3fb59ca4b9989bbf8c1a4ecc87c4e5acde4ab305f7c56c105b0fa567b50fbb8750ac783f84d6316dc63"
     },
@@ -1127,10 +1107,12 @@
     },
     {
       "path": "options.txt",
-      "sha512": "0979055ab1b23a2a06381ef5d53d3df28a158efa97fce5322dd6be91223122571c2b845523255564e89514d795251e6a668da063b3298422f1b023db12e6a738"
+      "sha512": "d5695e2688a70b9ed2b60a077eced0c2c8b5d6a6d63ff587600539f1690fc1fb6b038dbd10bcbc55528e016047512109eecaac1cb391523bd384eb70e0342e3a"
     }
   ],
-  "resourcePacks": null,
+  "resourcePacks": [
+    "file/Grassrise-1.0.3-mc26.3.zip"
+  ],
   "skipped": [
     "fast-block-placement (no 26.3 build yet)",
     "item-landing-sound (no 26.3 build yet)",
