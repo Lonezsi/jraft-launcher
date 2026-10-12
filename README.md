@@ -1,4 +1,18 @@
-# JRAFT launcher
+<p align="center">
+  <img src="assets/icon.png" width="160" alt="JRAFT">
+</p>
+
+<h1 align="center">JRAFT</h1>
+
+<p align="center">Minecraft 26.3 with the JRAFT mods. Download, open, play. It installs and updates everything by itself.</p>
+
+<p align="center">
+  <a href="https://github.com/Lonezsi/jraft-launcher/releases/latest/download/jraft-windows.exe"><img src="https://img.shields.io/badge/Download_for_Windows-8a62e6?style=for-the-badge&logo=windows&logoColor=white&labelColor=5b3ca8" height="64" alt="Download for Windows"></a>
+</p>
+<p align="center">
+  <a href="https://github.com/Lonezsi/jraft-launcher/releases/latest/download/jraft-macos.zip"><img src="https://img.shields.io/badge/Mac-8a62e6?style=for-the-badge&logo=apple&logoColor=white&labelColor=5b3ca8" height="44" alt="Download for Mac"></a>
+  <a href="https://github.com/Lonezsi/jraft-launcher/releases/latest/download/jraft-linux-amd64"><img src="https://img.shields.io/badge/Linux-8a62e6?style=for-the-badge&logo=linux&logoColor=white&labelColor=5b3ca8" height="44" alt="Download for Linux"></a>
+</p>
 
 Client-side JRAFT mods for **Minecraft 26.3 (Fabric)**, plus Grassrise, Grassrise Better Lighting, Euphoria Patches (with Complementary Reimagined) and Toast Control. One small app installs everything and keeps it updated.
 

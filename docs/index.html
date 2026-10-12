@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JRAFT</title>
+<link rel="icon" href="icon.png">
+<style>
+  :root {
+    --bg: #0e0b16;
+    --panel: #07050c;
+    --fg: #eee9fa;
+    --muted: #a396c8;
+    --accent: #8a62e6;
+    --accent-dark: #5b3ca8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(ellipse at top, #1c1430, var(--bg) 60%);
+    color: var(--fg); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; padding: 24px 16px;
+  }
+  main { width: 100%; max-width: 560px; text-align: center; }
+  img.logo { width: 180px; height: 180px; filter: drop-shadow(0 12px 32px rgba(138, 98, 230, .35)); }
+  h1 { font-size: 44px; margin: 8px 0 4px; letter-spacing: .02em; }
+  p.lead { color: var(--muted); margin: 0 0 32px; }
+  a.big {
+    display: block; padding: 26px 24px; border-radius: 18px; text-decoration: none;
+    background: linear-gradient(180deg, #9a74f0, var(--accent) 55%, var(--accent-dark));
+    color: #fff; font-size: 28px; font-weight: 700;
+    box-shadow: 0 10px 40px rgba(138, 98, 230, .45), inset 0 1px 0 rgba(255,255,255,.25);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  a.big:hover { transform: translateY(-2px); box-shadow: 0 14px 48px rgba(138, 98, 230, .6), inset 0 1px 0 rgba(255,255,255,.25); }
+  a.big small { display: block; font-size: 14px; font-weight: 500; opacity: .85; margin-top: 4px; }
+  .others { margin-top: 18px; color: var(--muted); font-size: 14px; }
+  .others a { color: var(--fg); margin: 0 8px; }
+  .steps { margin-top: 36px; background: var(--panel); border-radius: 14px; padding: 18px 22px; text-align: left; color: var(--muted); font-size: 15px; }
+  .steps b { color: var(--fg); }
+  .steps ol { margin: 0; padding-left: 20px; }
+  .note { margin-top: 10px; font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="icon.png" alt="JRAFT">
+  <h1>JRAFT</h1>
+  <p class="lead">Minecraft 26.3 with the JRAFT mods. It installs and updates everything by itself.</p>
+
+  <a class="big" id="dl" href="https://github.com/Lonezsi/jraft-launcher/releases/latest">Download<small id="dl-sub">Pick your system below</small></a>
+
+  <div class="others">
+    Other systems:
+    <a href="https://github.com/Lonezsi/jraft-launcher/releases/latest/download/jraft-windows.exe">Windows</a>
+    <a href="https://github.com/Lonezsi/jraft-launcher/releases/latest/download/jraft-macos.zip">Mac</a>
+    <a href="https://github.com/Lonezsi/jraft-launcher/releases/latest/download/jraft-linux-amd64">Linux</a>
+  </div>
+
+  <div class="steps">
+    <ol>
+      <li><b>Open</b> the file you downloaded.</li>
+      <li>The first time, <b>sign in</b> with your Microsoft account.</li>
+      <li>That's it. Open it again whenever you want to play; it updates itself.</li>
+    </ol>
+    <p class="note" id="os-note"></p>
+  </div>
+</main>
+<script>
+  const base = "https://github.com/Lonezsi/jraft-launcher/releases/latest/download/";
+  const ua = navigator.userAgent;
+  const dl = document.getElementById("dl"), sub = document.getElementById("dl-sub"), note = document.getElementById("os-note");
+  let os = null;
+  if (/Windows/i.test(ua)) os = ["Windows", "jraft-windows.exe", "If Windows warns you, click More info, then Run anyway."];
+  else if (/Mac/i.test(ua) && !/iPhone|iPad/i.test(ua)) os = ["Mac", "jraft-macos.zip", "Unzip it, then right-click JRAFT.app and choose Open the first time."];
+  else if (/Linux/i.test(ua) && !/Android/i.test(ua)) os = ["Linux", "jraft-linux-amd64", "Run chmod +x jraft-linux-amd64 once, then open it."];
+  if (os) {
+    dl.firstChild.textContent = "Download for " + os[0];
+    dl.href = base + os[1];
+    sub.textContent = os[1];
+    note.textContent = os[2];
+  }
+</script>
+</body>
+</html>
