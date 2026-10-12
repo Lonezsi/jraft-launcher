@@ -3,3 +3,4 @@
 *.zip binary
 *.png binary
 pack/overrides/** -text
+cmd/jraft/*.syso binary

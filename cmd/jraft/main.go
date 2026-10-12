@@ -106,6 +106,17 @@ func exists(p string) bool {
 
 type state struct {
 	Files map[string]string `json:"files"` // path -> sha512 we installed
+	// Stamps remember size and modification time of each verified file,
+	// so unchanged files don't have to be hashed again on every run.
+	Stamps map[string]string `json:"stamps,omitempty"`
+}
+
+func stamp(p string) string {
+	fi, err := os.Stat(p)
+	if err != nil {
+		return ""
+	}
+	return fmt.Sprintf("%d:%d", fi.Size(), fi.ModTime().UnixNano())
 }
 
 func syncFiles(gameDir string, lock pack.Lock) error {
@@ -126,7 +137,11 @@ func syncFiles(gameDir string, lock pack.Lock) error {
 			return err
 		}
 		want[f.Path] = true
-		if h, err := pack.HashFile(filepath.Join(gameDir, filepath.FromSlash(f.Path))); err == nil && h == f.SHA512 {
+		local := filepath.Join(gameDir, filepath.FromSlash(f.Path))
+		if st := stamp(local); st != "" && old.Files[f.Path] == f.SHA512 && old.Stamps[f.Path] == st {
+			continue
+		}
+		if h, err := pack.HashFile(local); err == nil && h == f.SHA512 {
 			continue
 		}
 		jobs = append(jobs, job{f, f.URL})
@@ -191,9 +206,16 @@ func syncFiles(gameDir string, lock pack.Lock) error {
 	close(ch)
 	wg.Wait()
 
-	newState := state{Files: map[string]string{}}
+	newState := state{Files: map[string]string{}, Stamps: map[string]string{}}
+	failed := map[string]bool{}
+	for _, e := range errs {
+		failed[strings.SplitN(e.Error(), ":", 2)[0]] = true
+	}
 	for _, f := range lock.Files {
 		newState.Files[f.Path] = f.SHA512
+		if !failed[f.Path] {
+			newState.Stamps[f.Path] = stamp(filepath.Join(gameDir, filepath.FromSlash(f.Path)))
+		}
 	}
 	b, _ := json.MarshalIndent(newState, "", "  ")
 	if err := os.WriteFile(statePath, b, 0o644); err != nil {

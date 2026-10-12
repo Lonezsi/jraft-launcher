@@ -316,7 +316,7 @@ func writeInstance(prismData, instDir string, lock pack.Lock) error {
 		"MinMemAlloc":      "2048",
 		"MaxMemAlloc":      "6144",
 		"OverrideJavaArgs": "true",
-		"JvmArgs":          lock.JavaArgs,
+		"JvmArgs":          stripMemoryArgs(lock.JavaArgs),
 	}, true)
 	if err != nil {
 		return err
@@ -382,4 +382,16 @@ func disablePrismUpdater(prismData string) {
 		return
 	}
 	os.WriteFile(filepath.Join(prismData, "prismlauncher_update.cfg"), []byte("[General]\nauto_check=false\n"), 0o644)
+}
+
+// stripMemoryArgs drops -Xmx/-Xms: Prism sets memory itself (MaxMemAlloc)
+// and warns on every launch if they also appear in the JVM arguments.
+func stripMemoryArgs(args string) string {
+	var keep []string
+	for _, a := range strings.Fields(args) {
+		if !strings.HasPrefix(a, "-Xmx") && !strings.HasPrefix(a, "-Xms") {
+			keep = append(keep, a)
+		}
+	}
+	return strings.Join(keep, " ")
 }
