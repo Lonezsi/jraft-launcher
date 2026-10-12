@@ -124,13 +124,6 @@
       "comment": "mouse-tweaks 26.3-2.31-fabric"
     },
     {
-      "path": "mods/NoChatReports-FABRIC-26.3-v2.21.0.jar",
-      "url": "https://cdn.modrinth.com/data/qQyHxfxd/versions/6g96avt2/NoChatReports-FABRIC-26.3-v2.21.0.jar",
-      "sha512": "ee7733f50049b9f847f3abeea7a1dcb429932a5e9be16e9ab4e1d7db752ff7e43f5a449f8d971fa60e6f96917e509a05d86a03399a71be2749449ef91ec39f67",
-      "size": 239561,
-      "comment": "no-chat-reports Fabric-26.3-v2.21.0"
-    },
-    {
       "path": "mods/Nullscape_26.3_v2.0.1+26.3.jar",
       "url": "https://cdn.modrinth.com/data/LPjGiSO4/versions/79OyFQtd/Nullscape_26.3_v2.0.1%2B26.3.jar",
       "sha512": "ae84946fd6a62ea0863cbc9fd2766ad08635a856d2e15af861af7d00807c98e606d1a2a06eb176ea6275031b66b6a186b245c7a4097797d3c12244ca9a4fe968",
@@ -492,13 +485,6 @@
       "sha512": "eb2bb31e51068aad2581b7864ea7b11b1209ba1c2b27551cd5837d9b312b818b73bb47c06374b46b99b73401c62c6b6c115f702c55aed6afd467ad8ad6448de4",
       "size": 254959,
       "comment": "eXts2L7r 3.2.0+26.3"
-    },
-    {
-      "path": "mods/polytone-26.3-6.8.6-fabric.jar",
-      "url": "https://cdn.modrinth.com/data/3qAYkBMB/versions/qM0zPlR5/polytone-26.3-6.8.6-fabric.jar",
-      "sha512": "f50370557e24f5404f17b6c055d35a3e4540f6d0dc9b9b406afc4d0f1f8a14a33b7993b747bb9e7d92f7c83d818493b1082858cf2f85b06d476107577af9a087",
-      "size": 1681327,
-      "comment": "polytone 26.3-6.8.6-alpha"
     },
     {
       "path": "mods/punchy-2.8e-fabric-26.3.jar",
