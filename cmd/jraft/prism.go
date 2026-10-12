@@ -12,6 +12,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"runtime"
+	"strconv"
 	"strings"
 
 	"github.com/Lonezsi/jraft-launcher/internal/pack"
@@ -295,7 +296,7 @@ func instancesDir(prismData string) string {
 }
 
 // writeInstance creates or updates the JRAFT instance in Prism's data folder.
-func writeInstance(prismData, instDir string, lock pack.Lock) error {
+func writeInstance(prismData, instDir string, lock pack.Lock, memMB int) error {
 	if err := os.MkdirAll(filepath.Join(instDir, "minecraft"), 0o755); err != nil {
 		return err
 	}
@@ -329,8 +330,8 @@ func writeInstance(prismData, instDir string, lock pack.Lock) error {
 		"name":                  lock.Name,
 		"iconKey":               "jraft",
 		"OverrideMemory":        "true",
-		"MinMemAlloc":           "2048",
-		"MaxMemAlloc":           "6144",
+		"MinMemAlloc":           "1024",
+		"MaxMemAlloc":           strconv.Itoa(memMB),
 		"OverrideJavaArgs":      "true",
 		"JvmArgs":               stripMemoryArgs(lock.JavaArgs),
 	}, true)

@@ -682,6 +682,10 @@
       "sha512": "427bc467d091b6e3332f0664a6babc999335cc0d7910a78334c62057a09413c12b94b97bf493b336dfd25649d21e2b74d8f1272a53e4eda3af44a4376a733009"
     },
     {
+      "path": "config/DistantHorizons.toml",
+      "sha512": "187c07056fb37b610ecd29d0780373257ee24ec2a3b8ff78022975811d16c3128f653162b29440f0e4a0dfd100060e612961dfbcb8dc66577d7ab941c21efd8e"
+    },
+    {
       "path": "config/MouseTweaks.cfg",
       "sha512": "8cf7e8ee93b281257a37d2b6bdf0fbe10a8eb2b1479c63e52d18dd11856493c9cf6712f1cc95dc549f73e3b051c5ce70ce42ad60c305300f681368dec1535231"
     },
@@ -756,6 +760,10 @@
     {
       "path": "config/cutthrough-client.toml",
       "sha512": "528736e16687c39066fa898c6b5b46fc8727139be586ecced8d0b6eef4a1b33454bb66c7a844a1b880f23f9a873dbcb585d0f9dbf6f6c6071aaa67ce5517e20d"
+    },
+    {
+      "path": "config/dynamic_fps.json",
+      "sha512": "ca4b6defb8adcc010050bc8b1bb8f8092c4928b8a0fba32146abcfb256e4d91672f88ca2cdf6210e754e5b8ac5e23fb023806ccd749ac8b701f79a691f03c87a"
     },
     {
       "path": "config/elytra-physics-config.json",
@@ -884,6 +892,10 @@
     {
       "path": "config/light-overlay.json5",
       "sha512": "ab19e8ebf92c8eff548ded2c493672f7b6019b49ce9259a196152105d9a7f6becbd2df53f2755a75c24e15b947e130ea56483f5690e02f9f37e5bf387e026981"
+    },
+    {
+      "path": "config/lithostitched.json",
+      "sha512": "9fd9535fd52146327ac0f9a09fe4ac038e48da6ac978c99713c5013b52a70fb0340358b2c38374809ad839648bf961e5b783810730d71dae8c05fdb205aeb678"
     },
     {
       "path": "config/make_bubbles_pop.json",
@@ -1092,6 +1104,14 @@
     {
       "path": "config/subtle_effects/items.toml",
       "sha512": "d6f27ea947ccbf5ea8718182277a16949f418ebb96a8a3280a2f2e5500cac242bb31a2790aa5a8f7196453d49cdeaf334043b329ff8ce18b65808b28b8a95975"
+    },
+    {
+      "path": "config/tectonic.json",
+      "sha512": "6a8145ff64a3d1e22fa70fcf33e62c9fb5fd60a28b1fdf35a0f9affb749affca32d69f8a8b950272a98d09b188f9e28a399a1d0d4ce4263ff2d007eeb23f5833"
+    },
+    {
+      "path": "config/terralith.json",
+      "sha512": "12ec844d22198c660b5d798a4fc1b726fb31ad6e48cbaf39f893c127f7d44bdd939d7aeadcf4805c371b147c6d2139b7aeeb621e53d386d56dcf438764c4644e"
     },
     {
       "path": "config/transition.json",

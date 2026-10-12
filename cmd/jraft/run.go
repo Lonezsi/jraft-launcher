@@ -58,7 +58,8 @@ func run() error {
 	if err := writeDefaultOptions(gameDir, lock); err != nil {
 		return err
 	}
-	if err := writeInstance(prismData, instDir, lock); err != nil {
+	memMB := tune(dataDir, gameDir)
+	if err := writeInstance(prismData, instDir, lock, memMB); err != nil {
 		return fmt.Errorf("setting up the instance: %w", err)
 	}
 	if prism == "" {

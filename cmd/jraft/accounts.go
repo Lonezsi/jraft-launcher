@@ -9,6 +9,11 @@ import (
 // prefs is our own small settings file, next to Prism's data.
 type prefs struct {
 	Account string `json:"account,omitempty"` // remembered "don't ask again" choice
+	// Preset forces a graphics preset (low, medium, high, ultra) instead of
+	// the one picked from the hardware. Tuned records which preset was last
+	// applied, so it's only applied again when that changes.
+	Preset string `json:"preset,omitempty"`
+	Tuned  string `json:"tuned,omitempty"`
 }
 
 func loadPrefs(dataDir string) prefs {
