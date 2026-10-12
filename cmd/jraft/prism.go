@@ -296,7 +296,7 @@ func instancesDir(prismData string) string {
 }
 
 // writeInstance creates or updates the JRAFT instance in Prism's data folder.
-func writeInstance(prismData, instDir string, lock pack.Lock, memMB int) error {
+func writeInstance(prismData, instDir string, lock pack.Lock, memMB int, java string) error {
 	if err := os.MkdirAll(filepath.Join(instDir, "minecraft"), 0o755); err != nil {
 		return err
 	}
@@ -332,8 +332,13 @@ func writeInstance(prismData, instDir string, lock pack.Lock, memMB int) error {
 		"OverrideMemory":        "true",
 		"MinMemAlloc":           "1024",
 		"MaxMemAlloc":           strconv.Itoa(memMB),
-		"OverrideJavaArgs":      "true",
-		"JvmArgs":               stripMemoryArgs(lock.JavaArgs),
+		// Our own Java for this instance only (see java.go), never Prism's
+		// automatic pick, which follows the player's global setting.
+		"OverrideJavaLocation": "true",
+		"JavaPath":             java,
+		"AutomaticJava":        "false",
+		"OverrideJavaArgs":     "true",
+		"JvmArgs":              stripMemoryArgs(lock.JavaArgs),
 	}, true)
 	if err != nil {
 		return err

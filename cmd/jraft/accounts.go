@@ -14,6 +14,8 @@ type prefs struct {
 	// applied, so it's only applied again when that changes.
 	Preset string `json:"preset,omitempty"`
 	Tuned  string `json:"tuned,omitempty"`
+	// Shortcuts is set once the desktop and menu shortcuts have been made.
+	Shortcuts bool `json:"shortcuts,omitempty"`
 }
 
 func loadPrefs(dataDir string) prefs {

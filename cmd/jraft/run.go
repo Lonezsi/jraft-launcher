@@ -26,6 +26,9 @@ func run() error {
 		return err
 	}
 	openLogFile(filepath.Join(dataDir, "launcher.log"))
+	if os.Getenv("JRAFT_DIR") == "" { // tests stay out of the real Start menu
+		install(dataDir)
+	}
 
 	// Use the player's own Prism Launcher (and its accounts) if they have
 	// one; otherwise a portable copy is downloaded into our folder below.
@@ -59,7 +62,11 @@ func run() error {
 		return err
 	}
 	memMB := tune(dataDir, gameDir)
-	if err := writeInstance(prismData, instDir, lock, memMB); err != nil {
+	java, err := ensureJava(dataDir, lock.Minecraft)
+	if err != nil {
+		return fmt.Errorf("installing Java: %w", err)
+	}
+	if err := writeInstance(prismData, instDir, lock, memMB, java); err != nil {
 		return fmt.Errorf("setting up the instance: %w", err)
 	}
 	if prism == "" {

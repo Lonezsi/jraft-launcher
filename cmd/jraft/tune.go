@@ -27,12 +27,14 @@ func detectHardware() hardware {
 	hw := hardware{Cores: runtime.NumCPU()}
 	switch runtime.GOOS {
 	case "windows":
-		out, _ := exec.Command("powershell.exe", "-NoProfile", "-Command", `
+		ps := exec.Command("powershell.exe", "-NoProfile", "-Command", `
 $ErrorActionPreference = 'SilentlyContinue'
 Get-CimInstance Win32_VideoController | ForEach-Object { 'GPU=' + $_.Name }
 Get-ItemProperty 'HKLM:\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0*' |
   Where-Object { $_.'HardwareInformation.qwMemorySize' } | ForEach-Object { 'VRAM=' + $_.'HardwareInformation.qwMemorySize' }
-'RAM=' + (Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory`).Output()
+'RAM=' + (Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory`)
+		hideWindow(ps)
+		out, _ := ps.Output()
 		for _, l := range strings.Split(string(out), "\n") {
 			k, v, _ := strings.Cut(strings.TrimSpace(l), "=")
 			switch k {
