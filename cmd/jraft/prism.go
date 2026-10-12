@@ -309,14 +309,19 @@ func writeInstance(prismData, instDir string, lock pack.Lock) error {
 		return err
 	}
 	err = mergeCfg(filepath.Join(instDir, "instance.cfg"), map[string]string{
-		"InstanceType":     "OneSix",
-		"name":             lock.Name,
-		"iconKey":          "grass",
-		"OverrideMemory":   "true",
-		"MinMemAlloc":      "2048",
-		"MaxMemAlloc":      "6144",
-		"OverrideJavaArgs": "true",
-		"JvmArgs":          stripMemoryArgs(lock.JavaArgs),
+		// If Prism had to show a sign-in window, close it once the game is
+		// running and quit Prism when the game exits, so only Minecraft stays.
+		"OverrideMiscellaneous": "true",
+		"CloseAfterLaunch":      "true",
+		"QuitAfterGameStop":     "true",
+		"InstanceType":          "OneSix",
+		"name":                  lock.Name,
+		"iconKey":               "grass",
+		"OverrideMemory":        "true",
+		"MinMemAlloc":           "2048",
+		"MaxMemAlloc":           "6144",
+		"OverrideJavaArgs":      "true",
+		"JvmArgs":               stripMemoryArgs(lock.JavaArgs),
 	}, true)
 	if err != nil {
 		return err
