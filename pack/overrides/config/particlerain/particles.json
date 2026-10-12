@@ -1,20 +1,18 @@
 {
-  "rain": {
-    "density": 0.275,
-    "opacity": 0.089999996,
-    "tintType": "FOG"
-  },
-  "heavy_dust": {},
-  "mist_after_rain": {
-    "enabled": false,
-    "density": 0.036000002
-  },
+  "rain": {},
+  "vertical_fog_after_rain": {},
+  "splatter": {},
+  "skittering_dust": {},
+  "smoke": {},
+  "heavy_snow": {},
+  "vertical_fog": {},
+  "streak": {},
+  "fog_after_rain": {},
+  "shrub": {},
   "ripple": {},
   "snow": {},
-  "splatter": {},
-  "smoke": {},
-  "streak": {},
+  "heavy_rain": {},
   "dust": {},
-  "mist": {},
-  "shrub": {}
+  "dust_haze": {},
+  "fog": {}
 }

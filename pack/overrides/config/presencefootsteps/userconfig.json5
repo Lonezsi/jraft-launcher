@@ -56,6 +56,10 @@
   },
   "sound": {
     /*
+     * Disables the vanilla horse galloping sounds when riding a horse
+     */
+    "preventHorseGallopingSounds": false,
+    /*
      * When enabled, special footstep sounds will be generated matching the boots you are wearing.
      * Note not all types of boots are supported. Modded boots may sound strange or not work.
      */

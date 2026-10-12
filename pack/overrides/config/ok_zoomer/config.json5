@@ -54,13 +54,12 @@
 		// options: OFF, VIGNETTE, SPYGLASS
 		// default: OFF
 		zoom_overlay: "OFF",
-		// Improves performance by making the game render less of the world while zoomed in. This feature depends on the Sodium mod in order to work.
+		// Improves performance by making the game render less of the world while zoomed in.
 		// default: true
 		smart_occlusion: true,
-		// Expands the entity distance while zooming in, allowing creatures and certain blocks to be seen from afar. This may have a performance impact during zoom.
-		// options: OFF, SAFE, ON
-		// default: SAFE
-		see_distant_entities: "SAFE"
+		// Expands the entity distance while zooming in, allowing creatures and certain blocks to be seen from afar.
+		// default: true
+		see_distant_entities: true
 	},
 	// Options affecting the way zooming is controlled.
 	controls: {
@@ -74,6 +73,10 @@
 		// Reduces the mouse sensitivity proportionally to how far the zoom is.
 		// default: true
 		reduce_sensitivity: true,
+		// The scale of the mouse sensitivity used during zoom.
+		// range: 1.1754944E-38 - 16.0
+		// default: 1.0
+		sensitivity_scale: 1.0,
 		// "HOLD": The zoom will require the zoom key to be held.
 		// "TOGGLE": The zoom will be toggled by the zoom key.
 		// "PERSISTENT": The zoom will always be enabled, with the zoom key being used for zoom scrolling.
@@ -135,17 +138,17 @@
 		default_scroll_step: 10,
 		// The maximum amount of scroll steps that the zoom may reach.
 		// range: 0 - 2147483647
-		// default: 30
+		// default: 35
 		scroll_step_limit: 30
 	},
 	// Technical options that don't fit elsewhere.
 	tweaks: {
-		// a
+		// Uses sliders for numeric options instead of number inputs, trading number range for ease of configuration.
 		// default: true
 		numeric_sliders: true,
-		// Adds a button to open Ok Zoomer settings next to the zoom key bind.
+		// Persists the closed captions even if Persistent Interface is disabled.
 		// default: true
-		show_settings_on_key: true,
+		persistent_captions: true,
 		// Displays debug information for exponential zoom scrolling. Currently it may help with configuring the zoom scrolling.
 		// default: false
 		debug_scrolling: false,

@@ -1,4 +1,7 @@
 {
+  "test_2_3_0": false,
+  "test_2_2_0": false,
+  "test_2_1_0": true,
   "test_1_2_2": true,
   "main": {
     "mod_enabled": true,
@@ -57,5 +60,14 @@
       "mode": "disabled",
       "items": ""
     }
+  },
+  "family_generation": {
+    "mods_mode": "blacklist",
+    "mods": "",
+    "items_mode": "blacklist",
+    "items": ""
+  },
+  "cache": {
+    "invalidate_mode": "manual_invalidate"
   }
 }

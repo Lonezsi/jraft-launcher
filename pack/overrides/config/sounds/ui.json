@@ -89,5 +89,6 @@
 	"ignoreEmptyHotbarSlots": false,
 	"itemSoundCooldown": 0.05,
 	"enableItemSoundCooldown": true,
-	"enableDynamicItemSounds": true
+	"enableDynamicItemSounds": true,
+	"ignoredItems": []
 }

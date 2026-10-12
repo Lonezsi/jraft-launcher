@@ -1,7 +1,6 @@
 version = 1
 enableSodiumMenu = true
 dontCull = []
-cloudCulling = false
 signTextCulling = true
 rainCulling = false
 useBlockStateCulling = false
@@ -16,7 +15,6 @@ leavesCullingMode = "DEFAULT"
 leavesCullingAmount = 2
 includeMangroveRoots = false
 endGatewayCulling = false
-beaconBeamCulling = true
 useOnModdedBlocksByDefault = true
 
 [modCompatibility]

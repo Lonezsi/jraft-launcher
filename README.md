@@ -34,7 +34,7 @@ Everything lives in its own folder (`%APPDATA%\jraft` on Windows, `~/Library/App
 |---|---|
 | `pack/pack.json` | The list you edit: Modrinth slugs for mods, resource packs and shaders, plus direct-URL extras (CurseForge). |
 | `pack/lock.json` | Generated. Exact files, URLs and sha512 hashes. This is what the app downloads. |
-| `pack/overrides/` | Default configs. They're copied only if the player doesn't already have that file. |
+| `pack/overrides/` | Default configs and `options.txt` (taken from the maintainer's own setup). They're copied only if the player doesn't already have that file. |
 
 **Updating mods:** run the **Update mods** action on GitHub (Actions tab → Update mods → Run workflow), or run it locally:
 
@@ -56,10 +56,10 @@ JRAFT_DIR=/tmp/jraft JRAFT_PACK_DIR=./pack JRAFT_NO_LAUNCH=1 go run ./cmd/jraft
 
 The app writes a log to `launcher.log` in its folder (`%APPDATA%\jraft` on Windows).
 
-## Not in the pack yet (no 26.3 build)
+## Notes on the mod list
 
-Fast Block Placement, Item Landing Sound, No Gaps In Yo Items, RP Renames, Sound Physics Perfected, Toast Control, Voxy. They're still in `pack.json`.
+Distant Horizons draws far terrain, with render distance set to 5 by default. Voxy is left out until it has a 26.3 build; swap it in for `distanthorizons` in `pack.json` then (never both). Sound Physics Perfected joins automatically once it updates.
 
-Dropped on purpose: Chisels & Bits (not on Modrinth), Physics Mod Pro (paid, so the free Physics Mod is used instead), Super Fast Math (not on Modrinth), server-side mods like Item Rename, Noisium, Lithium, C2ME, Clumps, Collective, Villager Names and IPLA (Simple Voice Chat stays, so put it on the server too). The original pack's custom resource packs aren't included.
+Dropped on purpose: Chisels & Bits (not on Modrinth), Physics Mod (FPS), Super Fast Math (not on Modrinth), server-side mods like Item Rename, Noisium, Lithium, C2ME, Clumps, Collective, Villager Names and IPLA (Simple Voice Chat stays, so put it on the server too). The original pack's custom resource packs aren't included.
 
 **Icon:** Replace `assets/icon-source.png`, then `go run ./tools/icon` rebuilds `assets/icon.png` and `assets/icon.ico`. After changing it, regenerate the Windows resource with `go run github.com/tc-hib/go-winres@v0.3.3 simply --icon assets/icon.png --arch amd64,arm64 --product-name JRAFT --file-description "JRAFT launcher" --out cmd/jraft/rsrc`.

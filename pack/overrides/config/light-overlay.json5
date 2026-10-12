@@ -1,15 +1,23 @@
 {
 	lightLevelThreshold: 1,
+	lightLevelThresholdNether: 12,
+	lightLevelThresholdEnd: 1,
+	lightLevelThresholdFarmland: 9,
 	chunkScanRange: 4,
+	chunkScanRangeVertical: 25,
 	rendererMode: "CROSS",
 	hideGreen: false,
 	hideTransparent: true,
 	hideWater: true,
 	showSpecialSpawningConditionBlocks: false,
+	showOnFarmland: false,
 	showWhenPaused: true,
-	enableIrisFlickerFix: true,
-	nearbyCheckDistanceSquared: 256,
 	validColor: -16711936,
 	invalidColor: -65536,
-	maxComputationsPerTick: 32
+	numberScale: 1.0,
+	maxComputationsPerTick: 32,
+	enableIrisFlickerFix: true,
+	irisFlickerAnchorDistance: 64.0,
+	irisFlickerAnchorOffset: 0.03,
+	irisFlickerMaxOffset: 0.25
 }

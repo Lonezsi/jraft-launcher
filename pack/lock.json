@@ -19,6 +19,13 @@
       "comment": "ambientsounds 6.3.10"
     },
     {
+      "path": "mods/BadOptimizations-2.4.1-26.3-fabric.jar",
+      "url": "https://cdn.modrinth.com/data/g96Z4WVZ/versions/Sp0ctspw/BadOptimizations-2.4.1-26.3-fabric.jar",
+      "sha512": "048a0979807afb96bae7801b7445746c985081bb55fab9b80b286036234a9869cc84f83c40ab77a2600b7e06ad44178ee17935b706b751c9b38f87ebc6e180f8",
+      "size": 60760,
+      "comment": "badoptimizations 2.4.1"
+    },
+    {
       "path": "mods/BetterF3-20.0.0-Fabric-26.3.jar",
       "url": "https://cdn.modrinth.com/data/8shC1gFX/versions/XB7u4eSf/BetterF3-20.0.0-Fabric-26.3.jar",
       "sha512": "1e78531358f690404efe98b26de1024284078596785420a92ff5dba052003064e87537936c006c3c58470ccdc2ed6ae69a65f26ca534366e90d97470f2973118",
@@ -45,6 +52,13 @@
       "sha512": "bcf7b1dae14801206b4a9d6c399741090ad5e278d18240fef1208564415f86b1564c92726ed83f6e2397ed3781cf57f8a61700c4ca0dd9af347b0a4de7e44662",
       "size": 1387788,
       "comment": "OsZiaDHq 2.14.19"
+    },
+    {
+      "path": "mods/DistantHorizons-3.3.4-26.3-fabric-neoforge.jar",
+      "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/TGgEbP9A/DistantHorizons-3.3.4-26.3-fabric-neoforge.jar",
+      "sha512": "0b90b1b08d99974bfc3c8e86b2ceb252e2f91715ed66b925004c28335fb44e1bddbbb6b8043e4d4d53c87ed247789cd1788b1ba4e3f4394efe154e0c59cff236",
+      "size": 28476894,
+      "comment": "distanthorizons 3.3.4-26.3"
     },
     {
       "path": "mods/Drip Sounds-0.6.3+26.3-Fabric.jar",
@@ -213,6 +227,13 @@
       "sha512": "74b20ba20cca86f6cdec9d99a8495e37afff28f1bcbb47a7e1642bcee58f673e6d8b56f3271325c340dfa37c0ad5e555004fab95b29db6f68dca872bd9d21e8f",
       "size": 26139,
       "comment": "cut-through 26.3.0"
+    },
+    {
+      "path": "mods/dynamic-fps-3.11.10+minecraft-26.3.0-fabric.jar",
+      "url": "https://cdn.modrinth.com/data/LQ3K71Q1/versions/Jwq069rR/dynamic-fps-3.11.10%2Bminecraft-26.3.0-fabric.jar",
+      "sha512": "7976d11411babfa3ac0c38898f26ee6192f22a4f595b637eeae3cc5185f326c0e4b9fd7d00b3d7e8d020dd861295f0df52f9a9d7c67e88946d0ba9fff4a9f894",
+      "size": 189474,
+      "comment": "dynamic-fps 3.11.10"
     },
     {
       "path": "mods/elytra_physics-fabric-2.6.3_mc26.3.jar",
@@ -445,13 +466,6 @@
       "comment": "particle-rain v4.0.2+26.3-fabric"
     },
     {
-      "path": "mods/physics-mod-3.2.5-mc-26.3-fabric.jar",
-      "url": "https://cdn.modrinth.com/data/Xy8aRQKS/versions/6losOHhe/physics-mod-3.2.5-mc-26.3-fabric.jar",
-      "sha512": "90eca16710797ebe73b9f89e3724af8f1f121c770444f5ebcf5ff4072d3402efcd9af42c3c475b4dd13c6534daadbfe0fdd4ca7c5f70c52c621d4b0b034a1d44",
-      "size": 93648235,
-      "comment": "physicsmod 3.2.5"
-    },
-    {
       "path": "mods/placeholder-api-3.2.0+26.3.jar",
       "url": "https://cdn.modrinth.com/data/eXts2L7r/versions/lXytLqWj/placeholder-api-3.2.0%2B26.3.jar",
       "sha512": "eb2bb31e51068aad2581b7864ea7b11b1209ba1c2b27551cd5837d9b312b818b73bb47c06374b46b99b73401c62c6b6c115f702c55aed6afd467ad8ad6448de4",
@@ -617,19 +631,19 @@
     },
     {
       "path": "config/NoChatReports/NCR-Client.json",
-      "sha512": "a6ac6a55eab41e56d1d7fa6cc1626c0dccc08c8fdac573adf5e91e0f2ff359223f0df7a4ac84c7b063c17d7d6dc0f95a7a2bbaa9062049c02fe012fa666133a8"
+      "sha512": "417b617bb3ee2692208d8680238d9c9c437c4e0cdc8299ff4ed2c2883123b6eabee33d9085736421e9b3e8804cfbd5b936614e7be10704cfcaf53cd36f066978"
     },
     {
       "path": "config/NoChatReports/NCR-Common.json",
-      "sha512": "90802f90554223c7f2b2dd5ff7a9103d7b11b33bf772e42d3ddfddf75fa799ab1fb44a6fa7133d9b21915e039cf697fca71c1929df2f0729e914832f5cd130b5"
+      "sha512": "16a8ebe081f2c81b8d70766187a1f672ad5d2d278c008f8d674dcaa2b87fa18a8478100e4834558a693b90d268a1ecc8284ff59e1bd606eeea082d9cd1934e2f"
     },
     {
       "path": "config/NoChatReports/NCR-ServerPreferences.json",
-      "sha512": "82d1432fbbb853a3acc7173c7c4161611b1b563f8c7021aed52f54187d6b4c31755b1146ce523f8443623b95a2cd2008a603a22f25ce730c955d591d4fffb67b"
+      "sha512": "ce368f5c3218537a70b0e33a989a4115d330b530b6aae29de3f549130ba38ea5b7da2a0af4abdbab297c3be6f35da7ce6cf5a3f899e17e9c215365e6c4c5ff1b"
     },
     {
       "path": "config/NoChatReports/README.md",
-      "sha512": "08293025ead4485d71beb4d041b2d425edf1483ab3f7fc818190d9ba4d0eb6c9505586edfe745b48486cdfca01c26be257d2db7bbb19d7565024fe4d4f61296a"
+      "sha512": "1dc7bc19d3c42218087f2e7c14179b7c75bc7d19786e53dd57839af198852c279f263276f12fe30fbba3f8430a633febaba3e398c33e73c4dbc056d44470077f"
     },
     {
       "path": "config/SoundPhysicsPerfected.json5",
@@ -640,12 +654,8 @@
       "sha512": "852d2da60470fa1ed2474c8de33008d65239666f291bb578c1275f7b296867ed533e87a5c54abb3ecb08f2d09b97a080c34bad7f791f5e1a73f56d63275f2e09"
     },
     {
-      "path": "config/c2me.toml",
-      "sha512": "a0a964e4bed1b3496cecd91dc66c8fb751b493386d89c5746f4cef7d5d582566efcba77dacabd8bf7de98874207d2ad06c39b677008d0e337f13ecd9d14d4a0c"
-    },
-    {
       "path": "config/cameraoverhaul.toml",
-      "sha512": "6daf8c9189a2b2db35a3236cca68b5ebeaf9fe79c20ff323443ab07cb9c27eb5a4f309031be152131f1b20f8c37681a23855e15753429d94d4f14d3d57847adc"
+      "sha512": "052676c919e977de39fec56bbf12b4b9e24eeb9d57cbaafa4102ea0c5e92ef23dcaf16a2fd7546928180f895fc9a7315866e4902609a25ca8feef29aac9c9b93"
     },
     {
       "path": "config/cardinal-components-api.properties",
@@ -657,7 +667,7 @@
     },
     {
       "path": "config/chat_heads.json5",
-      "sha512": "a99fa173c47ce8f92878ec7184ddb8f51f8891ff05e9defd710e047b3a89ac50e252859d323e78a4433715a279a4e1fae93c161809e21f17dd57829a7730f4db"
+      "sha512": "044dc2ade04d4a6dc58660e8aff2b08acd012d6df96e7778fe5bb54afea2233f443d77497f37af17b7eb61a208321cb2619504103fedb86d12801c914d1fbdcc"
     },
     {
       "path": "config/chatanimation.json",
@@ -668,16 +678,8 @@
       "sha512": "9352d27d3a20ba47fd2b9e1ac20e22e6ddda8d3b2306fff7f8767164722f831a62e5f05ffc03f88f8b8218abf288243402d5eb7d8e8e13e7260a40738c654568"
     },
     {
-      "path": "config/collective/entity_names.json",
-      "sha512": "ae78b107002682820c2fa5c7efe4fba7512ac9adb3222e5b338af8a99a67e0bba3e82bfa6fe7f5a8fe648ff19ccf210ba31c6ab31c2011948fdcd605c0f5503b"
-    },
-    {
-      "path": "config/collective.json5",
-      "sha512": "fa40b11e18800fef36cace5df7e32a65cab111f7266d8de07274ed05bb1ba831baaf6fda83079ca34f9f71505b1c7bdce5835213062eee5ef8446546a84e2aba"
-    },
-    {
       "path": "config/continuity.json",
-      "sha512": "ebab964ea7bdd6241e0ee43ce4dcc934e63720cb203b0afb369e638c629d3bf62242c4228721b8f3f3a7858169a18dee486b72a09cda7a33e390fe5c2c808edf"
+      "sha512": "51504fc4880ff1321991547e799474d00b46ae51232fefed82b1667f9a9e5e126d48cdc90967f1b8218fe81dc4f5c2161e358af9d55de45c41b599ef57aedb8f"
     },
     {
       "path": "config/cool_elytra.json",
@@ -689,11 +691,11 @@
     },
     {
       "path": "config/creativecore-client.json",
-      "sha512": "ed9b3076bd9fa8fa02605bf136e14f67ebdcba368b5b9fe7f0bbffe0914803203c36fa74ff5e7e3c14976c7115fc030f7cd27cdb9bee41498d1ac95a0c0e7dc6"
+      "sha512": "8ccaa9213a22d85ee861ab0d1f67ba605aca8378b953361dbf61abdbf7c738381539369050da4d8df134751d169466af348ccb913552f671f17e7a17a0b4d02e"
     },
     {
       "path": "config/creativecore.json",
-      "sha512": "deab1cd324c59d7ba84a29542400cf0ef45947ec400fa8195b2d562def1db143bc4ee33b8a5974561219716056a8eb271815422584f4146e006454face79fb49"
+      "sha512": "96d723f4a27c27cd8d0371cf51c23dbdf2708671c53b135ed6f0989aa78d3b66eb052709100a2c9dababd3122de025f315373a6b2d952e5adcce51d0325ec31e"
     },
     {
       "path": "config/cutthrough-client.toml",
@@ -701,7 +703,11 @@
     },
     {
       "path": "config/elytra-physics-config.json",
-      "sha512": "2d212a92d8d211c834bcef1ce9836cca4213de5b76f541326be0017e2c4304aa0cd04cc857b45f3b6762b85af622fd5a7791aea516f7fbed56f57d339ac15c48"
+      "sha512": "58ea1abdc8ffba31e72d53008aa5fb0423f7d6a2639f82f7c70b1c39e09b2c2922cced3c02b72a06c82be84e45b9d3a623caf70617288c1aad69f70670715a2d"
+    },
+    {
+      "path": "config/elytra_physics_mixin-flags.txt",
+      "sha512": "20406e3f795732e7250cd5e46b5221572d8d5e24ab115d7ae977c4e6a40792f511ead53acce2c8004c1ba3404ed7cd0f6cd7c6f022f18c1339b406f8515e7433"
     },
     {
       "path": "config/elytratrails.json",
@@ -709,35 +715,47 @@
     },
     {
       "path": "config/entity_model_features.json",
-      "sha512": "dd698c8f1a117d566867af28e9cf84fcfcec7da1adb8f9a3645068ac6a6b7b65984a672dbf478b63ac359b62cda2f29e45ac17e0a4c42c3e00d26fa999b79beb"
+      "sha512": "dcd63ffd8285d08f6bf6d3770d7746169a98f6a73a8aa9b7017ba732e7bf96cdbe8a0082be864843641856004add50688f35fc60d67a7f82e08dc8fd3d285805"
     },
     {
       "path": "config/entity_sound_features.json",
-      "sha512": "f17058695c21e1cfa9739c28573c57af8a3c5e79cc21517c7080896ff357034c6c2c7b4f7901dde37e1d3794b44e87fd582bc48f3a067297973a722333112bd2"
+      "sha512": "facc607d082c8ac8fb9e20707b4324f7000b7598ce1f5602714a98138f7055d2bba6a46b7d152ef8d76479d7b910b159ef2162130f5be14aa2964d18c4c6cb98"
     },
     {
       "path": "config/entity_texture_features.json",
-      "sha512": "e12d6d14370b715425d8311236adeea6cae4eee0f6aaa61a73fb97b44ea8ff007c7f84e66ca6897c1aae586ba0aac34287a842a5a2e2d0e5542bf240c58eafdb"
+      "sha512": "8639359ab828eaa4f7a423c75d070b88808afdc4772dfd189cb5fa0b070b5afd3dffd512b10eeb1ef9d8642c5c4694470359eda01d12efb279b74bd6dbf58c90"
     },
     {
       "path": "config/entityculling.json",
-      "sha512": "79c8d25379708411767ce4b567a6f56a33697626556be204207d4169e034d834553bbd274d687eca4c62449720afce64110d675553fc58778c2dcb10233ed8a5"
+      "sha512": "3a05b1ffb0e23bbdeab87a33b98ada51300305ed8940a76d1763a34c30fb4e8cbe283c097fe0d4745b9edf85b8d26d9051dab229100689b902880e9ae319c33b"
+    },
+    {
+      "path": "config/euphoria_patcher/.data.json",
+      "sha512": "2fd3040dacca8f162f54d71a099e09bd5763a2d2aac8486b31f711cd6a1d46f46f818ac5c6a72eb7bc77d7887acb718d36b47f04881853276fe6545bb14d6694"
+    },
+    {
+      "path": "config/euphoria_patcher/settings.toml",
+      "sha512": "6ce9704bfdb2051652f21b7e90eba669ab57b3f17b78c9b21fbb3da3508502a57eaf98e380ae32c4a6d52781124ad93f7f828929ec8830ddaf7e9d6207ab1daa"
     },
     {
       "path": "config/fabric/indigo-renderer.properties",
-      "sha512": "d4501abf93867888f9dfd6bc80f735b0f40dc33e667bb3568bd9413feb8f36e18343a8184791c02695879fc0e974cd22212abad73bdbab3b276b61f8110fb2ea"
+      "sha512": "08f2ce504b71a68779603c92cffe742f3543b45845a25ef715f61ea98e21d1edc1b34c530fe20286b21432681e7502985a9fb57ad2861fd6b314bd60488941a6"
     },
     {
       "path": "config/fallingleaves2.json",
-      "sha512": "3b5df1652d9fbd2c617f09d22eea53d9df381008d4f7d31e46df4eee41daffc37e94ade2047b783b997b8545653134b6246d34fbb90225b54ea4e6483bc9b4e9"
+      "sha512": "cb6a9160450f0ea7fc3dbaa430cd15a1e2fb2ef8d6e7f0a8f04519f70f3a12dc814272f99b0d87cacce3a0b443fc9675e86e37a65d59882a00d5b1797d23fbf3"
     },
     {
       "path": "config/fastquit.toml",
-      "sha512": "9e225e2e43efd8aebb8ee6b1e7f2473298c3abbc07f03af6ce3b1c1e9243a1dd3fed757f567b2c5cb45128de1bb9dd5c7db2fbbda22f4169bd7653f28cfb7994"
+      "sha512": "b87aa3d6171fadd0c20df635b66abfeeec8a7a94454c290ca2922ead77cd59838c08a63044085743a5d819ccf3f3877cf1bcf01cef55b634a38be889fb904c93"
+    },
+    {
+      "path": "config/ferritecore.mixin.properties",
+      "sha512": "7bd8085e398378d3b2d63eefafbdfea21d5e1f0f68af977c4ff1e83fc4b47140f55381865460a03f1ff5eaec9d841045e0930dd7a36f59b1f059a864cb8ef28c"
     },
     {
       "path": "config/firstperson.json",
-      "sha512": "85002d5d7d14568169bdfcd9c290347046b730b044d3a4be76d88fa8a5ed14b64f9f8f40bac8c5c81dd95115edcebc240180a0d4f4a0d70ccf6bfdf420cbae4c"
+      "sha512": "d39f774a8ff5aff1d8dbe83e8db83ee18c5741c65ac809018ef52ac1b2e63986da3a1f51b7cd501a680b3d28ac6d5096da6c4c6f51c61af714620f3c71c761e2"
     },
     {
       "path": "config/footprintparticle.json",
@@ -757,11 +775,11 @@
     },
     {
       "path": "config/immediatelyfast.json",
-      "sha512": "8416fb0f60b83eba47147e8956bc1ff65388529fcbf8d73256b00d072bfc41f70bd1fcf6426be66dcaaa00f616aa5add0037dbd3364ff9398b07e6f1f257801a"
+      "sha512": "471705327bf694ffae4a9c86011192ab76b12a20a97bbe6e021e0d6207aebee2ec311e095fd965f2b09734d6a7e4b682901a52b2802a08d56a07a4d1a14b8af8"
     },
     {
       "path": "config/immersiveoverlays.json",
-      "sha512": "076a3a60513eaa982ff1be898fd22f3d4d689942209f75fec4f8a1effd3cf473efcb3646f35ace19197b50e169a8e3862242fc6c6f14be5c6609e2f336f4d884"
+      "sha512": "e002e9ed561a878cbbc4c0dfc268c07c6c9d6428a2a8a2dd1dbc79627c3a6027aab9289a186560bbc5c2eb14aa692a5347d0d0fdebe81e92e35c18500c10ca45"
     },
     {
       "path": "config/inventory_interactions.json5",
@@ -769,27 +787,27 @@
     },
     {
       "path": "config/inventory_particles.json5",
-      "sha512": "f3d940fce2188def4be14fc8ed01ec4412437bbb204e7bf7322dfcddaf885848db7667c7bedd57594efca13377feee7a492d6c04b95bcd7f3ddb84d6c3977c19"
+      "sha512": "4cca390698cdab3aeaa4ea7018304f0f0a4976104f1f524d39d8e9e8ac7c6bfd44ca35292d9d3aa917311deb43f3d4aeffb23a600e45c977d978b94099624b3f"
     },
     {
       "path": "config/invmove/unrecognized.json",
-      "sha512": "80c8ec8bd1a06e3228a0bbacc9dca225565c0fbbe10b1987f0e85ce8b2371ebf2d975082c02954c251c8518e681d733d03fe75bf4afca61f2602965610997615"
+      "sha512": "91185869874a4df4e190895b0953708acc6d9dd9a00ce9b48e810755efe0f7a94d2aa47c4fad5082e4a9579404146d8b1c37aa21c167ad4ce37966d0e28de521"
     },
     {
       "path": "config/invmove/vanilla.json",
-      "sha512": "78bd3b6d7b910a6653205f39fb311ec94c3a22a55db2643b27be13d50730d222e3439f2b21372ee4cb301ae22e466f4f70681a754d13be9d093d35c43d1f59cf"
+      "sha512": "91f2935913cbbfde2135c1884a1451def8af25b39d33e456108baf000925df7bceebabe582e3926793a83c548f7a9ddb18312ea72c8d81aa2b1de19029a0af65"
     },
     {
       "path": "config/invmove.json",
-      "sha512": "2d82c0f43ac9bc372e688c16e2ae8110a197e90e6987a01c2bb843bfae6d585e6d0af92eff23156433b9849d001bfa2937340617c820a4cea3acf0891bb442be"
-    },
-    {
-      "path": "config/ipla_config.toml",
-      "sha512": "bdf579268ade958765a7b8d4710c2fdf432d04f2c82ff939992c11a1a0a1ef451e49b77dbf4b6249f75123c7ad03704493f092dd29ef5873a55bc89f044d0e1f"
+      "sha512": "594a96db12d6c5ad5ae954c96177616f26893b38ad73e025d26edd3d7bdf6ed2d2aea05b1323d09352a042520369dc246aa55204789f663463b872ea7c871f0e"
     },
     {
       "path": "config/iris-excluded.json",
       "sha512": "a18eb1b4aa4664969acdbc278fecdb547b072445cfccc7524455d40a20c46fee7f34d9dc58dedf8cb238cd4c120a56cb821b9117ad1a51a53a416b587d9fb348"
+    },
+    {
+      "path": "config/iris.properties",
+      "sha512": "c961b2c656be77cc981434f7ae02f6a8095945252515ad67a6d73ef25daf8dea7d203cfc6a84296d29d1360e82771d46eca45d6c981db9c8e534ce936bf67864"
     },
     {
       "path": "config/itemphysiclite-client.json",
@@ -797,23 +815,19 @@
     },
     {
       "path": "config/libjf-config-core-v2.json5",
-      "sha512": "381508628ea02900f1066d79332faf3ac4ad94ed50dff0b8352cfce8924437bae35a155904fadd29166a8417feee372f674cf082bf740bad57a65966ec6dd205"
+      "sha512": "21b948831e0c27835c814959eb6f2f40177ee1df885f3578f57b93f34a45dddfb6b8b5cc2f469056d06fc5a4e584b604ddb26a3c63c340611f45f061bd299e28"
     },
     {
       "path": "config/libjf-translate-v1.json5",
-      "sha512": "119f7914b9720ef34d7e601a2ea8f132e9ad5d97ae91040885ced1ccf4584fb752f6abd09b5e861a5ed1059aebf538ddb2a1dbed4b4ad64c967085e7ddb09a44"
+      "sha512": "cd73771f6a55dee37b1147bb313d0d16766d1bbc541569baf01a48cb5e736aecb937297dadef2ebd10d82074fa749f18d45fd1f1f50de124a18db067b69eccc1"
     },
     {
       "path": "config/libjf-web-v1.json5",
-      "sha512": "f882c2a7b66685bd34d46ed76b93b8ef0b8ac846a61da687c724ff10f40d8457fd82afb3513b69827810c6401e2da0434ea82d063b4e71bd106123c4460cd6b0"
+      "sha512": "7e118f2f16753ae46aa1074d77444e5584718362f32bbcc1cfaf9bf274c9756e4befbeb7879fa78f9030da0cf0061baf09190c37b15425278156457a3bf9eed9"
     },
     {
       "path": "config/light-overlay.json5",
-      "sha512": "5e06ccf2998d232182041af84f6831df4e546f6cf71b7fbb13f3406f3cc55a49c30db7c68aaf098752cf0b1ee1b8a434ec4152a843498a8d253be8aff58b0517"
-    },
-    {
-      "path": "config/lithium.properties",
-      "sha512": "7b29e0b323b5c7340d9f061c1326576e056d8f394f3dde1607689f97452d7fe1d85de19c07aaa168c9c466c1b29567e48aff532cb4b4c54836e3bb8755063773"
+      "sha512": "ab19e8ebf92c8eff548ded2c493672f7b6019b49ce9259a196152105d9a7f6becbd2df53f2755a75c24e15b947e130ea56483f5690e02f9f37e5bf387e026981"
     },
     {
       "path": "config/make_bubbles_pop.json",
@@ -828,20 +842,20 @@
       "sha512": "d8b4c910dca9fc1191062e86fb085065ab391a2e8630583fb122f95c2a3c299d2e5cd17647eb3dd61622f0baf53d0e853cb34b1c3a5db2ae0115b9fa64ca21c9"
     },
     {
+      "path": "config/modernfix-mixins.properties",
+      "sha512": "8ffe65a1b2f9c6ada2e6082b827b330473c011c33634c6ff96d4f14fa4f46ae9527364da404e4fc2e1c87ef89df93e9efa62158fd8a23c55670af38fd9d7d3de"
+    },
+    {
       "path": "config/modmenu.json",
       "sha512": "a4cbe497df8f81e164d54d8090ae3b6f7257b8700aa73cc862293564394f51bc81d0e232ed124690f3c3d9afb235021f7db16b8363aabdd5c8665cf1cd7c6b06"
     },
     {
       "path": "config/moreculling.toml",
-      "sha512": "f51194982b4aa1e4dcde3746dada3caf7f2b20aa8b080d24e40c93d67d46df968006bdd550eefb30a59ae07541b4164fabc72c9f1be7d276c6446749661a5cf0"
+      "sha512": "ab4048e0ea3fbc69a1e37e7eb2a5763484bcee42cb8426ac5d1d4f1f545c3d9c480e31113a4a6b7b13ab2424847a7c06f4f283a7235cc5fb6fc01107eb9d5bcf"
     },
     {
       "path": "config/no-more-popups.json",
-      "sha512": "5e67ef1fc5837afeeb9c1802ad8dc9171c5668167b07cd29717b4872d87ea0c9c0463c4b07d81a499c104def4250b4c5a2c5989e9bbfd6b233d2216b4c69f257"
-    },
-    {
-      "path": "config/noisium.json",
-      "sha512": "7cb87b7111feb655d47de092c0e77d1d970880fade7af1b6ab9c0febf10af96525368f142bfebfdc10f2825f2be451a69de5914091334d058c71fc14ecb3dd7d"
+      "sha512": "8b8c272a78226fa7900b3e19ff0d964c84b473bce83ca6c77ed93f8197c7c5a9c97fb30a05db6cb4d49855abbf8f651cfdb6cfd03cf377f45840298f75deee58"
     },
     {
       "path": "config/notenoughanimations.json",
@@ -849,7 +863,7 @@
     },
     {
       "path": "config/ok_zoomer/config.json5",
-      "sha512": "6187abd420098c7b3ed91c5534529018096d5de49f85dd221bb7e4d84c894413f374ae42109882620cfeffb46675b6b5ecfa11fe202418b57d8565273e2e536a"
+      "sha512": "f1f7c7fa8bdc3eb3b1b415e4fcb75dc1d8452e7af2c5f45507b2ba4eb16b863ef709ccb98ef8b87f3855c8c66112f2b5a5ae17c98a3fbcad347b80dc23495d33"
     },
     {
       "path": "config/packed_packs/config.json",
@@ -872,52 +886,24 @@
       "sha512": "b8d0603568df7a77c05619aee552a41255939a30836790a46fb096560c79e6170f4db2763fe7a08738156b8be4c0ac6a4b5763ca02a0898ac04a3386420483fa"
     },
     {
+      "path": "config/particle_core_disabled_optimizations_v2.json",
+      "sha512": "afa216f34dce7c504308a5090a7ed66f66a84c90faa40bad22d376116920df353518327bdcd5aa5959a5bc3cfb47ee209952e023f32477ae55825ade7e4db5a8"
+    },
+    {
       "path": "config/particlerain/config.json",
-      "sha512": "0796eecfadfb1eb2591297d359fe88b6ee7f5fdc82a763395e51b0b61464816c0249be5f3847b54024288a62af2c0b8eccade78aad3bb026fc669415ef9774aa"
+      "sha512": "29618db23b01031fb21c4aaa705969f0d8c3510b19cc09e12b85f00481d51900da2773c8239e8475793892d68207c61ec66824adefcfe3cfcb7a64357851d3aa"
     },
     {
       "path": "config/particlerain/particles.json",
-      "sha512": "435b0e77a5127ef010d76ccb6f12fcbe767b8628c9be6bb40884f86bacd003e22d51eb2aa099dbccb5556922f34b6e0d580b4965695b6b46fda43eb56c0bc594"
-    },
-    {
-      "path": "config/physicsmod/physics_animations_client_config.json",
-      "sha512": "10446865d13843a5152719ebad3373ff68bc4b5a42e91458a16ccfed47c36dc80bec887e1a04576c0d1eaf89419e91722fe856b99321152a76411a4a7fb9dcc1"
-    },
-    {
-      "path": "config/physicsmod/physics_blocks_client_config.json",
-      "sha512": "836953aaffa936aa7fcbab4d516e3f834221b009796722c2b3f59c9dcd0a1261d2cd5c3007440b6af8d7c1489b1d98e928883553f44225e22ab353e4ce63daee"
-    },
-    {
-      "path": "config/physicsmod/physics_client_config.json",
-      "sha512": "711d481da4da015e096908278af88496b8c9aeff4798b678ce7324f9cfb01f9c6e1ad4c694668a325fde46886b052dcaab92047458561a2ebc257b9b6680b17a"
-    },
-    {
-      "path": "config/physicsmod/physics_cloth_config.json",
-      "sha512": "0bb7348994ae06c5e25b3a27a160df74a56577fe0952a01fc23adeb8b44e2af7520821c59ef7f96aa83b5d8700de278428e817a34f3b480bb0be1a4d976fe30e"
-    },
-    {
-      "path": "config/physicsmod/physics_mobs_client_config.json",
-      "sha512": "97ad6978be021d286962ddcace294043f7bdfc43bf02b8e0d1ab66edcdb396e5fa7cc6ac873c2ace57e466715e9f616ef90b371f484a7ab8efb24f10143cc6f8"
-    },
-    {
-      "path": "config/physicsmod/physics_server_config.json",
-      "sha512": "fa4b9e9c5d10ccf73e00f076788f9b0cd5bf7be11407f3af7cda5ce012c841f7cd37fee0449a9ea3f11c671c3e9a1b9d28e92fc2150f46272779aa33690bf9df"
-    },
-    {
-      "path": "config/physicsmod/physics_snow_client_config.json",
-      "sha512": "90b7f1fe5386a2cea1fed9256f30b35b46bc874e1dc18403509013fc23111e6ae54421cc8616ab4e7d4b9ebf10118303e634de3198d80d5565b006d8ff8c6d44"
-    },
-    {
-      "path": "config/physicsmod/physics_vines_client_config.json",
-      "sha512": "6a744c16323d508c900565db1875782732c4f0290b9957f3eb429e408d3827ede6eee5da88271a06f82b56394ac599035e962b7742425100eb0f477af18acd6d"
+      "sha512": "ebc9b8812400de68be5a1e30bbbdf386df1ebe85b140060c099e4341c8c475ba4f2bd78462586ebd180c71d6802a7ec06dac14aa439d37b9c107ebba05e2a20f"
     },
     {
       "path": "config/presencefootsteps/updater.json",
-      "sha512": "00e0221ade00389c088369ad0483d73485200eb8ec1493cc4bf31b312fa43a5ea265dc007bde85f1332369b4f334ed1d88363d8dd52aaefab522be332d430741"
+      "sha512": "102532053c5f3f3842ce309b357d1e0dd36638cac020ecaa0c259ae441198307b13efd32052421089dc46aefae37c85061063eef45d6482ec86a783b26e37b17"
     },
     {
       "path": "config/presencefootsteps/userconfig.json5",
-      "sha512": "f64b670b7200be2b6a51e64872c856d41dabcf4849bdab264caf3318b50f0ddcf106c1ed917b6ec936fbd2a71b702180668aa299f5cdf62516e9f3573448fcdb"
+      "sha512": "54f7d6729cb7f4ae066f67ea56c4cc349fd7d8852141424501bd35813febf213b0ce4b2589013d950f74bcebe9c5e26e24a69cb96e33ed7c6ee53ea52c4a85a0"
     },
     {
       "path": "config/publicguiannouncement.properties",
@@ -952,8 +938,12 @@
       "sha512": "d4a6b49981ff8935139ba60fe21500185265a2bb4c17a3a6aa5e6f34f067c99a8fb9ea05332fa8cad58b2a3bb33b99759a1b5c7efe0593a8b9b108144c866ffc"
     },
     {
+      "path": "config/punchy/triggerable-keybindings.json",
+      "sha512": "0a9f06256e7ea0e13ca8d758cfd54cd2ab44402feec29e9a36c03e4a05204e353dabf3efb418c54f60b9ed63bbf7adde71e597f324421fbfae10298a663bf9d2"
+    },
+    {
       "path": "config/renderscale.json5",
-      "sha512": "887e6e2f861aaa88137b1873388fc9cb1405f43f0bd5464801414e4337b093cd546f740a1b904ba6d656afec75d0f9ffcbedfb968dab6022717891286a10ca2a"
+      "sha512": "6595d1e1442b89ecccd38777b1da000499eacf2f2865fd3c40e2f704edf8b9cbaea273dba09a5df2888c62f8e6bcaed8fdde01035d8f738e3246383e7899a702"
     },
     {
       "path": "config/resourcepackoverrides.json",
@@ -961,7 +951,7 @@
     },
     {
       "path": "config/respackopts/_respackopts.conf",
-      "sha512": "be2430ddc4db0c028bd551a21b618098cd7e9dfdc99288b8423229dff070efa778e2a9e1a8aeb53a906597d676a662a7d16a50011982490d40fcef60373d84c0"
+      "sha512": "4c03bdc24faa1b417a289dbd9a44084fd812166bf4bc7e21fb969109157b42215020d7023bc45c62afa5d6596ee57a72b159e08510e5f993ec5fd94016876588"
     },
     {
       "path": "config/rprenames.json",
@@ -972,8 +962,8 @@
       "sha512": "7389b673a7b11c156af8f3459cff1f921c4a8da0402b285368c1f88f85a227264c40d199001df8bccf2683fc85fcec5974188dabadc8fcdfd1de6b620eccabc4"
     },
     {
-      "path": "config/scribble.json",
-      "sha512": "4430c71a730dc385d26d1436ef01ca4567cb4b0c69d97ae27ea5a1e0f885c5b0456f6984686e6c3a6e9b25755fb2dc9a12c6b07dfdcde5fd86f34da2f6ea83c1"
+      "path": "config/scribble.client.json",
+      "sha512": "129ce469ebfab86f46faf85755f1ecf46c712bb0c38e96855e990a1009b4a3b2d30b14f01c393e93f6abf5b798f253f23031c08ff496365624a74e37d1121a43"
     },
     {
       "path": "config/skinlayers.json",
@@ -984,8 +974,12 @@
       "sha512": "e7620390a0e5b52fdcf119a8e7fed4bcb1848429b72fea1717032b16c714295c8c39da73d4db5907d55c42358d64546307b273069f1e2d57e2e851c3c2eca7f5"
     },
     {
+      "path": "config/sodium-mixins.properties",
+      "sha512": "6acd2f3e4956788d0abd2bd941c5bcb3003b63c58eeedb3db727e5abfd37f036e49e7b97310bd37b9d3c29e2adbcbb3e5109af0482842f704a64a409a59bb437"
+    },
+    {
       "path": "config/sodium-options.json",
-      "sha512": "bd551cffe783d95452370a41fbbe5ee8466c2c4f083235282d938294f2a7de3348256de2c6ef0945140ae1687a6f5d21ad73e3364123873e50d6514045366614"
+      "sha512": "511102fd91833dd14dafbc54bccaf9b5f2a9ce983c31007e4ba3d849d6a7d8b56d698a5d84aeda6dd1425f5637311473ac2f47299ba2bee5ba7711d33695bac4"
     },
     {
       "path": "config/sound_physics_remastered/occlusion.properties",
@@ -1013,11 +1007,11 @@
     },
     {
       "path": "config/sounds/mod_utils.json",
-      "sha512": "3028b08eaf8a006fc64044e6e7233f5425c7cfbaf5fdfa2f8633517c89e89bec689170597130cea9d9228dcc1e0cecfb42f637f6b90b86d9a18124c0195f15f9"
+      "sha512": "954ca25a4940b8741e0e1b585d2100829c2ab4cbbb9a751e94e2505471ae86c2f70e016ca979f818574aec87987334d07409f867879d2c2f54a11669c0ce15e6"
     },
     {
       "path": "config/sounds/ui.json",
-      "sha512": "07ff708b6d5dc125aa8080284ee382bbad3971cfccf309e2d1abdd0bc74bb647ea20b9a27e00bc5b2bf829a349352d38e01ad552f4693feb9653165f8530f8f6"
+      "sha512": "73f3cc5afb9f2e78fe7086b6c421feb15bc393993dbac9fffcb4c6b8fee3e256f0044d1dd9a882f74e1cfce03d125d2ab9142ac1e37b0793b49106e769192032"
     },
     {
       "path": "config/sounds/world.json",
@@ -1025,23 +1019,23 @@
     },
     {
       "path": "config/subtle_effects/blocks.toml",
-      "sha512": "e795c4c397059bc04ba42c4a44bcee35ea1ee1976fd4d26fe1138ae6dcde496f498cf74591d17c008dee5ec5bfc1b6c0f84d59ecc02834808eb3fb2287ef0a24"
+      "sha512": "894bf94b868db0af7d0187a3ea4f651a234a8aa7227182bdd8536022070886187616ad102ef5aa39781165a8750c6888ac21f0222911dfffa7b5da69675c9a44"
     },
     {
       "path": "config/subtle_effects/entities.toml",
-      "sha512": "597e39e170d4b3ace1ec0116dd2bdaf9fd13a31c0af5bf70c74ae1c44ab7b8736330acd25606bcb8240bfe6534fa9f01a68c395294495f1f21e6c15ec8e5eff8"
+      "sha512": "576f135f0729a10bbd237d60692204f94dfa7947b98c9ada27394dfefd6ee8f68f44df7340d65fa73dd239d95307b69b4416356505878014d0e1647d7d81fd5f"
     },
     {
       "path": "config/subtle_effects/environment.toml",
-      "sha512": "6c60e339c7668c67ab34c60094eb9a2f21d6ce5065d272156cc7d786918d6d26540e3ad23062345b2bd56981eeeda3585b8bd0f240a4556f75380f4badeaa3f7"
+      "sha512": "db165866712f41d3d9938cc19918e92e3462ba63b10f77bc18a429ee3c6e6fd6df72aa555143a34115d81ee9e43e8aae77ba4a5ae9563f82a3a00dbeb4888e49"
     },
     {
       "path": "config/subtle_effects/general.toml",
-      "sha512": "dcd491efa8488431c6fd1df74b810b2f1798643a43fdec25bb84eabfb94b7dff791c481d2552b6f7dc6cfc130339c949749492a06f98cb9ef9bf9b8dd141ec88"
+      "sha512": "5ee1fe677cfcd51e0a18d83a5e2f2f04319a9fd36536e73c2f1aa3618b4625a4ed8d107d6686f2db081e6a877eff47bbcbbb65ba0782f7d53359bfee106450aa"
     },
     {
       "path": "config/subtle_effects/items.toml",
-      "sha512": "e60ae5902886eb231b75cbba214af45328bd466c92d9eda8d59b33a74646b237a4faaf70308773e1d003a143153ca34f3d9b5709e20a3b9b1033034fe670845a"
+      "sha512": "d6f27ea947ccbf5ea8718182277a16949f418ebb96a8a3280a2f2e5500cac242bb31a2790aa5a8f7196453d49cdeaf334043b329ff8ce18b65808b28b8a95975"
     },
     {
       "path": "config/transition.json",
@@ -1052,40 +1046,8 @@
       "sha512": "0b60234c0a2498a6952fde5d7e344fdd29689f88f8a249c770dffa4d634c8c7afd16d23eaf4fde208c2033c1b7030b54528aced8982fd9d315dd1b7be033a7c4"
     },
     {
-      "path": "config/villagernames/customnames.txt",
-      "sha512": "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e"
-    },
-    {
-      "path": "config/villagernames.json5",
-      "sha512": "b257f92d2197a0b09c75f88a06e4212980505a27a74be470f42ba0d934de73c7dbf8f168624f10a5734b82a5e08a9d9afd2153ff80508fd15046b7e22ab8a128"
-    },
-    {
       "path": "config/visuality.json",
-      "sha512": "e815f3f99f7aedbca8e89ae2325116224b1bdd87336cdbf71ae897b5860487efd0f159b0f6b7f32adf5671e81956e356eec9a1a4041ca0b22370d8d5a509cf33"
-    },
-    {
-      "path": "config/voicechat/category-volumes.properties",
-      "sha512": "7ec58440e609b57bb196309dabc2e057c4bb9c432df38d2baa7819edfe10795b58977393d346dc2ea9dcc77e200c70de8da7a4cfe7ea63912f4f0b00078c0381"
-    },
-    {
-      "path": "config/voicechat/player-volumes.properties",
-      "sha512": "e9776935a1de755804b3796a2bcc0f0f883f45ebc8a39c53a9ba4890e43d335780eff6332c8ef9e592a62b07897e707c6fbb5b3e1bdf72e95b4fcc188277dba2"
-    },
-    {
-      "path": "config/voicechat/translations.properties",
-      "sha512": "6efec564b357663b15875076a19f1e61f925c820050e597fe521a3bee2c950a5047758c05aa532e69802651df375467c80898af124b255b9a247eac93c3bdd66"
-    },
-    {
-      "path": "config/voicechat/username-cache.json",
-      "sha512": "27c74670adb75075fad058d5ceaf7b20c4e7786c83bae8a32f626f9782af34c9a33c2046ef60fd2a7878d378e29fec851806bbd9a67878f3a9f1cda4830763fd"
-    },
-    {
-      "path": "config/voicechat/voicechat-client.properties",
-      "sha512": "9fbe8eb0442d6a6f6926c2660a17b58b780ac23fa6b6361e0812cd5efc53f77777a9096450c2787b6f2d2674e55a1252819f165718a0702c0747b4a105b5dee2"
-    },
-    {
-      "path": "config/voicechat/voicechat-server.properties",
-      "sha512": "ae0733310b934b44cb754764867e4eeafd5f48df384631ec1b5744fcd60704552bc7fe6b695199601c572cf837ab70c3c3ce08176ee0f0403f9172985626ff90"
+      "sha512": "0cfd1c1e24784ac1719077ee0d28b1ef371cfac34c662800cc24dc2c61f39acf4cee9f1c775e538da3676cd44bf72caa2495984acfbd09c59c6443da100b249c"
     },
     {
       "path": "config/voxy-config.json",
@@ -1106,6 +1068,10 @@
     {
       "path": "config/yacl.json5",
       "sha512": "00c1034fa42649e67380b9298c2db36653658fa9e905b9aff6c202f96049e9715cafb9a2c4796b118533cf3586e57e2113820ca1440b1872b6890ccf0dcf8958"
+    },
+    {
+      "path": "options.txt",
+      "sha512": "6f363a902c43f91635d05fc820d847336fc9af5c3ac1d5b1b9dc8d8f7530b76910434d52ff8d251113b75056b496b9869e66df956d21d61bdc7c60c85d5a62f8"
     }
   ],
   "resourcePacks": [
@@ -1117,7 +1083,6 @@
     "no-gaps-in-yo-items (no 26.3 build yet)",
     "rp-renames (no 26.3 build yet)",
     "sound-physics-perfected (no 26.3 build yet)",
-    "toast-control (no 26.3 build yet)",
-    "voxy (no 26.3 build yet)"
+    "toast-control (no 26.3 build yet)"
   ]
 }

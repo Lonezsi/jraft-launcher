@@ -35,7 +35,8 @@
     "net.minecraft.class_410": true,
     "net.diebuddies.physics.settings.PhysicsSettingsScreen": true,
     "io.github.fishstiz.packed_packs.gui.screens.PackedPacksScreen": true,
-    "net.diebuddies.physics.settings.vines.VineSettingsScreen": true
+    "net.diebuddies.physics.settings.vines.VineSettingsScreen": true,
+    "net.minecraft.client.gui.screens.PauseScreen": true
   },
   "hideBackground": {
     "mod.chiselsandbits.client.screens.ModificationTableScreen": true,

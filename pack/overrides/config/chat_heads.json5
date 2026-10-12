@@ -6,5 +6,6 @@
 	"smartHeuristics": true,
 	"handleSystemMessages": true,
 	"drawShadow": true,
+	"rightPadding": 1,
 	"nameAliases": { }
 }

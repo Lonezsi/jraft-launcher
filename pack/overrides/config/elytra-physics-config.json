@@ -11,5 +11,8 @@
   "elytra_spread_multiplier": 1.0,
   "enabled": true,
   "prevent_snapping": true,
-  "elytra_lean_multiplier": 1.0
+  "elytra_lean_multiplier": 1.0,
+  "elytra_pan_multiplier": 1.0,
+  "elytra_roll_multiplier": 1.0,
+  "decline_multiplier": 1.0
 }

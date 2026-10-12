@@ -4,6 +4,7 @@
     "advancements.toasts": true,
     "experimental_warning": true,
     "multiplayer_warning": true,
+    "narrator": true,
     "recipes_toasts": true,
     "resource_pack_warnings": true,
     "system_toasts": false,
