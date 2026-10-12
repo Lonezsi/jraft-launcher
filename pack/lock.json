@@ -2,7 +2,7 @@
   "name": "JRAFT",
   "minecraft": "26.3",
   "loaderVersion": "0.19.5",
-  "javaArgs": "-Xmx6G -Xms2G -XX:+UseZGC",
+  "javaArgs": "-XX:+UseZGC",
   "files": [
     {
       "path": "mods/AmbientEnvironment-fabric-26.3-26.3.2.jar",

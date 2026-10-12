@@ -4,20 +4,21 @@ Client-side JRAFT mods for **Minecraft 26.3 (Fabric)**, plus Grassrise, Grassris
 
 ## For players
 
-1. Install the official [Minecraft Launcher](https://www.minecraft.net/download) and sign in once.
-2. Download the file for your system from [Releases](../../releases/latest):
+1. Download the file for your system from [Releases](../../releases/latest):
    - Windows: `jraft-windows.exe`
    - Mac: `jraft-macos-apple-silicon` (M1 and newer) or `jraft-macos-intel`
    - Linux: `jraft-linux`
-3. Run it. Do this every time you want to play, because that's how you get updates.
+2. Run it. Do this every time you want to play, because that's how you get updates.
 
 The app:
 
-- installs Fabric,
-- downloads or updates the mods, resource pack and shaders into `.minecraft/jraft`,
-- adds a **JRAFT** installation to the Minecraft Launcher and opens the launcher. Then you just press Play.
+- downloads or updates the mods, resource pack and shaders,
+- downloads [Prism Launcher](https://prismlauncher.org) (portable, nothing gets installed) and sets up a JRAFT instance in it,
+- starts the game.
 
-Your normal Minecraft worlds and settings aren't touched. Mods you add to `.minecraft/jraft/mods` yourself are left alone.
+The **first time**, Prism asks you to sign in with your Microsoft account. After that, running the app goes straight into the game. Prism downloads the right Java by itself.
+
+Everything lives in its own folder (`%APPDATA%\jraft` on Windows, `~/Library/Application Support/jraft` on Mac, `~/.local/share/jraft` on Linux). Your normal Minecraft worlds and settings aren't touched. Mods you add to `.minecraft/jraft/mods` yourself are left alone.
 
 **Mac:** the first time, right-click the file, choose *Open*, then *Open* again (it isn't signed). If it won't run, open Terminal and run `chmod +x ~/Downloads/jraft-macos-*`.
 **Linux:** `chmod +x jraft-linux && ./jraft-linux`.
@@ -47,7 +48,7 @@ It picks the newest 26.3 Fabric build of every entry and pulls in required depen
 **Testing locally without touching your real install:**
 
 ```bash
-JRAFT_MC_DIR=/tmp/mc JRAFT_PACK_DIR=./pack JRAFT_NO_LAUNCH=1 go run ./cmd/jraft
+JRAFT_DIR=/tmp/jraft JRAFT_PACK_DIR=./pack JRAFT_NO_LAUNCH=1 go run ./cmd/jraft
 ```
 
 ## Not in the pack yet (no 26.3 build)

@@ -2,7 +2,7 @@
   "name": "JRAFT",
   "minecraft": "26.3",
   "loader": "fabric",
-  "javaArgs": "-Xmx6G -Xms2G -XX:+UseZGC",
+  "javaArgs": "-XX:+UseZGC",
   "comment": "Edit this file, then run: go run ./cmd/lockgen  (or the 'Update mods' GitHub Action). Entries with no 26.3 build are skipped with a warning and picked up automatically once they update. Client-side only: mods that need the server too are left out; libraries come in automatically as dependencies.",
   "mods": [
     "3dskinlayers",

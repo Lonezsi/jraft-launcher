@@ -1,5 +1,5 @@
-// jraft keeps a friend's JRAFT install in sync with this repo and opens the
-// official Minecraft Launcher with the JRAFT profile selected.
+// jraft keeps a friend's JRAFT install in sync with this repo and starts the
+// game through a bundled, portable Prism Launcher.
 package main
 
 import (
@@ -10,7 +10,6 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"runtime"
 	"strings"
@@ -27,10 +26,8 @@ var (
 	version = "dev"
 )
 
-const profileID = "jraft"
-
 // For testing: JRAFT_PACK_DIR reads lock.json and overrides from a local
-// pack folder, JRAFT_MC_DIR replaces .minecraft, JRAFT_NO_LAUNCH skips opening the launcher.
+// pack folder, JRAFT_DIR replaces the data folder, JRAFT_NO_LAUNCH skips starting the game.
 func rawURL(p string) string {
 	if d := os.Getenv("JRAFT_PACK_DIR"); d != "" {
 		return "file://" + filepath.ToSlash(filepath.Join(d, p))
@@ -66,15 +63,13 @@ func get(u string) (*http.Response, error) {
 
 func main() {
 	fmt.Printf("JRAFT launcher %s\n\n", version)
-	err := run()
-	if err != nil {
+	if err := run(); err != nil {
 		fmt.Println("\nSomething went wrong:", err)
 		fmt.Println("Send a screenshot of this window to whoever runs the pack.")
 		waitForEnter()
 		os.Exit(1)
 	}
-	fmt.Println("\nAll set. In the Minecraft Launcher pick the \"JRAFT\" installation and hit Play.")
-	time.Sleep(4 * time.Second)
+	time.Sleep(3 * time.Second)
 }
 
 func waitForEnter() {
@@ -85,13 +80,14 @@ func waitForEnter() {
 func run() error {
 	checkSelfUpdate()
 
-	mcDir, err := minecraftDir()
+	dataDir, err := dataDir()
 	if err != nil {
 		return err
 	}
-	instDir := filepath.Join(mcDir, "jraft")
-	fmt.Println("Minecraft folder:", mcDir)
-	fmt.Println("Pack folder:     ", instDir)
+	prismData := filepath.Join(dataDir, "prism-data")
+	instDir := filepath.Join(prismData, "instances", instanceID)
+	gameDir := filepath.Join(instDir, "minecraft")
+	fmt.Println("Game folder:", gameDir)
 
 	fmt.Println("\nChecking for pack updates...")
 	resp, err := get(rawURL("lock.json") + "?t=" + fmt.Sprint(time.Now().Unix()))
@@ -106,23 +102,25 @@ func run() error {
 	}
 	fmt.Printf("%s for Minecraft %s, Fabric %s\n", lock.Name, lock.Minecraft, lock.LoaderVersion)
 
-	if err := installFabric(mcDir, lock); err != nil {
-		return fmt.Errorf("installing Fabric: %w", err)
-	}
-	if err := syncFiles(instDir, lock); err != nil {
+	if err := syncFiles(gameDir, lock); err != nil {
 		return err
 	}
-	if err := writeDefaultOptions(instDir, lock); err != nil {
+	if err := writeDefaultOptions(gameDir, lock); err != nil {
 		return err
 	}
-	if err := writeProfile(mcDir, instDir, lock); err != nil {
-		return fmt.Errorf("adding launcher profile: %w", err)
+	if err := writeInstance(prismData, instDir, lock); err != nil {
+		return fmt.Errorf("setting up the instance: %w", err)
+	}
+	prism, err := ensurePrism(filepath.Join(dataDir, "prism"))
+	if err != nil {
+		return fmt.Errorf("installing Prism Launcher: %w", err)
 	}
 	if os.Getenv("JRAFT_NO_LAUNCH") != "" {
 		return nil
 	}
-	fmt.Println("\nOpening the Minecraft Launcher...")
-	return openLauncher()
+	fmt.Println("\nStarting Minecraft...")
+	fmt.Println("First time? Prism will ask you to sign in with your Microsoft account. After that it just starts.")
+	return launch(prism, prismData)
 }
 
 func checkSelfUpdate() {
@@ -143,8 +141,8 @@ func checkSelfUpdate() {
 	}
 }
 
-func minecraftDir() (string, error) {
-	if d := os.Getenv("JRAFT_MC_DIR"); d != "" {
+func dataDir() (string, error) {
+	if d := os.Getenv("JRAFT_DIR"); d != "" {
 		return d, nil
 	}
 	home, err := os.UserHomeDir()
@@ -153,16 +151,14 @@ func minecraftDir() (string, error) {
 	}
 	switch runtime.GOOS {
 	case "windows":
-		return filepath.Join(os.Getenv("APPDATA"), ".minecraft"), nil
+		return filepath.Join(os.Getenv("APPDATA"), "jraft"), nil
 	case "darwin":
-		return filepath.Join(home, "Library", "Application Support", "minecraft"), nil
+		return filepath.Join(home, "Library", "Application Support", "jraft"), nil
 	default:
-		flatpak := filepath.Join(home, ".var", "app", "com.mojang.Minecraft", ".minecraft")
-		normal := filepath.Join(home, ".minecraft")
-		if !exists(normal) && exists(flatpak) {
-			return flatpak, nil
+		if x := os.Getenv("XDG_DATA_HOME"); x != "" {
+			return filepath.Join(x, "jraft"), nil
 		}
-		return normal, nil
+		return filepath.Join(home, ".local", "share", "jraft"), nil
 	}
 }
 
@@ -171,40 +167,12 @@ func exists(p string) bool {
 	return err == nil
 }
 
-// installFabric does what the Fabric installer does for the vanilla launcher:
-// drops the loader's version JSON (plus an empty jar) into versions/.
-func installFabric(mcDir string, lock pack.Lock) error {
-	id := lock.FabricID()
-	dir := filepath.Join(mcDir, "versions", id)
-	jsonPath := filepath.Join(dir, id+".json")
-	if exists(jsonPath) {
-		return nil
-	}
-	fmt.Println("Installing Fabric", lock.LoaderVersion)
-	resp, err := get(fmt.Sprintf("https://meta.fabricmc.net/v2/versions/loader/%s/%s/profile/json", lock.Minecraft, lock.LoaderVersion))
-	if err != nil {
-		return err
-	}
-	defer resp.Body.Close()
-	data, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return err
-	}
-	if err := os.MkdirAll(dir, 0o755); err != nil {
-		return err
-	}
-	if err := os.WriteFile(filepath.Join(dir, id+".jar"), nil, 0o644); err != nil {
-		return err
-	}
-	return os.WriteFile(jsonPath, data, 0o644)
-}
-
 type state struct {
 	Files map[string]string `json:"files"` // path -> sha512 we installed
 }
 
-func syncFiles(instDir string, lock pack.Lock) error {
-	statePath := filepath.Join(instDir, ".jraft-state.json")
+func syncFiles(gameDir string, lock pack.Lock) error {
+	statePath := filepath.Join(gameDir, ".jraft-state.json")
 	var old state
 	if b, err := os.ReadFile(statePath); err == nil {
 		json.Unmarshal(b, &old)
@@ -221,7 +189,7 @@ func syncFiles(instDir string, lock pack.Lock) error {
 			return err
 		}
 		want[f.Path] = true
-		if h, err := pack.HashFile(filepath.Join(instDir, filepath.FromSlash(f.Path))); err == nil && h == f.SHA512 {
+		if h, err := pack.HashFile(filepath.Join(gameDir, filepath.FromSlash(f.Path))); err == nil && h == f.SHA512 {
 			continue
 		}
 		jobs = append(jobs, job{f, f.URL})
@@ -230,7 +198,7 @@ func syncFiles(instDir string, lock pack.Lock) error {
 		if err := pack.SafePath(f.Path); err != nil {
 			return err
 		}
-		if !exists(filepath.Join(instDir, filepath.FromSlash(f.Path))) {
+		if !exists(filepath.Join(gameDir, filepath.FromSlash(f.Path))) {
 			jobs = append(jobs, job{f, rawURL("overrides/" + f.Path)})
 		}
 	}
@@ -240,7 +208,7 @@ func syncFiles(instDir string, lock pack.Lock) error {
 	removed := 0
 	for p := range old.Files {
 		if !want[p] && pack.SafePath(p) == nil {
-			if os.Remove(filepath.Join(instDir, filepath.FromSlash(p))) == nil {
+			if os.Remove(filepath.Join(gameDir, filepath.FromSlash(p))) == nil {
 				fmt.Println("  removed", p)
 				removed++
 			}
@@ -265,7 +233,7 @@ func syncFiles(instDir string, lock pack.Lock) error {
 		go func() {
 			defer wg.Done()
 			for j := range ch {
-				err := download(j.url, filepath.Join(instDir, filepath.FromSlash(j.f.Path)), j.f.SHA512)
+				err := download(j.url, filepath.Join(gameDir, filepath.FromSlash(j.f.Path)), j.f.SHA512)
 				mu.Lock()
 				done++
 				if err != nil {
@@ -298,6 +266,7 @@ func syncFiles(instDir string, lock pack.Lock) error {
 	return nil
 }
 
+// download fetches url to dest, checking the sha512 when one is given.
 func download(url, dest, sha string) error {
 	if err := os.MkdirAll(filepath.Dir(dest), 0o755); err != nil {
 		return err
@@ -329,96 +298,22 @@ func tryDownload(url, dest, sha string) error {
 		os.Remove(tmp)
 		return err
 	}
-	if h, err := pack.HashFile(tmp); err != nil || h != sha {
-		os.Remove(tmp)
-		return fmt.Errorf("checksum mismatch")
+	if sha != "" {
+		if h, err := pack.HashFile(tmp); err != nil || h != sha {
+			os.Remove(tmp)
+			return fmt.Errorf("checksum mismatch")
+		}
 	}
 	os.Remove(dest)
 	return os.Rename(tmp, dest)
 }
 
 // writeDefaultOptions turns on the pack's resource packs for a fresh install.
-func writeDefaultOptions(instDir string, lock pack.Lock) error {
-	p := filepath.Join(instDir, "options.txt")
+func writeDefaultOptions(gameDir string, lock pack.Lock) error {
+	p := filepath.Join(gameDir, "options.txt")
 	if exists(p) || len(lock.ResourcePacks) == 0 {
 		return nil
 	}
 	packs, _ := json.Marshal(append([]string{"vanilla"}, lock.ResourcePacks...))
 	return os.WriteFile(p, []byte("resourcePacks:"+string(packs)+"\n"), 0o644)
-}
-
-// writeProfile adds or updates the JRAFT installation in the official
-// launcher's profile list, keeping everything else in the file untouched.
-func writeProfile(mcDir, instDir string, lock pack.Lock) error {
-	files := []string{filepath.Join(mcDir, "launcher_profiles.json")}
-	store := filepath.Join(mcDir, "launcher_profiles_microsoft_store.json")
-	if exists(store) {
-		files = append(files, store)
-	}
-	now := time.Now().UTC().Format("2006-01-02T15:04:05.000Z")
-	for _, f := range files {
-		doc := map[string]any{}
-		if b, err := os.ReadFile(f); err == nil {
-			if err := json.Unmarshal(b, &doc); err != nil {
-				return fmt.Errorf("%s: %w", f, err)
-			}
-		} else {
-			doc["version"] = 3
-			doc["settings"] = map[string]any{}
-		}
-		profiles, _ := doc["profiles"].(map[string]any)
-		if profiles == nil {
-			profiles = map[string]any{}
-		}
-		p, _ := profiles[profileID].(map[string]any)
-		if p == nil {
-			p = map[string]any{"created": now, "icon": "Grass", "javaArgs": lock.JavaArgs}
-		}
-		p["name"] = lock.Name
-		p["type"] = "custom"
-		p["lastVersionId"] = lock.FabricID()
-		p["gameDir"] = instDir
-		p["lastUsed"] = now
-		profiles[profileID] = p
-		doc["profiles"] = profiles
-
-		b, err := json.MarshalIndent(doc, "", "  ")
-		if err != nil {
-			return err
-		}
-		if err := os.WriteFile(f, b, 0o644); err != nil {
-			return err
-		}
-	}
-	return nil
-}
-
-func openLauncher() error {
-	switch runtime.GOOS {
-	case "windows":
-		for _, p := range []string{
-			filepath.Join(os.Getenv("ProgramFiles(x86)"), "Minecraft Launcher", "MinecraftLauncher.exe"),
-			filepath.Join(os.Getenv("ProgramFiles"), "Minecraft Launcher", "MinecraftLauncher.exe"),
-			filepath.Join(os.Getenv("LOCALAPPDATA"), "Programs", "Minecraft Launcher", "MinecraftLauncher.exe"),
-		} {
-			if exists(p) {
-				return exec.Command(p).Start()
-			}
-		}
-		// Microsoft Store / Xbox app version.
-		return exec.Command("explorer.exe", `shell:AppsFolder\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft`).Start()
-	case "darwin":
-		return exec.Command("open", "-a", "Minecraft").Run()
-	default:
-		if p, err := exec.LookPath("minecraft-launcher"); err == nil {
-			return exec.Command(p).Start()
-		}
-		if p, err := exec.LookPath("flatpak"); err == nil {
-			out, _ := exec.Command(p, "info", "com.mojang.Minecraft").CombinedOutput()
-			if !strings.Contains(string(out), "not installed") && len(out) > 0 {
-				return exec.Command(p, "run", "com.mojang.Minecraft").Start()
-			}
-		}
-		return errors.New("couldn't find the Minecraft Launcher. Install it from minecraft.net, then run this again (your files are already set up)")
-	}
 }
