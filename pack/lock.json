@@ -1130,7 +1130,7 @@
       "sha512": "0979055ab1b23a2a06381ef5d53d3df28a158efa97fce5322dd6be91223122571c2b845523255564e89514d795251e6a668da063b3298422f1b023db12e6a738"
     }
   ],
-  "resourcePacks": [],
+  "resourcePacks": null,
   "skipped": [
     "fast-block-placement (no 26.3 build yet)",
     "item-landing-sound (no 26.3 build yet)",
