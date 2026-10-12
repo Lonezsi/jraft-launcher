@@ -13,10 +13,13 @@ Client-side JRAFT mods for **Minecraft 26.3 (Fabric)**, plus Grassrise, Grassris
 The app:
 
 - downloads or updates the mods, resource pack and shaders,
-- downloads [Prism Launcher](https://prismlauncher.org) (portable, nothing gets installed) and sets up a JRAFT instance in it,
+- uses your Prism Launcher if you already have one (your accounts and other instances stay as they are), or downloads a portable [Prism Launcher](https://prismlauncher.org) if you don't (nothing gets installed),
+- adds a JRAFT instance to it,
 - starts the game.
 
-The **first time**, Prism asks you to sign in with your Microsoft account. After that, running the app goes straight into the game. Prism downloads the right Java by itself.
+The **first time**, Prism asks you to sign in with your Microsoft account; there's no other setup to click through. After that, running the app goes straight into the game.
+
+**Several accounts?** You get a dropdown to pick one, with a *Don't ask again* box. To switch later, press Enter while the app says "Playing as ...", or run it with `--choose-account`. Prism downloads the right Java by itself.
 
 Everything lives in its own folder (`%APPDATA%\jraft` on Windows, `~/Library/Application Support/jraft` on Mac, `~/.local/share/jraft` on Linux). Your normal Minecraft worlds and settings aren't touched. Mods you add to the instance's `mods` folder yourself are left alone.
 

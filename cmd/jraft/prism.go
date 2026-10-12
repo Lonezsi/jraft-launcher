@@ -216,14 +216,88 @@ func writeFile(p string, r io.Reader, mode os.FileMode) error {
 	return err
 }
 
+// findPrism looks for a Prism Launcher the player already uses. It returns
+// its executable (empty if only the data folder was found, in which case our
+// portable copy is pointed at it) and its data folder (empty if none).
+func findPrism() (exe, data string) {
+	if os.Getenv("JRAFT_DIR") != "" { // test mode: stay isolated
+		return "", ""
+	}
+	home, _ := os.UserHomeDir()
+	var exes, datas []string
+	switch runtime.GOOS {
+	case "windows":
+		exes = []string{
+			filepath.Join(os.Getenv("LOCALAPPDATA"), "Programs", "PrismLauncher", "prismlauncher.exe"),
+			filepath.Join(os.Getenv("ProgramFiles"), "PrismLauncher", "prismlauncher.exe"),
+			filepath.Join(home, "scoop", "apps", "prismlauncher", "current", "prismlauncher.exe"),
+		}
+		datas = []string{filepath.Join(os.Getenv("APPDATA"), "PrismLauncher")}
+	case "darwin":
+		exes = []string{
+			"/Applications/Prism Launcher.app/Contents/MacOS/prismlauncher",
+			filepath.Join(home, "Applications", "Prism Launcher.app", "Contents", "MacOS", "prismlauncher"),
+		}
+		datas = []string{filepath.Join(home, "Library", "Application Support", "PrismLauncher")}
+	default:
+		if p, err := exec.LookPath("prismlauncher"); err == nil {
+			exes = append(exes, p)
+		}
+		xdg := os.Getenv("XDG_DATA_HOME")
+		if xdg == "" {
+			xdg = filepath.Join(home, ".local", "share")
+		}
+		datas = []string{filepath.Join(xdg, "PrismLauncher")}
+		flatpakData := filepath.Join(home, ".var", "app", "org.prismlauncher.PrismLauncher", "data", "PrismLauncher")
+		if exists(flatpakData) && len(exes) == 0 {
+			if p, err := exec.LookPath("flatpak"); err == nil {
+				// Flatpak Prism can only see its own sandboxed data folder.
+				return p + "\x00run\x00org.prismlauncher.PrismLauncher", flatpakData
+			}
+		}
+	}
+	for _, d := range datas {
+		if exists(filepath.Join(d, "prismlauncher.cfg")) {
+			data = d
+			break
+		}
+	}
+	for _, e := range exes {
+		if exists(e) {
+			exe = e
+			break
+		}
+	}
+	if data == "" {
+		return "", "" // an installed Prism that was never opened: use our own setup
+	}
+	return exe, data
+}
+
+// instancesDir respects a custom instance folder set in Prism's settings.
+func instancesDir(prismData string) string {
+	b, _ := os.ReadFile(filepath.Join(prismData, "prismlauncher.cfg"))
+	for _, l := range strings.Split(strings.ReplaceAll(string(b), "\r\n", "\n"), "\n") {
+		if v, ok := strings.CutPrefix(l, "InstanceDir="); ok && v != "" {
+			if filepath.IsAbs(v) {
+				return v
+			}
+			return filepath.Join(prismData, v)
+		}
+	}
+	return filepath.Join(prismData, "instances")
+}
+
 // writeInstance creates or updates the JRAFT instance in Prism's data folder.
 func writeInstance(prismData, instDir string, lock pack.Lock) error {
 	if err := os.MkdirAll(filepath.Join(instDir, "minecraft"), 0o755); err != nil {
 		return err
 	}
-	// Prism's own settings: skip as much of the first-run wizard as we can
-	// and let Prism download the right Java by itself.
+	// Prism's own settings: answer what the first-run wizard would ask
+	// (language, theme, Java) so it goes straight to the game, and let Prism download the right Java by itself.
 	err := mergeCfg(filepath.Join(prismData, "prismlauncher.cfg"), map[string]string{
+		"ApplicationTheme":                    "system",
+		"IconTheme":                           "pe_colored",
 		"Language":                            "en_US",
 		"AutomaticJavaDownload":               "true",
 		"AutomaticJavaSwitch":                 "true",
@@ -285,8 +359,13 @@ func mergeCfg(path string, kv map[string]string, overwrite bool) error {
 	return os.WriteFile(path, []byte(strings.Join(lines, "\n")+"\n"), 0o644)
 }
 
-func launch(exe, prismData string) error {
-	cmd := exec.Command(exe, "--dir", prismData, "--launch", instanceID)
-	cmd.Dir = filepath.Dir(exe)
+func launch(exe, prismData, account string) error {
+	args := []string{"--dir", prismData, "--launch", instanceID}
+	if account != "" {
+		args = append(args, "--profile", account)
+	}
+	parts := strings.Split(exe, "\x00") // flatpak: "flatpak\x00run\x00<app id>"
+	cmd := exec.Command(parts[0], append(parts[1:], args...)...)
+	cmd.Dir = filepath.Dir(parts[0])
 	return cmd.Start()
 }

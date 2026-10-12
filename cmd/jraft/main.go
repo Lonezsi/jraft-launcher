@@ -84,8 +84,18 @@ func run() error {
 	if err != nil {
 		return err
 	}
-	prismData := filepath.Join(dataDir, "prism-data")
-	instDir := filepath.Join(prismData, "instances", instanceID)
+	if err := os.MkdirAll(dataDir, 0o755); err != nil {
+		return err
+	}
+	// Use the player's own Prism Launcher (and its accounts) if they have
+	// one; otherwise a portable copy is downloaded into our folder below.
+	prism, prismData := findPrism()
+	if prismData == "" {
+		prismData = filepath.Join(dataDir, "prism-data")
+	} else {
+		fmt.Println("Using your Prism Launcher:", prismData)
+	}
+	instDir := filepath.Join(instancesDir(prismData), instanceID)
 	gameDir := filepath.Join(instDir, "minecraft")
 	fmt.Println("Game folder:", gameDir)
 
@@ -111,16 +121,43 @@ func run() error {
 	if err := writeInstance(prismData, instDir, lock); err != nil {
 		return fmt.Errorf("setting up the instance: %w", err)
 	}
-	prism, err := ensurePrism(filepath.Join(dataDir, "prism"))
+	if prism == "" {
+		prism, err = ensurePrism(filepath.Join(dataDir, "prism"))
+		if err != nil {
+			return fmt.Errorf("installing Prism Launcher: %w", err)
+		}
+	}
+	forceAsk := len(os.Args) > 1 && os.Args[1] == "--choose-account"
+	if p := loadPrefs(dataDir); !forceAsk && p.Account != "" && len(prismAccounts(prismData)) > 1 {
+		fmt.Printf("\nPlaying as %s. Press Enter within 3 seconds to switch account...", p.Account)
+		forceAsk = enterPressedWithin(3 * time.Second)
+		fmt.Println()
+	}
+	account, err := chooseAccount(dataDir, prismData, forceAsk)
 	if err != nil {
-		return fmt.Errorf("installing Prism Launcher: %w", err)
+		return err
 	}
 	if os.Getenv("JRAFT_NO_LAUNCH") != "" {
+		fmt.Printf("\n(test mode) would launch %s as %q\n", prism, account)
 		return nil
 	}
 	fmt.Println("\nStarting Minecraft...")
-	fmt.Println("First time? Prism will ask you to sign in with your Microsoft account. After that it just starts.")
-	return launch(prism, prismData)
+	return launch(prism, prismData, account)
+}
+
+func enterPressedWithin(d time.Duration) bool {
+	ch := make(chan struct{}, 1)
+	go func() {
+		if _, err := bufio.NewReader(os.Stdin).ReadString('\n'); err == nil {
+			ch <- struct{}{}
+		}
+	}()
+	select {
+	case <-ch:
+		return true
+	case <-time.After(d):
+		return false
+	}
 }
 
 func checkSelfUpdate() {
