@@ -159,13 +159,6 @@
       "comment": "structory 1.3.18+26.3"
     },
     {
-      "path": "mods/SubtleEffects-fabric-26.3-1.15.1.jar",
-      "url": "https://cdn.modrinth.com/data/4q8UOK1d/versions/vrXA98VM/SubtleEffects-fabric-26.3-1.15.1.jar",
-      "sha512": "43347d2c44d300913c67920e7777b5ee33d994a7b03b8c1149c6d8d259099dd168460b458c7f6038b834d51ed32407a214d6482d4266b92208c9e21ca85d30ee",
-      "size": 3513732,
-      "comment": "subtle-effects 1.15.1"
-    },
-    {
       "path": "mods/Terralith_26.3_v2.6.5+26.3.jar",
       "url": "https://cdn.modrinth.com/data/8oi3bsk5/versions/aGE3hYAA/Terralith_26.3_v2.6.5%2B26.3.jar",
       "sha512": "918b232df7a855bae89c7fa85affb5ce134e236c4726fa14a5bdaa179eb1e010f040a9fa981f006a0e26e421a2a961bc29a75e99a4500fd18361a8ba81478071",
@@ -641,7 +634,7 @@
     },
     {
       "path": "config/DistantHorizons.toml",
-      "sha512": "187c07056fb37b610ecd29d0780373257ee24ec2a3b8ff78022975811d16c3128f653162b29440f0e4a0dfd100060e612961dfbcb8dc66577d7ab941c21efd8e"
+      "sha512": "6d38f3c9525d983a907f348eed664ff8140d76a9accc081b89f8184db9c965415ec63985060636988e0d8161a42477dae2e00063cf222e98b53d123e8d23a119"
     },
     {
       "path": "config/MouseTweaks.cfg",
@@ -649,7 +642,7 @@
     },
     {
       "path": "config/NoChatReports/NCR-Client.json",
-      "sha512": "417b617bb3ee2692208d8680238d9c9c437c4e0cdc8299ff4ed2c2883123b6eabee33d9085736421e9b3e8804cfbd5b936614e7be10704cfcaf53cd36f066978"
+      "sha512": "65bda4cbc60702e9122501493c18f48fb0fd504dff7b507c6fd2e62aa9fc9f75c1e2dac4d6b1e6a3d29eb16c9452bee3dc474a343de1b461357297171050e384"
     },
     {
       "path": "config/NoChatReports/NCR-Common.json",
@@ -749,7 +742,7 @@
     },
     {
       "path": "config/euphoria_patcher/.data.json",
-      "sha512": "2fd3040dacca8f162f54d71a099e09bd5763a2d2aac8486b31f711cd6a1d46f46f818ac5c6a72eb7bc77d7887acb718d36b47f04881853276fe6545bb14d6694"
+      "sha512": "051da1819ebb096db593bf55710e1bc276b0fc8de6c3d0de1230972af5767c350d6bdc4be9c1ac1819e6e6a636db69d3d8f23df61bf9574a0f8a433fb0991fd3"
     },
     {
       "path": "config/euphoria_patcher/settings.toml",
@@ -757,7 +750,7 @@
     },
     {
       "path": "config/fabric/indigo-renderer.properties",
-      "sha512": "08f2ce504b71a68779603c92cffe742f3543b45845a25ef715f61ea98e21d1edc1b34c530fe20286b21432681e7502985a9fb57ad2861fd6b314bd60488941a6"
+      "sha512": "aa085c49cbd18544e0e20eea1f25d577e0c052a6ce8f939028ef62d6690383648fc7ca9efbcd68b1f92b63e7ef061727346b53f06b2d466fc6849e77f6ed9d83"
     },
     {
       "path": "config/fallingleaves2.json",
@@ -773,7 +766,7 @@
     },
     {
       "path": "config/firstperson.json",
-      "sha512": "d39f774a8ff5aff1d8dbe83e8db83ee18c5741c65ac809018ef52ac1b2e63986da3a1f51b7cd501a680b3d28ac6d5096da6c4c6f51c61af714620f3c71c761e2"
+      "sha512": "8b8828a18d4ca3c573bace7441ba11607838d7446656894310665028beb3e9c060c837dc72f133daead4885e91acea002ff2b57bdacdac924a3db95d2abcd8c6"
     },
     {
       "path": "config/footprintparticle.json",
@@ -805,7 +798,7 @@
     },
     {
       "path": "config/invmove/unrecognized.json",
-      "sha512": "91185869874a4df4e190895b0953708acc6d9dd9a00ce9b48e810755efe0f7a94d2aa47c4fad5082e4a9579404146d8b1c37aa21c167ad4ce37966d0e28de521"
+      "sha512": "2bd713a550195a6d1afafe5d4ad2e2279a7eab0543453b9e94376f3776e2dd10b6ac0613e192503fce647e661876f1df4fa7b90b3b971e4e4f3ea72d9bc2377c"
     },
     {
       "path": "config/invmove/vanilla.json",
@@ -821,7 +814,7 @@
     },
     {
       "path": "config/iris.properties",
-      "sha512": "c961b2c656be77cc981434f7ae02f6a8095945252515ad67a6d73ef25daf8dea7d203cfc6a84296d29d1360e82771d46eca45d6c981db9c8e534ce936bf67864"
+      "sha512": "88e4fe2256e818616a5b8dc88e5c786e2561c1a7a83fbd48ddd60a8fecba36a0c845f62948e8f900ec1c6cb3a4503bc14b9f70d3f15d9d72f66053eb48d1bdf8"
     },
     {
       "path": "config/itemphysiclite-client.json",
@@ -861,7 +854,7 @@
     },
     {
       "path": "config/modernfix-mixins.properties",
-      "sha512": "8ffe65a1b2f9c6ada2e6082b827b330473c011c33634c6ff96d4f14fa4f46ae9527364da404e4fc2e1c87ef89df93e9efa62158fd8a23c55670af38fd9d7d3de"
+      "sha512": "2fa45f5afd23eca8bdef194f83e8c3dfdbb743d8fc1efc35f852cc74cb7017385b7de4ce6f6fc6ad515e89596de6cac7c5485b731116536b3e1d93d9070c8e52"
     },
     {
       "path": "config/modmenu.json",
@@ -885,15 +878,15 @@
     },
     {
       "path": "config/packed_packs/config.json",
-      "sha512": "ff22fb8cf386ad04bb9c30e43383d6be91b5e413d5bfb95cfaa800c2ea93ba7629328a8ed35be7d95285415d240fbeca6ff4cfbe35fb8f7e8a475de6f7ff8a65"
+      "sha512": "2eec93379d1a43c4521b8ad52abc0b885fd8210a3f904b7016762344ea89ef4815363cfda62f76dfdbb7c490fee53531a3232fefcff4576e22a6d3b162f6a3a4"
     },
     {
       "path": "config/packed_packs/config.meta.json",
-      "sha512": "4c46ec3f5e3a995929b998fa7648e557760b31c6d7df745d4d795e67733ef6fa9e5296887f2c29f6c495dbe53006f7814453ab696e84326a47aedb7307ee7e88"
+      "sha512": "68cc8e5183c50ff64345681a2f8fe0b461fa6835737baaf81359c7d570543b500e7b12d5857bf4db9b1a1a3c04c9c1385f77d9c4ea51216196ac2309165d9933"
     },
     {
       "path": "config/packed_packs/preferences.properties",
-      "sha512": "4800f9cd1ea063e1f2e266cdb60800966d2dae41ad78722fa0acc9fa869cff03019197a680c7a794e5b92b6868bcc609cef4b33dad505706db2e3a08fb1e6aeb"
+      "sha512": "64ee066993422091449f8966797737272aa2917edf54419a090ce26d127770e3a58fbd3bb5a31dcec3ba31bb300479d20571c861270d2da1fc9a8bee1e702fab"
     },
     {
       "path": "config/packed_packs/profiles/resourcepacks/main-2026-04-06_14-12-37.953.profile.json",
@@ -933,11 +926,11 @@
     },
     {
       "path": "config/punchy/profiles/.active_profile",
-      "sha512": "aaafaa4de31a010e0f86e2e4a821ea65ce52c362c257ceb52a0a10c0c1bc4af9a93c9e3d374582cf3cb29d663401468814ff0dad291e9d202d52ed61e26101f3"
+      "sha512": "1054d231c8581a13f4048bee4d62aafbae7e60b5d530b88c52527b7f5431f15986c099507731c9a468f7321680680a6e60f15922a2fc35983b90ce37cae1d864"
     },
     {
       "path": "config/punchy/profiles/Main.json",
-      "sha512": "6bc95f2f0afda34e9b1b603bc0694eb498dabe4d11a62dd1b16f2fef60c43c5fecb2fb95598ed3e0c549b384b1ff382507ec74af87fa97b9387195c8ab636294"
+      "sha512": "07f4ef9a6c3edf867cefcafcf2435f4cbf5f1da499b00b491696d10236319ddb0e3e7d6aaefe6e92dc7a7d6c1d0c44f559c652d937bd7979c5ca0e629c3393d6"
     },
     {
       "path": "config/punchy/profiles/small.json",
@@ -949,7 +942,7 @@
     },
     {
       "path": "config/punchy/punchy_config.json",
-      "sha512": "bc0f08015ba7f72c307e775e47ffb19460a93a1cc7a7a59be14c0b4dfca62ee6685ef5868c5c7a31133e4ddd89ed68eb63a09af5a38231f61a88a953b59305bc"
+      "sha512": "6d1f5bd194b5f18ba1fc8bb98510cfe1610d41400d4129d867a5857281c714e2ab71333c3a2ef2a18e7e32228eb22a0ba45a21d20a297449a1a77d35a03a29b0"
     },
     {
       "path": "config/punchy/punchy_tuning.json",
@@ -1033,7 +1026,7 @@
     },
     {
       "path": "config/subtle_effects/blocks.toml",
-      "sha512": "894bf94b868db0af7d0187a3ea4f651a234a8aa7227182bdd8536022070886187616ad102ef5aa39781165a8750c6888ac21f0222911dfffa7b5da69675c9a44"
+      "sha512": "e7f2b69f723fc86f051685f3af93318e3c3e07467c1e23f6bb059693a1ecafaa4749538c9314ada3fb9cb7fb29055f198cc1b8d0c35f4fa898ff22335ad0244a"
     },
     {
       "path": "config/subtle_effects/entities.toml",
@@ -1093,7 +1086,7 @@
     },
     {
       "path": "options.txt",
-      "sha512": "d5695e2688a70b9ed2b60a077eced0c2c8b5d6a6d63ff587600539f1690fc1fb6b038dbd10bcbc55528e016047512109eecaac1cb391523bd384eb70e0342e3a"
+      "sha512": "c5c75ef27a40bb03b87afe335ca01e7f5493262b26c86d01d45c30ea681e866bdbe56392db0965b405a1cfedc14af75784026c380a8ebe261472e694b35c4e72"
     }
   ],
   "resourcePacks": [

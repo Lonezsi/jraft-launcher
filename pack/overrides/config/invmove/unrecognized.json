@@ -36,11 +36,21 @@
     "net.diebuddies.physics.settings.PhysicsSettingsScreen": true,
     "io.github.fishstiz.packed_packs.gui.screens.PackedPacksScreen": true,
     "net.diebuddies.physics.settings.vines.VineSettingsScreen": true,
-    "net.minecraft.client.gui.screens.PauseScreen": true
+    "net.minecraft.client.gui.screens.PauseScreen": true,
+    "net.minecraft.client.gui.screens.options.OptionsScreen": true,
+    "net.minecraft.client.gui.screens.options.SoundOptionsScreen": true,
+    "com.aizistral.nochatreports.common.gui.UnsafeServerScreen": true,
+    "net.minecraft.client.gui.screens.WorldOptionsScreen": true,
+    "net.minecraft.client.gui.screens.social.SocialInteractionsScreen": true,
+    "net.minecraft.client.gui.screens.ConfirmScreen": true,
+    "punchy.client.tuning.MixThePacksScreen": true,
+    "net.minecraft.client.gui.screens.multiplayer.RestrictionsScreen": true
   },
   "hideBackground": {
     "mod.chiselsandbits.client.screens.ModificationTableScreen": true,
     "punchy.client.tuning.TuningWorkbenchScreen": true,
-    "net.minecraft.class_5522": true
+    "net.minecraft.class_5522": true,
+    "net.minecraft.client.gui.screens.social.SocialInteractionsScreen": true,
+    "punchy.client.tuning.MixThePacksScreen": true
   }
 }

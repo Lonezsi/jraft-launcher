@@ -204,7 +204,7 @@ _version = 5
 			#
 			# If enabled, a chat message will be displayed if vanilla MC's 
 			# render distance is higher than the recommended amount.
-			showHighVanillaRenderDistanceWarning = true
+			showHighVanillaRenderDistanceWarning = false
 			#
 			# If enabled, a chat message will be displayed if DH detects 
 			# that any pooled objects have been garbage collected.
@@ -319,7 +319,7 @@ _version = 5
 		#
 		# For how many seconds should instructions for disabling the distant generator progress be displayed? 
 		# Setting this to 0 hides the instructional message so the world gen progress is shown immediately when it starts.
-		generationProgressDisableMessageDisplayTimeInSeconds = 20
+		generationProgressDisableMessageDisplayTimeInSeconds = 0
 		#
 		# The center Z chunk position that the world gen max radius is centered around.
 		generationCenterChunkZ = 0
