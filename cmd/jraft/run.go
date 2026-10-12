@@ -66,6 +66,7 @@ func run() error {
 		if err != nil {
 			return fmt.Errorf("installing Prism Launcher: %w", err)
 		}
+		disablePrismUpdater(prismData)
 	}
 	setProgress(1, 1)
 

@@ -371,3 +371,15 @@ func launch(exe, prismData, account string) error {
 	cmd.Dir = filepath.Dir(parts[0])
 	return cmd.Start()
 }
+
+// disablePrismUpdater turns off Prism's own "update available" prompt for
+// our portable copy. ensurePrism already keeps that copy on the latest
+// release every time the app runs, so the player never sees Prism's updater.
+func disablePrismUpdater(prismData string) {
+	if runtime.GOOS == "darwin" {
+		// The Mac build uses Sparkle, which keeps its settings in user defaults.
+		exec.Command("defaults", "write", "org.prismlauncher.PrismLauncher", "SUEnableAutomaticChecks", "-bool", "false").Run()
+		return
+	}
+	os.WriteFile(filepath.Join(prismData, "prismlauncher_update.cfg"), []byte("[General]\nauto_check=false\n"), 0o644)
+}

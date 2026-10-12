@@ -13,7 +13,7 @@ Client-side JRAFT mods for **Minecraft 26.3 (Fabric)**, plus Grassrise, Grassris
 The app:
 
 - downloads or updates the mods, resource pack and shaders,
-- uses your Prism Launcher if you already have one (your accounts and other instances stay as they are), or downloads a portable [Prism Launcher](https://prismlauncher.org) if you don't (nothing gets installed),
+- uses your Prism Launcher if you already have one (your accounts and other instances stay as they are), or downloads a portable [Prism Launcher](https://prismlauncher.org) if you don't (nothing gets installed, and the app keeps it updated for you),
 - adds a JRAFT instance to it,
 - starts the game.
 
