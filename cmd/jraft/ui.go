@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"image/color"
+	"io"
 	"os"
 	"strings"
 	"sync"
@@ -10,6 +11,7 @@ import (
 
 	"gioui.org/app"
 	"gioui.org/font/gofont"
+	"gioui.org/io/clipboard"
 	"gioui.org/layout"
 	"gioui.org/op"
 	"gioui.org/op/clip"
@@ -56,9 +58,10 @@ type uiState struct {
 	// inside a frame or from another goroutine can deadlock.
 	wantHeight int
 
-	toggle, closeBtn, switchBtn widget.Clickable
-	list                        widget.List
-	follow                      bool
+	toggle, closeBtn, switchBtn, copyBtn widget.Clickable
+	copiedAt                             time.Time
+	list                                 widget.List
+	follow                               bool
 }
 
 var ui = &uiState{progress: -1, follow: true}
@@ -128,6 +131,11 @@ func (u *uiState) frame(gtx layout.Context, th *material.Theme) {
 		}
 		u.wantHeight = h
 	}
+	if u.copyBtn.Clicked(gtx) {
+		gtx.Execute(clipboard.WriteCmd{Type: "application/text", Data: io.NopCloser(strings.NewReader(strings.Join(u.lines, "\n")))})
+		u.copiedAt = time.Now()
+		go func() { time.Sleep(2 * time.Second); u.invalidate() }()
+	}
 	if u.closeBtn.Clicked(gtx) {
 		os.Exit(1)
 	}
@@ -181,6 +189,18 @@ func (u *uiState) frame(gtx layout.Context, th *material.Theme) {
 							label = "Hide log"
 						}
 						b := material.Button(th, &u.toggle, label)
+						b.Background = panel
+						b.Color = muted
+						b.TextSize = unit.Sp(13)
+						return b.Layout(gtx)
+					}),
+					layout.Rigid(layout.Spacer{Width: unit.Dp(8)}.Layout),
+					layout.Rigid(func(gtx layout.Context) layout.Dimensions {
+						label := "Copy log"
+						if time.Since(u.copiedAt) < 2*time.Second {
+							label = "Copied!"
+						}
+						b := material.Button(th, &u.copyBtn, label)
 						b.Background = panel
 						b.Color = muted
 						b.TextSize = unit.Sp(13)

@@ -49,15 +49,28 @@ func get(u string) (*http.Response, error) {
 		return nil, err
 	}
 	req.Header.Set("User-Agent", "Lonezsi/jraft-launcher/"+version)
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	if resp.StatusCode != 200 {
+	// Servers (GitHub, Modrinth's CDN) sometimes answer 502/503/504 or drop
+	// the connection for a moment, so those get a few patient retries.
+	var lastErr error
+	for attempt := 0; attempt < 6; attempt++ {
+		if attempt > 0 {
+			time.Sleep(time.Duration(1<<(attempt-1)) * time.Second) // 1, 2, 4, 8, 16s
+		}
+		resp, err := client.Do(req)
+		if err != nil {
+			lastErr = err
+			continue
+		}
+		if resp.StatusCode == 200 {
+			return resp, nil
+		}
 		resp.Body.Close()
-		return nil, fmt.Errorf("GET %s: %s", u, resp.Status)
+		lastErr = fmt.Errorf("GET %s: %s", u, resp.Status)
+		if resp.StatusCode < 500 && resp.StatusCode != 429 {
+			break // a real "not found" or similar; retrying won't help
+		}
 	}
-	return resp, nil
+	return nil, lastErr
 }
 
 func checkSelfUpdate() {
