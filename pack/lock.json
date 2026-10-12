@@ -33,13 +33,6 @@
       "comment": "cameraoverhaul 2.1.2-fabric+mc.26.3-plus"
     },
     {
-      "path": "mods/Clumps-fabric-26.3-26.3.2.jar",
-      "url": "https://cdn.modrinth.com/data/Wnxd13zP/versions/J4I1wxJZ/Clumps-fabric-26.3-26.3.2.jar",
-      "sha512": "8c166ae97e1999d0f213d0a181d6ef87b99648016c92c9aa1414d2c2e24364b12549569cd7e247a3d675df703ae6a8a88fc175d3f527818c710578408508c8ab",
-      "size": 20154,
-      "comment": "clumps 26.3.2"
-    },
-    {
       "path": "mods/Controlling-fabric-26.3-26.3.4.jar",
       "url": "https://cdn.modrinth.com/data/xv94TkTM/versions/V6AbRm67/Controlling-fabric-26.3-26.3.4.jar",
       "sha512": "a3b4d3f5d764421c247c61251a0ee60a612dd2c2df35a998341b910f2e502a514b20aad3cb47df0a202a62e84edaf512bb27331406553e6ea9203410e9c04751",
@@ -159,27 +152,6 @@
       "comment": "appleskin 3.0.10+mc26.3"
     },
     {
-      "path": "mods/architectury-fabric-22.0.5.jar",
-      "url": "https://cdn.modrinth.com/data/lhGA9TYQ/versions/1pMaB6So/architectury-fabric-22.0.5.jar",
-      "sha512": "14c61af2088b80b465f06edd3b3005038fa5be1c95a2161ce712c8da408a358038b7cd7ae4acf3198f6d47c693e4fdf65d646dac7e124f7cdd7f32bbc0dcd0ce",
-      "size": 622542,
-      "comment": "architectury-api 22.0.5+fabric"
-    },
-    {
-      "path": "mods/c2me-fabric-mc26.3-0.4.2-alpha.0.90.jar",
-      "url": "https://cdn.modrinth.com/data/VSNURh3q/versions/ODMLK8M9/c2me-fabric-mc26.3-0.4.2-alpha.0.90.jar",
-      "sha512": "d0140ebdad22b7ee002c4e17685dbb254d667562840000ef98cedabafa53bc67d1011b9fc4d70f26f964fc781373e61583d39b001e7e15644ba97dd19ea1c2ce",
-      "size": 3950720,
-      "comment": "c2me-fabric 0.4.2-alpha.0.90+26.3"
-    },
-    {
-      "path": "mods/cardinal-components-api-8.1.0.jar",
-      "url": "https://cdn.modrinth.com/data/K01OU20C/versions/TPEXA0ew/cardinal-components-api-8.1.0.jar",
-      "sha512": "8507faea758d820ebddedb2ff087510ac52f262b14fba7b2d2fee2fbb731bee819e253cdaaefcb580f281f2d14b081dc06f2fdb9b78e73664f3a42065be7459c",
-      "size": 237037,
-      "comment": "cardinal-components-api 8.1.0"
-    },
-    {
       "path": "mods/cbbg-1.5.0+mc26.3-fabric.jar",
       "url": "https://cdn.modrinth.com/data/UBlXUQbC/versions/JWSgxxzZ/cbbg-1.5.0%2Bmc26.3-fabric.jar",
       "sha512": "cbcbb9ae517e7c0da574f36c608e0d438c5ae4611f2f98bdfd7b3582456e386acb2de78d34324b6c1656259fc63a510801a984a65968d4ad39058446d99e8320",
@@ -213,13 +185,6 @@
       "sha512": "8924e19d41845096724fa10f3717bc51964a0edbbbcad0ff1e6c6187a398b08f356e49579a657c2dc44a7f92e3850771f3ca70bf8c1f654de60425163b91dbb1",
       "size": 1135009,
       "comment": "9s6osm5g 26.3.159+fabric"
-    },
-    {
-      "path": "mods/collective-26.3.0-8.46.jar",
-      "url": "https://cdn.modrinth.com/data/e0M1UDsY/versions/bdHZb1p0/collective-26.3.0-8.46.jar",
-      "sha512": "87a91a18da791e4f49c0ee52609fb8ed14b1e9363855ba6e1555c563ea098196126e36fceb4c0e8cf25fbf7e51c9b161ed5f737cae351c2a801f71a08384c138",
-      "size": 1087687,
-      "comment": "collective 26.3.0-8.46-fabric+forge+neo"
     },
     {
       "path": "mods/continuity-3.0.1+26.3.jar",
@@ -303,7 +268,7 @@
       "url": "https://cdn.modrinth.com/data/Ha28R6CL/versions/SKW1BTL3/fabric-language-kotlin-1.14.2%2Bkotlin.2.4.21.jar",
       "sha512": "7fb475c4a7e7bdf8d0aca4b5798a58a354c51443d5b1fbde3e8cf34dfbf7191ef4238b5f07d08ec9490ec180b371624523326c3ad45d4ed2b2be541de9407e5d",
       "size": 8142878,
-      "comment": "fabric-language-kotlin 1.14.2+kotlin.2.4.21"
+      "comment": "Ha28R6CL 1.14.2+kotlin.2.4.21"
     },
     {
       "path": "mods/fallingleaves-2.0.8+26.3.jar",
@@ -352,7 +317,7 @@
       "url": "https://cdn.modrinth.com/data/hYykXjDp/versions/YkOumqzV/fzzy_config-0.7.7%2Bfix3%2B26.3.jar",
       "sha512": "bbf47ab921fec1215d6e59ab0d875b565c22bbf039ae985b6e64313412b66835c443006c428ac9b8ef7ba396a4e0aa2bb0d65126c95a595bc56376655cb1c9ee",
       "size": 2375413,
-      "comment": "fzzy-config 0.7.7+fix3+26.3"
+      "comment": "hYykXjDp 0.7.7+fix3+26.3"
     },
     {
       "path": "mods/grassrise-better-lighting-1.0.0+mc26.3.jar",
@@ -375,18 +340,11 @@
       "comment": "iris 1.11.7+26.3-fabric"
     },
     {
-      "path": "mods/krypton-0.3.2.jar",
-      "url": "https://cdn.modrinth.com/data/fQEb0iXm/versions/UugdIYJw/krypton-0.3.2.jar",
-      "sha512": "d1d57ebd41395b75b01f130cd9503eb8d208212424a399ff9f367f50be8fbc1c6472442b33c686e777c3148f6a609520e8fb732c755157c358cb207fd4d1123a",
-      "size": 268849,
-      "comment": "krypton 0.3.2"
-    },
-    {
       "path": "mods/libjf-26.3.1.jar",
       "url": "https://cdn.modrinth.com/data/WKwQAwke/versions/S0d8Wc3k/libjf-26.3.1.jar",
       "sha512": "5ec5183fbf8b045b986cf0534dac39dee62934fd86dd1255286f5b6a55f6ee499782d4a4d873fc81cde3ec8337af5f0e36125f3b67fa39744a9b2082dc6d6051",
       "size": 1720205,
-      "comment": "libjf 26.3.1"
+      "comment": "WKwQAwke 26.3.1"
     },
     {
       "path": "mods/light-overlay-2.13.0+26.3.jar",
@@ -396,25 +354,11 @@
       "comment": "lightoverlay 2.13.0+26.3"
     },
     {
-      "path": "mods/lithium-fabric-0.26.2+mc26.3.jar",
-      "url": "https://cdn.modrinth.com/data/gvQqBUqZ/versions/xS0Q8LSi/lithium-fabric-0.26.2%2Bmc26.3.jar",
-      "sha512": "4d7fee66132eedc71feab9390b92c95d7058edbdad0fecfac1d836a2950b97a7ca463afbede61c7ef361ce65e1f927ab9e89dde5bf2e0e0ce486afb5c5dbee40",
-      "size": 914543,
-      "comment": "lithium mc26.3-0.26.2-fabric"
-    },
-    {
       "path": "mods/make_bubbles_pop-0.3.4-fabric-mc26.2.x.jar",
       "url": "https://cdn.modrinth.com/data/gPCdW0Wr/versions/CAFPNCYd/make_bubbles_pop-0.3.4-fabric-mc26.2.x.jar",
       "sha512": "c5f4e6ecf5029014a6f3ca4fea156700dca522cb91ce3bca8f1b1c58c6d4e70239821b1bd55964d44ef06c82f31affbcbe392637f1a429cbf8b817536b88ea28",
       "size": 30757,
       "comment": "make_bubbles_pop 0.3.4-fabric"
-    },
-    {
-      "path": "mods/midnightlib-fabric-1.9.3+26.3-rc-2.jar",
-      "url": "https://cdn.modrinth.com/data/codAaoxh/versions/wJeXgIoa/midnightlib-fabric-1.9.3%2B26.3-rc-2.jar",
-      "sha512": "2b5c5ed195d44d97dd6fafdb8583d1d883f10303c0cde331da72c6004f88cf27207167aaf77f0c692113399db42f616d1174144671898a25dfa69e9525135b8b",
-      "size": 60602,
-      "comment": "midnightlib 1.9.3+26.3-fabric"
     },
     {
       "path": "mods/modernfix-5.27.20-build.2.jar",
@@ -449,7 +393,7 @@
       "url": "https://cdn.modrinth.com/data/SNVQ2c0g/versions/wpEZ3KrZ/mru-1.0.43%2B26.3-fabric.jar",
       "sha512": "27e271eeeb62d99180101000d00b7fe471703278a307bd3e99195f13a0e8017e448709ad620b2a1d61f23e711a1f10f54e3bba7c8ca1e2d5a6810978ddb069a5",
       "size": 157553,
-      "comment": "mru 1.0.43+26.3-fabric"
+      "comment": "SNVQ2c0g 1.0.43+26.3-fabric"
     },
     {
       "path": "mods/nomorepopups-fabric-26.2-2.3.1.jar",
@@ -606,13 +550,6 @@
       "comment": "sound 2.6.0+26.3-fabric"
     },
     {
-      "path": "mods/tlib-fabric-1.5.0-26.3.jar",
-      "url": "https://cdn.modrinth.com/data/sBn7rVvc/versions/4shvVPZP/tlib-fabric-1.5.0-26.3.jar",
-      "sha512": "297d3c0ae2d5baa1967092a9b72ebfd90b78ecba5254563d989be32cb82d65f195352e8ddea25ddd555e7670b2e384f77913d41038cdc4defd3d60a4e8e34c02",
-      "size": 231814,
-      "comment": "tlib 1.5.0-26.3"
-    },
-    {
       "path": "mods/variants-cit-5.7.0+26.3.jar",
       "url": "https://cdn.modrinth.com/data/jURjbCaq/versions/ZIvWBpId/variants-cit-5.7.0%2B26.3.jar",
       "sha512": "a28c4c51ddfd1707c2f3240bd825089e9a7789880284bd94fcf10fa966a44d523b101f6b0f10e07e448193589d11b5e51a3b2c3a261b65ba96ec275a549a3ada",
@@ -620,25 +557,11 @@
       "comment": "variants-cit 5.7.0+26.3"
     },
     {
-      "path": "mods/villagernames-26.3.0-8.7.jar",
-      "url": "https://cdn.modrinth.com/data/gqRXDo8B/versions/yOoA3N3L/villagernames-26.3.0-8.7.jar",
-      "sha512": "48e5766f8b54954e5b3cc9c19d82e9f79613e565f44904c08abed7490e7b6f7f4d825f61e945c643e5065d2af94c22a8eebd53805bcd0916698fe93d6b49edd8",
-      "size": 77372,
-      "comment": "villager-names-serilum 26.3.0-8.7-fabric+forge+neo"
-    },
-    {
       "path": "mods/visuality-0.7.15+26.3.jar",
       "url": "https://cdn.modrinth.com/data/rI0hvYcd/versions/BNe9kpJ7/visuality-0.7.15%2B26.3.jar",
       "sha512": "90145cad547d329d5134eabbf45c7f35b1d0ce3ff2bcef8a1b187dc33723121b1a235c0cc259043588835b0cb7b31cba4aa84d738be810f0ea073308bec2eb4a",
       "size": 81970,
       "comment": "visuality 0.7.15+26.3"
-    },
-    {
-      "path": "mods/voicechat-fabric-2.6.24+26.3.jar",
-      "url": "https://cdn.modrinth.com/data/9eGKb6K1/versions/OLnMVWXy/voicechat-fabric-2.6.24%2B26.3.jar",
-      "sha512": "414eb51967305fe7740d34016bc8e3e4e2fa1590e1278ad06bcdfa0687f65007b825d345dc09f79a992704a51ec93baf01fe727e0bbc32fdf506828b5a65d85a",
-      "size": 5612855,
-      "comment": "simple-voice-chat fabric-2.6.24+26.3"
     },
     {
       "path": "mods/weaponmaster_ydm-4.4.4-fabric.jar",
@@ -1195,7 +1118,6 @@
   ],
   "skipped": [
     "fast-block-placement (no 26.3 build yet)",
-    "ipla (no 26.3 build yet)",
     "item-landing-sound (no 26.3 build yet)",
     "no-gaps-in-yo-items (no 26.3 build yet)",
     "rp-renames (no 26.3 build yet)",
