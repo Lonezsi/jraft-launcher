@@ -66,7 +66,7 @@ damageTiltStrength:1.0
 highContrast:false
 highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:["vanilla","file/Grassrise-1.0.3-mc26.3.zip","punchy:punchy"]
+resourcePacks:["vanilla","punchy:punchy","continuity:default","subtle_effects:biome_color_water_particles","elytratrails:arrowtrails","elytratrails:allaytrails","elytratrails:xptrails","black_icons"]
 incompatibleResourcePacks:[]
 lang:en_us
 chatVisibility:0

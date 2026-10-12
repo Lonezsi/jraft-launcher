@@ -93,21 +93,10 @@
     "weaponmaster",
     "xso"
   ],
-  "resourcepacks": [
-    "grassrise"
-  ],
+  "resourcepacks": [],
   "shaderpacks": [
     "complementary-reimagined"
   ],
-  "enabledResourcepacks": [
-    "grassrise"
-  ],
-  "extra": [
-    {
-      "comment": "Grassrise - Better Lighting (CurseForge only). https://www.curseforge.com/minecraft/mc-mods/grassrise-better-lighting/files/8897806",
-      "path": "mods/grassrise-better-lighting-1.0.0+mc26.3.jar",
-      "url": "https://mediafilez.forgecdn.net/files/8897/806/grassrise-better-lighting-1.0.0%2Bmc26.3.jar",
-      "sha512": "8aacbd2d841c0c0f9d2237b3f3420ec22b6aa062b395dccacbc9ed651a7eadca89ee087e0964a930dc3b697deaacabdd56b16eb29c5fd43c108cdf914224274f"
-    }
-  ]
+  "enabledResourcepacks": [],
+  "extra": []
 }

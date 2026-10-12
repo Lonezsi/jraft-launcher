@@ -376,12 +376,6 @@
       "comment": "hYykXjDp 0.7.7+fix3+26.3"
     },
     {
-      "path": "mods/grassrise-better-lighting-1.0.0+mc26.3.jar",
-      "url": "https://mediafilez.forgecdn.net/files/8897/806/grassrise-better-lighting-1.0.0%2Bmc26.3.jar",
-      "sha512": "8aacbd2d841c0c0f9d2237b3f3420ec22b6aa062b395dccacbc9ed651a7eadca89ee087e0964a930dc3b697deaacabdd56b16eb29c5fd43c108cdf914224274f",
-      "comment": "Grassrise - Better Lighting (CurseForge only). https://www.curseforge.com/minecraft/mc-mods/grassrise-better-lighting/files/8897806"
-    },
-    {
       "path": "mods/immersiveoverlays-1.8.5+26.3-fabric.jar",
       "url": "https://cdn.modrinth.com/data/PKoLkD98/versions/4kNndntn/immersiveoverlays-1.8.5%2B26.3-fabric.jar",
       "sha512": "8af535d3f9c943144b0fab93e8e88b570871331df4e056e7fce8473a7975c931e3ac7d8a9b5e1774c699a240f86ca611dd0038cfec249ff62ee306c876c40127",
@@ -653,13 +647,6 @@
       "sha512": "f3957028dd31cae78f08aee3e768f61bd12c4c8423257d357bc3c1a2172047c769d37901f99775c7ffff1e5ee794025dc72738b2869cab06f1c2811841d68b24",
       "size": 1125377,
       "comment": "1eAoo2KR 3.9.7+26.3-fabric"
-    },
-    {
-      "path": "resourcepacks/Grassrise-1.0.3-mc26.3.zip",
-      "url": "https://cdn.modrinth.com/data/S5FvlY0N/versions/WFG9Lpck/Grassrise-1.0.3-mc26.3.zip",
-      "sha512": "8e03a816e982adb2059a2472c81efaf8616396486d17b7c6c3df87b5eccdad7377666a85a55492cd6a8a5c3d3890ef00a2821fbec55cce4668ef798747567d82",
-      "size": 35425,
-      "comment": "grassrise 1.0.3"
     },
     {
       "path": "shaderpacks/ComplementaryReimagined_r5.9.3.zip",
@@ -1140,12 +1127,10 @@
     },
     {
       "path": "options.txt",
-      "sha512": "6f363a902c43f91635d05fc820d847336fc9af5c3ac1d5b1b9dc8d8f7530b76910434d52ff8d251113b75056b496b9869e66df956d21d61bdc7c60c85d5a62f8"
+      "sha512": "0979055ab1b23a2a06381ef5d53d3df28a158efa97fce5322dd6be91223122571c2b845523255564e89514d795251e6a668da063b3298422f1b023db12e6a738"
     }
   ],
-  "resourcePacks": [
-    "file/Grassrise-1.0.3-mc26.3.zip"
-  ],
+  "resourcePacks": [],
   "skipped": [
     "fast-block-placement (no 26.3 build yet)",
     "item-landing-sound (no 26.3 build yet)",
