@@ -18,7 +18,7 @@ The app:
 
 The **first time**, Prism asks you to sign in with your Microsoft account. After that, running the app goes straight into the game. Prism downloads the right Java by itself.
 
-Everything lives in its own folder (`%APPDATA%\jraft` on Windows, `~/Library/Application Support/jraft` on Mac, `~/.local/share/jraft` on Linux). Your normal Minecraft worlds and settings aren't touched. Mods you add to `.minecraft/jraft/mods` yourself are left alone.
+Everything lives in its own folder (`%APPDATA%\jraft` on Windows, `~/Library/Application Support/jraft` on Mac, `~/.local/share/jraft` on Linux). Your normal Minecraft worlds and settings aren't touched. Mods you add to the instance's `mods` folder yourself are left alone.
 
 **Mac:** the first time, right-click the file, choose *Open*, then *Open* again (it isn't signed). If it won't run, open Terminal and run `chmod +x ~/Downloads/jraft-macos-*`.
 **Linux:** `chmod +x jraft-linux && ./jraft-linux`.
@@ -53,6 +53,6 @@ JRAFT_DIR=/tmp/jraft JRAFT_PACK_DIR=./pack JRAFT_NO_LAUNCH=1 go run ./cmd/jraft
 
 ## Not in the pack yet (no 26.3 build)
 
-Fast Block Placement, IPLA, Item Landing Sound, No Gaps In Yo Items, RP Renames, Sound Physics Perfected, Toast Control, Voxy. They're still in `pack.json`.
+Fast Block Placement, Item Landing Sound, No Gaps In Yo Items, RP Renames, Sound Physics Perfected, Toast Control, Voxy. They're still in `pack.json`.
 
-Dropped on purpose: Chisels & Bits (not on Modrinth), Physics Mod Pro (paid, so the free Physics Mod is used instead), Super Fast Math (not on Modrinth), Item Rename and Noisium (server-only). The original pack's custom resource packs aren't included.
+Dropped on purpose: Chisels & Bits (not on Modrinth), Physics Mod Pro (paid, so the free Physics Mod is used instead), Super Fast Math (not on Modrinth), server-side mods like Item Rename, Noisium, Lithium, C2ME, Clumps, Collective, Villager Names and IPLA (Simple Voice Chat stays, so put it on the server too). The original pack's custom resource packs aren't included.
