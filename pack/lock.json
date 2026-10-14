@@ -515,11 +515,11 @@
       "comment": "eXts2L7r 3.2.0+26.3"
     },
     {
-      "path": "mods/punchy-2.8f-fabric-26.3.jar",
-      "url": "https://cdn.modrinth.com/data/8aoMKplv/versions/WoLXq7Y9/punchy-2.8f-fabric-26.3.jar",
-      "sha512": "76f07125f853ec946cc2ae8786ff2901a6ba9ecd0cd016a0a2d0aabbc177a9b488a43593a918aa2394e67e5fa6900cecd5c2886ca038441cbddb1f4c841e6b1a",
-      "size": 2509477,
-      "comment": "punchy-fpa 2.8f"
+      "path": "mods/punchy-2.8e-fabric-26.3.jar",
+      "url": "https://cdn.modrinth.com/data/8aoMKplv/versions/X4yZP5Sy/punchy-2.8e-fabric-26.3.jar",
+      "sha512": "bff5aed0f7e71690ed7b98c216626d707229aa7bc9f90c359a4a459370ac833b4e2dedc5f20fda0add58b22e3baff02c60e6e228cf0e15717378f8a162df842a",
+      "size": 2463117,
+      "comment": "punchy-fpa 2.8e"
     },
     {
       "path": "mods/puzzleslib-v26.3.14-mc26.3.x+fabric.jar",
