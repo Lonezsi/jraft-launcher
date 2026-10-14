@@ -52,7 +52,8 @@ func getJSON(u string, v any) error {
 
 type resolver struct {
 	mc      string
-	seen    map[string]bool // project id or slug
+	pins    map[string]string // slug or project id -> version_number
+	seen    map[string]bool   // project id or slug
 	files   []pack.File
 	skipped []string
 }
@@ -81,6 +82,19 @@ func (r *resolver) resolve(idOrSlug, kind string) bool {
 		return false
 	}
 	v := versions[0]
+	if want, ok := r.pins[idOrSlug]; ok {
+		found := false
+		for _, c := range versions {
+			if c.VersionNum == want {
+				v, found = c, true
+				break
+			}
+		}
+		if !found {
+			r.skipped = append(r.skipped, idOrSlug+" (pinned version "+want+" not found)")
+			return false
+		}
+	}
 	if r.seen[v.ProjectID] {
 		r.seen[idOrSlug] = true
 		return true
@@ -148,7 +162,18 @@ func run() error {
 	}
 	fmt.Println("Fabric loader", lock.LoaderVersion)
 
-	r := &resolver{mc: src.Minecraft, seen: map[string]bool{}}
+	r := &resolver{mc: src.Minecraft, seen: map[string]bool{}, pins: map[string]string{}}
+	// A pin is written with the slug, but the project may first be reached as some
+	// other mod's dependency, which names it by id; so both point at the pin.
+	for slug, ver := range src.Pins {
+		r.pins[slug] = ver
+		var proj struct {
+			ID string `json:"id"`
+		}
+		if err := getJSON(modrinth+"/project/"+slug, &proj); err == nil && proj.ID != "" {
+			r.pins[proj.ID] = ver
+		}
+	}
 	for _, group := range []struct {
 		kind  string
 		slugs []string
