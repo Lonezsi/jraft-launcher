@@ -53,6 +53,7 @@ func getJSON(u string, v any) error {
 type resolver struct {
 	mc      string
 	pins    map[string]string // slug or project id -> version_number
+	ignore  map[string]bool   // dependency project ids to leave out
 	seen    map[string]bool   // project id or slug
 	files   []pack.File
 	skipped []string
@@ -76,6 +77,30 @@ func (r *resolver) resolve(idOrSlug, kind string) bool {
 	if err := getJSON(modrinth+"/project/"+idOrSlug+"/version?"+q.Encode(), &versions); err != nil {
 		r.skipped = append(r.skipped, fmt.Sprintf("%s (%v)", idOrSlug, err))
 		return false
+	}
+	// Resource packs are tagged far less carefully than mods, and one made for 26.2
+	// almost always works on 26.3: Minecraft just marks it "made for an older version"
+	// and loads it. So a pack with no exact build falls back to its newest build for
+	// any 26.x. Mods do not get this, because an older mod really does break.
+	if len(versions) == 0 && kind == "resourcepacks" {
+		var all []struct {
+			mrVersion
+			GameVersions []string `json:"game_versions"`
+		}
+		line := strings.SplitN(r.mc, ".", 2)[0] + "."
+		if getJSON(modrinth+"/project/"+idOrSlug+"/version", &all) == nil {
+			for _, v := range all {
+				for _, g := range v.GameVersions {
+					if strings.HasPrefix(g, line) && !strings.Contains(g, "-") {
+						versions = append(versions, v.mrVersion)
+						break
+					}
+				}
+				if len(versions) > 0 {
+					break
+				}
+			}
+		}
 	}
 	if len(versions) == 0 {
 		r.skipped = append(r.skipped, idOrSlug+" (no "+r.mc+" build yet)")
@@ -102,7 +127,7 @@ func (r *resolver) resolve(idOrSlug, kind string) bool {
 	r.seen[idOrSlug], r.seen[v.ProjectID] = true, true
 
 	for _, d := range v.Dependencies {
-		if d.Type == "required" && d.ProjectID != "" && !r.resolve(d.ProjectID, kind) {
+		if d.Type == "required" && d.ProjectID != "" && !r.ignore[d.ProjectID] && !r.resolve(d.ProjectID, kind) {
 			r.skipped = append(r.skipped, idOrSlug+" (missing required dependency "+d.ProjectID+")")
 			return false
 		}
@@ -150,7 +175,8 @@ func run() error {
 	if err := getJSON("https://meta.fabricmc.net/v2/versions/loader/"+src.Minecraft, &loaders); err != nil {
 		return err
 	}
-	lock := pack.Lock{Name: src.Name, Minecraft: src.Minecraft, JavaArgs: src.JavaArgs}
+	lock := pack.Lock{Name: src.Name, Minecraft: src.Minecraft, JavaArgs: src.JavaArgs,
+		ForceOverrides: src.ForceOverrides, OverridesRevision: src.OverridesRevision}
 	for _, l := range loaders {
 		if l.Loader.Stable {
 			lock.LoaderVersion = l.Loader.Version
@@ -162,7 +188,10 @@ func run() error {
 	}
 	fmt.Println("Fabric loader", lock.LoaderVersion)
 
-	r := &resolver{mc: src.Minecraft, seen: map[string]bool{}, pins: map[string]string{}}
+	r := &resolver{mc: src.Minecraft, seen: map[string]bool{}, pins: map[string]string{}, ignore: map[string]bool{}}
+	for _, id := range src.IgnoreDependencies {
+		r.ignore[id] = true
+	}
 	// A pin is written with the slug, but the project may first be reached as some
 	// other mod's dependency, which names it by id; so both point at the pin.
 	for slug, ver := range src.Pins {
@@ -188,6 +217,11 @@ func run() error {
 	lock.Skipped = r.skipped
 
 	for _, slug := range src.EnabledResourcepacks {
+		// A mod's built-in pack (continuity:default, punchy:punchy) is written by id.
+		if strings.Contains(slug, ":") {
+			lock.ResourcePacks = append(lock.ResourcePacks, slug)
+			continue
+		}
 		for _, f := range lock.Files {
 			if strings.HasPrefix(f.Path, "resourcepacks/") && strings.HasPrefix(f.Comment, slug+" ") {
 				lock.ResourcePacks = append(lock.ResourcePacks, "file/"+strings.TrimPrefix(f.Path, "resourcepacks/"))

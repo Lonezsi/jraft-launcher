@@ -3,7 +3,7 @@
   "minecraft": "26.3",
   "loader": "fabric",
   "javaArgs": "-XX:+UseZGC",
-  "comment": "Edit this file, then run: go run ./cmd/lockgen  (or the 'Update mods' GitHub Action). Entries with no 26.3 build are skipped with a warning and picked up automatically once they update. Client-side only: mods that need the server too are left out; libraries come in automatically as dependencies. Sodium is pinned to 0.9.2 because Grassrise Better Lighting only turns its shader support on with exactly that version.",
+  "comment": "Edit this file, then run: go run ./cmd/lockgen  (or the 'Update mods' GitHub Action). Entries with no 26.3 build are skipped with a warning and picked up automatically once they update. Client-side only: mods that need the server too are left out; libraries come in automatically as dependencies. Sodium is pinned to 0.9.2 because Grassrise Better Lighting only turns its shader support on with exactly that version. qjlkcVfy is the item model definition backport, which 26.3 has built in; two packs still list it as required.",
   "mods": [
     "3dskinlayers",
     "ambient-environment",
@@ -89,12 +89,45 @@
     "xso"
   ],
   "resourcepacks": [
-    "grassrise"
+    "grassrise",
+    "p1kls-3d-items",
+    "fresh-flowers-and-plants",
+    "refined-tools",
+    "refined-buckets",
+    "refined-torches",
+    "drigo-3d-lanterns-x-punchy",
+    "just-3d-potions",
+    "punched-better-fresher-3d-books",
+    "glowing-3d-armor",
+    "fyoncles-3d-trims",
+    "glowing-3d-totem",
+    "animated-3d-wind-charge-compatible-with-punchy",
+    "3d-flint-steel-for-punchy",
+    "punchy-swiming-fix",
+    "hyper-punchy"
   ],
   "shaderpacks": [
     "complementary-reimagined"
   ],
   "enabledResourcepacks": [
+    "continuity:default",
+    "continuity:glass_pane_culling_fix",
+    "p1kls-3d-items",
+    "fresh-flowers-and-plants",
+    "refined-tools",
+    "refined-buckets",
+    "refined-torches",
+    "drigo-3d-lanterns-x-punchy",
+    "just-3d-potions",
+    "punched-better-fresher-3d-books",
+    "glowing-3d-armor",
+    "fyoncles-3d-trims",
+    "glowing-3d-totem",
+    "animated-3d-wind-charge-compatible-with-punchy",
+    "3d-flint-steel-for-punchy",
+    "punchy:punchy",
+    "punchy-swiming-fix",
+    "hyper-punchy",
     "grassrise"
   ],
   "extra": [
@@ -107,5 +140,12 @@
   ],
   "pins": {
     "sodium": "mc26.3-0.9.2-fabric"
-  }
+  },
+  "forceOverrides": [
+    "config/cameraoverhaul.toml"
+  ],
+  "overridesRevision": 1,
+  "ignoreDependencies": [
+    "qjlkcVfy"
+  ]
 }

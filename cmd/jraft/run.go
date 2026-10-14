@@ -59,7 +59,7 @@ func run() error {
 		return err
 	}
 	checkForeignMods(gameDir, lock)
-	if err := writeDefaultOptions(gameDir, lock); err != nil {
+	if err := applyResourcePacks(gameDir, lock); err != nil {
 		return err
 	}
 	memMB := tune(dataDir, gameDir)

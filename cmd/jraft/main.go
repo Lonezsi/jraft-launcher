@@ -119,6 +119,8 @@ func exists(p string) bool {
 
 type state struct {
 	Files map[string]string `json:"files"` // path -> sha512 we installed
+	// OverridesRevision is the pack's forced-config revision last applied here.
+	OverridesRevision int `json:"overridesRevision,omitempty"`
 	// Stamps remember size and modification time of each verified file,
 	// so unchanged files don't have to be hashed again on every run.
 	Stamps map[string]string `json:"stamps,omitempty"`
@@ -163,7 +165,13 @@ func syncFiles(gameDir string, lock pack.Lock) error {
 		if err := pack.SafePath(f.Path); err != nil {
 			return err
 		}
-		if !exists(filepath.Join(gameDir, filepath.FromSlash(f.Path))) {
+		forced := false
+		if old.OverridesRevision < lock.OverridesRevision {
+			for _, p := range lock.ForceOverrides {
+				forced = forced || p == f.Path
+			}
+		}
+		if forced || !exists(filepath.Join(gameDir, filepath.FromSlash(f.Path))) {
 			jobs = append(jobs, job{f, rawURL("overrides/" + f.Path)})
 		}
 	}
@@ -219,7 +227,10 @@ func syncFiles(gameDir string, lock pack.Lock) error {
 	close(ch)
 	wg.Wait()
 
-	newState := state{Files: map[string]string{}, Stamps: map[string]string{}}
+	newState := state{Files: map[string]string{}, Stamps: map[string]string{}, OverridesRevision: old.OverridesRevision}
+	if len(errs) == 0 {
+		newState.OverridesRevision = lock.OverridesRevision
+	}
 	failed := map[string]bool{}
 	for _, e := range errs {
 		failed[strings.SplitN(e.Error(), ":", 2)[0]] = true
@@ -291,14 +302,74 @@ func tryDownload(url, dest, sha string, progress func(n, total int64)) error {
 	return os.Rename(tmp, dest)
 }
 
-// writeDefaultOptions turns on the pack's resource packs for a fresh install.
-func writeDefaultOptions(gameDir string, lock pack.Lock) error {
-	p := filepath.Join(gameDir, "options.txt")
-	if exists(p) || len(lock.ResourcePacks) == 0 {
+// applyResourcePacks writes the pack's resource packs into options.txt, in the pack's
+// order, whenever that list changes (and on a fresh install). Order matters: the last
+// pack wins, and Grassrise only shows when nothing above it replaces the grass models,
+// so the pack's last entry is kept on top. Packs the player turned on themselves are
+// kept, just below that top one.
+func applyResourcePacks(gameDir string, lock pack.Lock) error {
+	if len(lock.ResourcePacks) == 0 {
 		return nil
 	}
-	packs, _ := json.Marshal(append([]string{"vanilla"}, lock.ResourcePacks...))
-	return os.WriteFile(p, []byte("resourcePacks:"+string(packs)+"\n"), 0o644)
+	stampPath := filepath.Join(gameDir, ".jraft-packs")
+	stamp := strings.Join(lock.ResourcePacks, "\n")
+	optPath := filepath.Join(gameDir, "options.txt")
+	if b, err := os.ReadFile(stampPath); err == nil && string(b) == stamp && exists(optPath) {
+		return nil
+	}
+
+	lines := readLines(optPath)
+	var current, incompatible []string
+	for _, l := range lines {
+		if v, ok := strings.CutPrefix(l, "resourcePacks:"); ok {
+			json.Unmarshal([]byte(v), &current)
+		}
+		if v, ok := strings.CutPrefix(l, "incompatibleResourcePacks:"); ok {
+			json.Unmarshal([]byte(v), &incompatible)
+		}
+	}
+	ours := map[string]bool{"vanilla": true}
+	for _, p := range lock.ResourcePacks {
+		ours[p] = true
+	}
+	// Packs from an earlier version of the pack list are dropped too, so a pack taken
+	// out of the pack is also turned off. Only file/ packs are ever ours.
+	previous := map[string]bool{}
+	if b, err := os.ReadFile(stampPath); err == nil {
+		for _, p := range strings.Split(string(b), "\n") {
+			previous[p] = true
+		}
+	}
+	var extras []string
+	for _, p := range current {
+		if !ours[p] && !previous[p] {
+			extras = append(extras, p)
+		}
+	}
+	top := lock.ResourcePacks[len(lock.ResourcePacks)-1]
+	order := append([]string{"vanilla"}, lock.ResourcePacks[:len(lock.ResourcePacks)-1]...)
+	order = append(append(order, extras...), top)
+
+	// Packs made for an older 26.x are "incompatible" to Minecraft, which turns them
+	// off at startup unless they are listed here, the list the game itself keeps for
+	// packs a player said yes to.
+	seenInc := map[string]bool{}
+	for _, p := range incompatible {
+		seenInc[p] = true
+	}
+	for _, p := range lock.ResourcePacks {
+		if strings.HasPrefix(p, "file/") && !seenInc[p] {
+			incompatible = append(incompatible, p)
+		}
+	}
+	rp, _ := json.Marshal(order)
+	ip, _ := json.Marshal(incompatible)
+	setOptions(optPath, ":", map[string]string{
+		"resourcePacks":             string(rp),
+		"incompatibleResourcePacks": string(ip),
+	})
+	logf("Turned on %d resource packs, %s on top", len(lock.ResourcePacks), strings.TrimPrefix(top, "file/"))
+	return os.WriteFile(stampPath, []byte(stamp), 0o644)
 }
 
 type progressReader struct {

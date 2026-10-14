@@ -487,11 +487,11 @@
       "comment": "eXts2L7r 3.2.0+26.3"
     },
     {
-      "path": "mods/punchy-2.8e-fabric-26.3.jar",
-      "url": "https://cdn.modrinth.com/data/8aoMKplv/versions/X4yZP5Sy/punchy-2.8e-fabric-26.3.jar",
-      "sha512": "bff5aed0f7e71690ed7b98c216626d707229aa7bc9f90c359a4a459370ac833b4e2dedc5f20fda0add58b22e3baff02c60e6e228cf0e15717378f8a162df842a",
-      "size": 2463117,
-      "comment": "punchy-fpa 2.8e"
+      "path": "mods/punchy-2.8f-fabric-26.3.jar",
+      "url": "https://cdn.modrinth.com/data/8aoMKplv/versions/WoLXq7Y9/punchy-2.8f-fabric-26.3.jar",
+      "sha512": "76f07125f853ec946cc2ae8786ff2901a6ba9ecd0cd016a0a2d0aabbc177a9b488a43593a918aa2394e67e5fa6900cecd5c2886ca038441cbddb1f4c841e6b1a",
+      "size": 2509477,
+      "comment": "punchy-fpa 2.8f"
     },
     {
       "path": "mods/puzzleslib-v26.3.14-mc26.3.x+fabric.jar",
@@ -627,11 +627,151 @@
       "comment": "1eAoo2KR 3.9.7+26.3-fabric"
     },
     {
+      "path": "resourcepacks/3D Flint \u0026 Steel for Punchy.zip",
+      "url": "https://cdn.modrinth.com/data/HprzSiqB/versions/oJUygH2s/3D%20Flint%20%26%20Steel%20for%20Punchy.zip",
+      "sha512": "22ba45bf0c5e16b10ac5e6af5d1ee42750b290a9335e2c90a2a39d7f8748b5e69570b0524aa9dd7ee2e0b85f8559ab032b5a02b777dd8a2b61bb658e28a927f3",
+      "size": 1810370,
+      "comment": "3d-flint-steel-for-punchy 26.3"
+    },
+    {
+      "path": "resourcepacks/Animated 3D Wind Charge [1.1].zip",
+      "url": "https://cdn.modrinth.com/data/EHP4vB6U/versions/vihG9Bf4/Animated%203D%20Wind%20Charge%20%5B1.1%5D.zip",
+      "sha512": "3af0ffc3d73b3818c62d8d2488ad1964c96ad8c014353d2a82786a52220ed9b25dd958895f4f3b8b41be2b6f91126d45d881553210e414b3b16f0bef897e051e",
+      "size": 75852,
+      "comment": "animated-3d-wind-charge-compatible-with-punchy 1.1"
+    },
+    {
+      "path": "resourcepacks/Drigo 3D Lantern's x Punchy.zip",
+      "url": "https://cdn.modrinth.com/data/X4S78Ho4/versions/BQlvm0K1/Drigo%203D%20Lantern%27s%20x%20Punchy.zip",
+      "sha512": "673e34e700e426b1afceae00fd4ad9e66f953503877a32717ca8515aaa4f8a9ca1d3b8c77853a7f7d2bb14ce8ba13459df187b372ffde2156779d1ad2cb01390",
+      "size": 5849277,
+      "comment": "drigo-3d-lanterns-x-punchy 26.1.2"
+    },
+    {
+      "path": "resourcepacks/Fresh Flowers and Plants.zip",
+      "url": "https://cdn.modrinth.com/data/wyzOam9h/versions/MQ2mDJwU/Fresh%20Flowers%20and%20Plants.zip",
+      "sha512": "aaab5469d9356c8475339f77051571ab0b49eb17b7a58ccb78033ed9d82b8a8f73f844f41176ae6094f01c1a14de53e74df8fa3aad98e36409f60726bfd4c6c3",
+      "size": 846940,
+      "comment": "fresh-flowers-and-plants 1.4.10"
+    },
+    {
+      "path": "resourcepacks/Fyoncle's 3D Trims.zip",
+      "url": "https://cdn.modrinth.com/data/Ik3Z3RFx/versions/G6jdCgwE/Fyoncle%27s%203D%20Trims.zip",
+      "sha512": "ec23dab932d5dd4a798d49742e01f47439a6c1f85a7db247e045affa53408d14ca77509c04d2453b33ee1907232aba809e4c957c59422be2fadd2335680634d7",
+      "size": 208306,
+      "comment": "fyoncles-3d-trims 6.0"
+    },
+    {
+      "path": "resourcepacks/Glowing 3D Armor.zip",
+      "url": "https://cdn.modrinth.com/data/WkLr6o3M/versions/WbHrIUvT/Glowing%203D%20Armor.zip",
+      "sha512": "a4e809ab28ccea77dff846093cacb08be5e749b752a7af29aebdb8932dcb2675ef6d85aa7d3f5d5d28234cf46f2a2cad799ef166a4fc01c11ffe6c43ade24d35",
+      "size": 738192,
+      "comment": "glowing-3d-armor 1.2"
+    },
+    {
+      "path": "resourcepacks/Glowing 3D Totem.zip",
+      "url": "https://cdn.modrinth.com/data/LGnScTVE/versions/wecQLOUJ/Glowing%203D%20Totem.zip",
+      "sha512": "54660770b55ffaefd948432e16c4d4dfc09451c97c968088d4ea86ad3f2bd395910d03bd598535c481fb26cbb1f3f4d57f86a0384a9a87f22df28f0eca4f39ee",
+      "size": 139189,
+      "comment": "glowing-3d-totem 1.3.2"
+    },
+    {
       "path": "resourcepacks/Grassrise-1.0.3-mc26.3.zip",
       "url": "https://cdn.modrinth.com/data/S5FvlY0N/versions/WFG9Lpck/Grassrise-1.0.3-mc26.3.zip",
       "sha512": "8e03a816e982adb2059a2472c81efaf8616396486d17b7c6c3df87b5eccdad7377666a85a55492cd6a8a5c3d3890ef00a2821fbec55cce4668ef798747567d82",
       "size": 35425,
       "comment": "grassrise 1.0.3"
+    },
+    {
+      "path": "resourcepacks/HyperPunchy-v2.5+.zip",
+      "url": "https://cdn.modrinth.com/data/NVBMhec4/versions/nJiwz3lJ/HyperPunchy-v2.5%2B.zip",
+      "sha512": "2b1595691787671544dc1a32eba6c6700b7968a49de3441dde445122b078f0e8afd30ad4dbb4f4afbb71f48ca152f2bec9eacceeff7d2a78bb5e98e3b81dbebe",
+      "size": 1193703,
+      "comment": "hyper-punchy 2.5"
+    },
+    {
+      "path": "resourcepacks/Just 3D Potions.zip",
+      "url": "https://cdn.modrinth.com/data/elBxAvkW/versions/2UHFzGd5/Just%203D%20Potions.zip",
+      "sha512": "04f6b4cfc1a2430b45efa51ac02b9c47467db916ad01a2d66dd5c1a56eb72bc2b73ee117e19df25c4391e715feaf602703ff8aa726715e7d1fcac421fd748a18",
+      "size": 388215,
+      "comment": "just-3d-potions 1.1(26.1x)"
+    },
+    {
+      "path": "resourcepacks/Punched Better, Fresher 3D books.zip",
+      "url": "https://cdn.modrinth.com/data/tII5F49c/versions/qXChDBWP/Punched%20Better%2C%20Fresher%203D%20books.zip",
+      "sha512": "8b38989cd7385aa0d44953309ca3d8fa1f6716cdd9899a2eb408e79d71daefcc1e4d4a8661f9562bb19c612858866c1e232d5038456060ab4a891365761f394c",
+      "size": 135790,
+      "comment": "punched-better-fresher-3d-books 1.0.0"
+    },
+    {
+      "path": "resourcepacks/Punchy Fix Swimming.zip",
+      "url": "https://cdn.modrinth.com/data/3gVQbJ6U/versions/MPapteuB/Punchy%20Fix%20Swimming.zip",
+      "sha512": "4c91670b1e0f2c1c030320452c94614ebb72fe92e8c7d397bb38415f713ef8677265b8b291d8e39c79e75b17c7f4c80482722998cc357a9f831810742e6c5022",
+      "size": 35066,
+      "comment": "punchy-swiming-fix 0.1"
+    },
+    {
+      "path": "resourcepacks/Refined Buckets 2.4.1.zip",
+      "url": "https://cdn.modrinth.com/data/l2nl8HQJ/versions/IDRASEyH/Refined%20Buckets%202.4.1.zip",
+      "sha512": "905cb033c439d4078dff4de76a0e9b7b46fb9a10d43607b32a624d6cb4189c003a17eddc690e5408a5cf5afd84052b99b94ba6a780e0387c7c43833b27f382f8",
+      "size": 1147677,
+      "comment": "refined-buckets 2.4.1"
+    },
+    {
+      "path": "resourcepacks/Refined Tools 3.0.zip",
+      "url": "https://cdn.modrinth.com/data/6l1WUegn/versions/ndAFoNmO/Refined%20Tools%203.0.zip",
+      "sha512": "0b874e634c89a2ebbf24f2658890b6d20d83974d5c0779ea3e9f655d58cb01922ff91bf374db1f872a77a3e359e3eb9184ce5107b6f3949947176715e0fe3d9b",
+      "size": 952724,
+      "comment": "refined-tools 3.0"
+    },
+    {
+      "path": "resourcepacks/connector-3.1.0-beta.2+26.2-full.jar",
+      "url": "https://cdn.modrinth.com/data/u58R1TMW/versions/n0TvO0jS/connector-3.1.0-beta.2%2B26.2-full.jar",
+      "sha512": "7a9bec15e6b5accb58f022aa8532174ae7c3404d0013942ae832bbad685bcab4ffbd148cca6c0ebbca2c300bed6c01514b38288cd6e16c28e35bc34eab23cecd",
+      "size": 1004109,
+      "comment": "u58R1TMW 3.1.0-beta.2+26.2"
+    },
+    {
+      "path": "resourcepacks/forgified-fabric-api-0.161.0+26.2+4.0.1.jar",
+      "url": "https://cdn.modrinth.com/data/Aqlf1Shp/versions/DHDjBGkU/forgified-fabric-api-0.161.0%2B26.2%2B4.0.1.jar",
+      "sha512": "8aa6fe8904624ac40542a88acab323205c474b40477e20fbef85455c907288cd5a44f82ca498d9d566131d91fe6c63248e990647d5d2f36f141e74e41b18dc5c",
+      "size": 3033926,
+      "comment": "Aqlf1Shp 0.161.0+26.2+4.0.1"
+    },
+    {
+      "path": "resourcepacks/launchpad-1.10.1+26.2-full.jar",
+      "url": "https://cdn.modrinth.com/data/voWgQoWV/versions/fS4WGZ2B/launchpad-1.10.1%2B26.2-full.jar",
+      "sha512": "932027252f892b077a4d58bc84a3c502af9fe2aaa5289c61696436b794b7f090f49afaaf3349ed488ddeb060159e644538246b561e949df912bcdd2e26254c5e",
+      "size": 464472,
+      "comment": "voWgQoWV 1.10.1+26.2"
+    },
+    {
+      "path": "resourcepacks/polytone-26.3-6.8.6-neoforge.jar",
+      "url": "https://cdn.modrinth.com/data/3qAYkBMB/versions/m5htxrkS/polytone-26.3-6.8.6-neoforge.jar",
+      "sha512": "7335d7b00ca3591a3abb57cb6b4825744399c7c762fe28086f98599432ab737082f610d34446e8604e8796060b16b194feb73b7c9e1efcfa1f3847f98ee7edcf",
+      "size": 1682935,
+      "comment": "3qAYkBMB 26.3-6.8.6-alpha"
+    },
+    {
+      "path": "resourcepacks/refined torches 2.1.zip",
+      "url": "https://cdn.modrinth.com/data/M6aa729D/versions/e7EW6ibn/refined%20torches%202.1.zip",
+      "sha512": "0e0b7379c26523003e0c0084c0c1fa5b529bdec16c78552937769effae7a4855427a86fd3f91af252e601eb4c4992fa0537b76a721c32ef19ae37ad33065d069",
+      "size": 1704477,
+      "comment": "refined-torches 2.1"
+    },
+    {
+      "path": "resourcepacks/§2p1kl's 3D Items§r§0.zip",
+      "url": "https://cdn.modrinth.com/data/GkQMxGSm/versions/GaCryZnJ/%C2%A72p1kl%27s%203D%20Items%C2%A7r%C2%A70.zip",
+      "sha512": "86a642adad6942a26d35c8857c245ed4f4b087ec9fd074ea205143e30297820081821884271c299e52b24b4bb408336ccfa7ba0a6f7d5a29f23177eccc2c9b30",
+      "size": 2094840,
+      "comment": "p1kls-3d-items v4.0-hotfix-2"
+    },
+    {
+      "path": "resourcepacks/§aBetter Fresher 3D Books v1.5.1.zip",
+      "url": "https://cdn.modrinth.com/data/PuwwhnS7/versions/PxP0VCwq/%C2%A7aBetter%20Fresher%203D%20Books%20v1.5.1.zip",
+      "sha512": "36b69ac746f050af3ddda3e8251aa8e703d54465d139ffb67497ba27661d1f01ba60a5699aef14bffaf86a136f74cb935fac4e55b0a145f92885bdb92ec3ce62",
+      "size": 732893,
+      "comment": "PuwwhnS7 1.5.1"
     },
     {
       "path": "shaderpacks/ComplementaryReimagined_r5.9.3.zip",
@@ -648,7 +788,7 @@
     },
     {
       "path": "config/DistantHorizons.toml",
-      "sha512": "6d38f3c9525d983a907f348eed664ff8140d76a9accc081b89f8184db9c965415ec63985060636988e0d8161a42477dae2e00063cf222e98b53d123e8d23a119"
+      "sha512": "a363ed3f0625c30c1774f83f2b5d6912b26fdee1105f96121eda9ab029e23e98323ec8eb5f6d9be5815ab4b09afc3754950b18442323e1bafcee312d477ecad3"
     },
     {
       "path": "config/MouseTweaks.cfg",
@@ -656,7 +796,7 @@
     },
     {
       "path": "config/NoChatReports/NCR-Client.json",
-      "sha512": "65bda4cbc60702e9122501493c18f48fb0fd504dff7b507c6fd2e62aa9fc9f75c1e2dac4d6b1e6a3d29eb16c9452bee3dc474a343de1b461357297171050e384"
+      "sha512": "417b617bb3ee2692208d8680238d9c9c437c4e0cdc8299ff4ed2c2883123b6eabee33d9085736421e9b3e8804cfbd5b936614e7be10704cfcaf53cd36f066978"
     },
     {
       "path": "config/NoChatReports/NCR-Common.json",
@@ -679,12 +819,20 @@
       "sha512": "852d2da60470fa1ed2474c8de33008d65239666f291bb578c1275f7b296867ed533e87a5c54abb3ecb08f2d09b97a080c34bad7f791f5e1a73f56d63275f2e09"
     },
     {
+      "path": "config/badoptimizations.txt",
+      "sha512": "32eb792cbbae2a58fd510354a514a4cf7243d2dc0dca87eb67e0d41731d056b3289db8460505802ad2d89ad6167d65bf350a5459c0e57602fa7992334ac40618"
+    },
+    {
       "path": "config/cameraoverhaul.toml",
-      "sha512": "052676c919e977de39fec56bbf12b4b9e24eeb9d57cbaafa4102ea0c5e92ef23dcaf16a2fd7546928180f895fc9a7315866e4902609a25ca8feef29aac9c9b93"
+      "sha512": "7024ad998672b9b92ae049bd2722609c92dd98e07540ccb54e5db623fc6c1fc751c50c8c9ed697cadd80a17ab64ecb120d25a6bb89b5efeda4c0a5e628b1cdb9"
     },
     {
       "path": "config/cardinal-components-api.properties",
       "sha512": "03eb025757260aec750d8a4bdee77c2a0e83f1b22e579d062fb299b78c5e71fe5af9e5e6a80f65c947dfd480c95c8b1ef8484db706908017538c74a107cff918"
+    },
+    {
+      "path": "config/cbbg.json",
+      "sha512": "750e9f3304a0fe61317f575247d3fa36c0079f2f19b182981e3cd13703829271607150917fd3d83ae3662f94a15664ded35307c3dbce473aca142ec5ce0a923d"
     },
     {
       "path": "config/chat_heads.json5",
@@ -756,7 +904,7 @@
     },
     {
       "path": "config/euphoria_patcher/.data.json",
-      "sha512": "051da1819ebb096db593bf55710e1bc276b0fc8de6c3d0de1230972af5767c350d6bdc4be9c1ac1819e6e6a636db69d3d8f23df61bf9574a0f8a433fb0991fd3"
+      "sha512": "f718c767ff040ff552ab8f754cffb208bf0d8fbfa4b9c1d6c5044288adf2bd54c85240c176ec3187cd771dabe0f9d5c9a613860679e539ad81dceda13b1c0716"
     },
     {
       "path": "config/euphoria_patcher/settings.toml",
@@ -764,7 +912,7 @@
     },
     {
       "path": "config/fabric/indigo-renderer.properties",
-      "sha512": "aa085c49cbd18544e0e20eea1f25d577e0c052a6ce8f939028ef62d6690383648fc7ca9efbcd68b1f92b63e7ef061727346b53f06b2d466fc6849e77f6ed9d83"
+      "sha512": "94542027d3cdb268b39689137567fde7cae35328b84cf771c4b978505ac74e9edfb4097c94ebdd7012b615011b77c482dd437d099941623ce39b37072e3852cc"
     },
     {
       "path": "config/fallingleaves2.json",
@@ -780,7 +928,7 @@
     },
     {
       "path": "config/firstperson.json",
-      "sha512": "8b8828a18d4ca3c573bace7441ba11607838d7446656894310665028beb3e9c060c837dc72f133daead4885e91acea002ff2b57bdacdac924a3db95d2abcd8c6"
+      "sha512": "d39f774a8ff5aff1d8dbe83e8db83ee18c5741c65ac809018ef52ac1b2e63986da3a1f51b7cd501a680b3d28ac6d5096da6c4c6f51c61af714620f3c71c761e2"
     },
     {
       "path": "config/footprintparticle.json",
@@ -807,12 +955,16 @@
       "sha512": "e002e9ed561a878cbbc4c0dfc268c07c6c9d6428a2a8a2dd1dbc79627c3a6027aab9289a186560bbc5c2eb14aa692a5347d0d0fdebe81e92e35c18500c10ca45"
     },
     {
+      "path": "config/inventory_interactions.json5",
+      "sha512": "051275978cd497d36557b12b4a46172cdf7cd083b604eda0b3fbcfe05bf35325e6d22be935f447cc854a1ee91c9f6d5125b4dbfe7232bb3bed5e6e41569c25f0"
+    },
+    {
       "path": "config/inventory_particles.json5",
       "sha512": "4cca390698cdab3aeaa4ea7018304f0f0a4976104f1f524d39d8e9e8ac7c6bfd44ca35292d9d3aa917311deb43f3d4aeffb23a600e45c977d978b94099624b3f"
     },
     {
       "path": "config/invmove/unrecognized.json",
-      "sha512": "2bd713a550195a6d1afafe5d4ad2e2279a7eab0543453b9e94376f3776e2dd10b6ac0613e192503fce647e661876f1df4fa7b90b3b971e4e4f3ea72d9bc2377c"
+      "sha512": "cfa5cfb0bb6eccbca5182b356c562f5eed4e1a31b709209d4ec3a2c2d097f6c2c5b0737f6efdd46a4180794c4fd57089481c4602ee9e826b35591b6a5d98e914"
     },
     {
       "path": "config/invmove/vanilla.json",
@@ -828,7 +980,7 @@
     },
     {
       "path": "config/iris.properties",
-      "sha512": "88e4fe2256e818616a5b8dc88e5c786e2561c1a7a83fbd48ddd60a8fecba36a0c845f62948e8f900ec1c6cb3a4503bc14b9f70d3f15d9d72f66053eb48d1bdf8"
+      "sha512": "ca09bf404b6deeb5986abb187575e178da13e44bf4e3894e146338b46a37cf6fd102f4fb79021567a4bce4548e7eb7c913680ae77b34a6907d1e1ab2b9d44cb6"
     },
     {
       "path": "config/itemphysiclite-client.json",
@@ -892,15 +1044,15 @@
     },
     {
       "path": "config/packed_packs/config.json",
-      "sha512": "2eec93379d1a43c4521b8ad52abc0b885fd8210a3f904b7016762344ea89ef4815363cfda62f76dfdbb7c490fee53531a3232fefcff4576e22a6d3b162f6a3a4"
+      "sha512": "ff22fb8cf386ad04bb9c30e43383d6be91b5e413d5bfb95cfaa800c2ea93ba7629328a8ed35be7d95285415d240fbeca6ff4cfbe35fb8f7e8a475de6f7ff8a65"
     },
     {
       "path": "config/packed_packs/config.meta.json",
-      "sha512": "68cc8e5183c50ff64345681a2f8fe0b461fa6835737baaf81359c7d570543b500e7b12d5857bf4db9b1a1a3c04c9c1385f77d9c4ea51216196ac2309165d9933"
+      "sha512": "4c46ec3f5e3a995929b998fa7648e557760b31c6d7df745d4d795e67733ef6fa9e5296887f2c29f6c495dbe53006f7814453ab696e84326a47aedb7307ee7e88"
     },
     {
       "path": "config/packed_packs/preferences.properties",
-      "sha512": "64ee066993422091449f8966797737272aa2917edf54419a090ce26d127770e3a58fbd3bb5a31dcec3ba31bb300479d20571c861270d2da1fc9a8bee1e702fab"
+      "sha512": "4800f9cd1ea063e1f2e266cdb60800966d2dae41ad78722fa0acc9fa869cff03019197a680c7a794e5b92b6868bcc609cef4b33dad505706db2e3a08fb1e6aeb"
     },
     {
       "path": "config/packed_packs/profiles/resourcepacks/main-2026-04-06_14-12-37.953.profile.json",
@@ -940,11 +1092,15 @@
     },
     {
       "path": "config/punchy/profiles/.active_profile",
-      "sha512": "1054d231c8581a13f4048bee4d62aafbae7e60b5d530b88c52527b7f5431f15986c099507731c9a468f7321680680a6e60f15922a2fc35983b90ce37cae1d864"
+      "sha512": "812393f8377dec5bf71abd48da94e739301686afba9da795a532293ea14f7e293f8b1ea6fbd1d3921610e0f5d0748e1a19a28ceb3b3a82870e0befa0bd529799"
     },
     {
       "path": "config/punchy/profiles/Main.json",
-      "sha512": "07f4ef9a6c3edf867cefcafcf2435f4cbf5f1da499b00b491696d10236319ddb0e3e7d6aaefe6e92dc7a7d6c1d0c44f559c652d937bd7979c5ca0e629c3393d6"
+      "sha512": "6bc95f2f0afda34e9b1b603bc0694eb498dabe4d11a62dd1b16f2fef60c43c5fecb2fb95598ed3e0c549b384b1ff382507ec74af87fa97b9387195c8ab636294"
+    },
+    {
+      "path": "config/punchy/profiles/THIS_ONE.json",
+      "sha512": "8045bd3347b56f75873f2ff3fa9c4fc87648e51f2b904aa390561b5296139f97a97c75e8fbf04af279e5ad408ad38746d72b4fadb1d4945f64be46d1e890a72e"
     },
     {
       "path": "config/punchy/profiles/small.json",
@@ -956,7 +1112,7 @@
     },
     {
       "path": "config/punchy/punchy_config.json",
-      "sha512": "6d1f5bd194b5f18ba1fc8bb98510cfe1610d41400d4129d867a5857281c714e2ab71333c3a2ef2a18e7e32228eb22a0ba45a21d20a297449a1a77d35a03a29b0"
+      "sha512": "cdb9ac72c10a6f0a360a7ec10fcd60cb47b196b9da3525b1eb9462c55339c7a2dcac72b381d5409e58a35469ff8331ae1bc17777fe62b76566eb6a536fecdb78"
     },
     {
       "path": "config/punchy/punchy_tuning.json",
@@ -981,6 +1137,10 @@
     {
       "path": "config/rrls.toml",
       "sha512": "7389b673a7b11c156af8f3459cff1f921c4a8da0402b285368c1f88f85a227264c40d199001df8bccf2683fc85fcec5974188dabadc8fcdfd1de6b620eccabc4"
+    },
+    {
+      "path": "config/scalablelux.properties",
+      "sha512": "c8fd6cae9de5713771bea7588d34713dffb11229893b19cd14a1d498c0ffd07c711fd34a6172d71bb5a3fd5cd786670b1814d56d6c529c19c862dc954d233f2a"
     },
     {
       "path": "config/scribble.client.json",
@@ -1040,7 +1200,7 @@
     },
     {
       "path": "config/subtle_effects/blocks.toml",
-      "sha512": "e7f2b69f723fc86f051685f3af93318e3c3e07467c1e23f6bb059693a1ecafaa4749538c9314ada3fb9cb7fb29055f198cc1b8d0c35f4fa898ff22335ad0244a"
+      "sha512": "894bf94b868db0af7d0187a3ea4f651a234a8aa7227182bdd8536022070886187616ad102ef5aa39781165a8750c6888ac21f0222911dfffa7b5da69675c9a44"
     },
     {
       "path": "config/subtle_effects/entities.toml",
@@ -1088,7 +1248,7 @@
     },
     {
       "path": "config/weaponmaster_ydm_config.properties",
-      "sha512": "fe577943bd14c892c0d04904cf1ea1826dc29f3c54bc46f87d81843200b31d0bf877c48f70e2c2c087f1c683043db698de70db410874ae416920c1c300e45342"
+      "sha512": "69c7eb2cae6b16085ccf55d9b5249ba0702e779683edee7db90574d13aa5ae2417d99ced6fef438fe25c70b91f4b4c23795f70357982209b0a1ad80a46cecf39"
     },
     {
       "path": "config/xanders-sodium-options.json",
@@ -1100,12 +1260,34 @@
     },
     {
       "path": "options.txt",
-      "sha512": "c5c75ef27a40bb03b87afe335ca01e7f5493262b26c86d01d45c30ea681e866bdbe56392db0965b405a1cfedc14af75784026c380a8ebe261472e694b35c4e72"
+      "sha512": "3338aea44dbd81b81ce911ebcffe5b5010dcfa559fa49c307d724146a1e0fef7d02bb169f9266e8dfe50ab3182ed3f18f075e7303e34dcc4d9e43932fb42de30"
     }
   ],
   "resourcePacks": [
+    "continuity:default",
+    "continuity:glass_pane_culling_fix",
+    "file/§2p1kl's 3D Items§r§0.zip",
+    "file/Fresh Flowers and Plants.zip",
+    "file/Refined Tools 3.0.zip",
+    "file/Refined Buckets 2.4.1.zip",
+    "file/refined torches 2.1.zip",
+    "file/Drigo 3D Lantern's x Punchy.zip",
+    "file/Just 3D Potions.zip",
+    "file/Punched Better, Fresher 3D books.zip",
+    "file/Glowing 3D Armor.zip",
+    "file/Fyoncle's 3D Trims.zip",
+    "file/Glowing 3D Totem.zip",
+    "file/Animated 3D Wind Charge [1.1].zip",
+    "file/3D Flint \u0026 Steel for Punchy.zip",
+    "punchy:punchy",
+    "file/Punchy Fix Swimming.zip",
+    "file/HyperPunchy-v2.5+.zip",
     "file/Grassrise-1.0.3-mc26.3.zip"
   ],
+  "forceOverrides": [
+    "config/cameraoverhaul.toml"
+  ],
+  "overridesRevision": 1,
   "skipped": [
     "fast-block-placement (no 26.3 build yet)",
     "item-landing-sound (no 26.3 build yet)",
