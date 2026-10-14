@@ -25,6 +25,7 @@
     "distanthorizons",
     "dripsounds",
     "dynamic-fps",
+    "effectual",
     "elytra-contrails-mod",
     "elytra-physics",
     "entity-model-features",
@@ -43,10 +44,12 @@
     "immediatelyfast",
     "immersive-overlays",
     "incendium",
+    "inspect-animations",
     "inventory-particles",
     "invmove",
     "iris",
     "item-landing-sound",
+    "lambdynamiclights",
     "lightoverlay",
     "make_bubbles_pop",
     "modernfix-mvus",
@@ -104,7 +107,9 @@
     "animated-3d-wind-charge-compatible-with-punchy",
     "3d-flint-steel-for-punchy",
     "punchy-swiming-fix",
-    "hyper-punchy"
+    "hyper-punchy",
+    "fresh-animations",
+    "fresh-animations-extensions"
   ],
   "shaderpacks": [
     "complementary-reimagined"
@@ -112,6 +117,8 @@
   "enabledResourcepacks": [
     "continuity:default",
     "continuity:glass_pane_culling_fix",
+    "fresh-animations",
+    "fresh-animations-extensions",
     "p1kls-3d-items",
     "fresh-flowers-and-plants",
     "refined-tools",

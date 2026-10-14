@@ -173,6 +173,13 @@
       "comment": "appleskin 3.0.10+mc26.3"
     },
     {
+      "path": "mods/architectury-fabric-22.0.5.jar",
+      "url": "https://cdn.modrinth.com/data/lhGA9TYQ/versions/1pMaB6So/architectury-fabric-22.0.5.jar",
+      "sha512": "14c61af2088b80b465f06edd3b3005038fa5be1c95a2161ce712c8da408a358038b7cd7ae4acf3198f6d47c693e4fdf65d646dac7e124f7cdd7f32bbc0dcd0ce",
+      "size": 622542,
+      "comment": "lhGA9TYQ 22.0.5+fabric"
+    },
+    {
       "path": "mods/better-trees-2.0.0.jar",
       "url": "https://cdn.modrinth.com/data/cfXIpi12/versions/xoBqxOVe/better-trees-2.0.0.jar",
       "sha512": "857770176846aaf101390ad47f1ceea58ea27b692fab88f40513e3fcd45439a92bb0cad145fdf9c7362ec1a0eb6950178a167bd2abb9bb3e7c6982142d9818e9",
@@ -248,6 +255,13 @@
       "sha512": "7976d11411babfa3ac0c38898f26ee6192f22a4f595b637eeae3cc5185f326c0e4b9fd7d00b3d7e8d020dd861295f0df52f9a9d7c67e88946d0ba9fff4a9f894",
       "size": 189474,
       "comment": "dynamic-fps 3.11.10"
+    },
+    {
+      "path": "mods/effectual-fabric-1.4.2-26.3.jar",
+      "url": "https://cdn.modrinth.com/data/OoF97Pto/versions/LJUNgffX/effectual-fabric-1.4.2-26.3.jar",
+      "sha512": "870b933b43f8cd73a77c061941a97c86dda611997ea8e58178299c51862693b4abf1a44191143058fb028c91cef98a68d695e6fe4c604f999e6777e7afe8ea5b",
+      "size": 328864,
+      "comment": "effectual 1.4.2-26.3"
     },
     {
       "path": "mods/elytra_physics-fabric-2.6.3_mc26.3.jar",
@@ -368,11 +382,25 @@
       "comment": "immersive-overlays 1.8.5+26.3-fabric"
     },
     {
+      "path": "mods/inspectanimations-0.2.5-fabric+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/fRpkaLG9/versions/4Nikjm1F/inspectanimations-0.2.5-fabric%2B26.3.jar",
+      "sha512": "742a04b5c70ecbe2185954a6764b93bd6e615dd7e478e2c733b20b845694cc0c35a86909f45cd4a38a79d71f0f09f33299c751bb2de7509e21cf9fbf19a87432",
+      "size": 116811,
+      "comment": "inspect-animations 0.2.5-fabric+26.3"
+    },
+    {
       "path": "mods/iris-fabric-1.11.7+mc26.3.jar",
       "url": "https://cdn.modrinth.com/data/YL57xq9U/versions/vTN4NRGW/iris-fabric-1.11.7%2Bmc26.3.jar",
       "sha512": "d8d3312f77fc52a48e4a6cd836fda33669bdebcb4de0b8c0d30adc808b287330a533e0baef355cc1ce6336a26851d9775369a802a4666b7b7a6266af20088f42",
       "size": 2850938,
       "comment": "iris 1.11.7+26.3-fabric"
+    },
+    {
+      "path": "mods/lambdynamiclights-4.13.0+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/yBW8D80W/versions/rylKnJ4M/lambdynamiclights-4.13.0%2B26.3.jar",
+      "sha512": "67c37ca7d619bd7f2b0dc02217070c20e34fb3bb3363d4e23f5ef9ca90b1b58adb223fab73639a3499d366497316f1eb297d2759f3ffb976467b4759f784619d",
+      "size": 1345715,
+      "comment": "lambdynamiclights 4.13.0+26.3"
     },
     {
       "path": "mods/libjf-26.3.1.jar",
@@ -414,7 +442,7 @@
       "url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/kyy7dbrZ/modmenu-21.0.0.jar",
       "sha512": "588c0c557963f4778572ee81bfafc190b332c26d5926c5fe7e3e1614dcf8e14f58e3bc80a97694521dd05907e9753a7c8575048ea769e4dbf40a3db74a4e2606",
       "size": 856779,
-      "comment": "modmenu 21.0.0"
+      "comment": "mOgUt4GM 21.0.0"
     },
     {
       "path": "mods/moreculling-fabric-26.3-1.9.0.jar",
@@ -578,6 +606,13 @@
       "comment": "tectonic 3.0.31-fabric-26.3"
     },
     {
+      "path": "mods/tlib-fabric-1.5.0-26.3.jar",
+      "url": "https://cdn.modrinth.com/data/sBn7rVvc/versions/4shvVPZP/tlib-fabric-1.5.0-26.3.jar",
+      "sha512": "297d3c0ae2d5baa1967092a9b72ebfd90b78ecba5254563d989be32cb82d65f195352e8ddea25ddd555e7670b2e384f77913d41038cdc4defd3d60a4e8e34c02",
+      "size": 231814,
+      "comment": "sBn7rVvc 1.5.0-26.3"
+    },
+    {
       "path": "mods/tree-vein-miner-4.3.2.jar",
       "url": "https://cdn.modrinth.com/data/wEhW4ceB/versions/dZmWRxVs/tree-vein-miner-4.3.2.jar",
       "sha512": "052eca259e3a6ecb658391e1dcc8e312c54fa7abf10083b484f6f4e21b1ee1fbfef4785c366b61cba4485c184145404bab422ac2f0759a10858f8c33abc2a9c3",
@@ -648,11 +683,25 @@
       "comment": "drigo-3d-lanterns-x-punchy 26.1.2"
     },
     {
+      "path": "resourcepacks/FA+All_Extensions-v1.9.2.zip",
+      "url": "https://cdn.modrinth.com/data/YAVTU8mK/versions/R5ZGSF8A/FA%2BAll_Extensions-v1.9.2.zip",
+      "sha512": "3c4ab508aba2bbb79b5d73caa7bac77f2caca075dbe09f64f8af35851ae04a41d81973a268ed5b99c75efe60db9d69715e4e01838410b55e1224a6ce856286cd",
+      "size": 380622,
+      "comment": "fresh-animations-extensions 1.9.2"
+    },
+    {
       "path": "resourcepacks/Fresh Flowers and Plants.zip",
       "url": "https://cdn.modrinth.com/data/wyzOam9h/versions/MQ2mDJwU/Fresh%20Flowers%20and%20Plants.zip",
       "sha512": "aaab5469d9356c8475339f77051571ab0b49eb17b7a58ccb78033ed9d82b8a8f73f844f41176ae6094f01c1a14de53e74df8fa3aad98e36409f60726bfd4c6c3",
       "size": 846940,
       "comment": "fresh-flowers-and-plants 1.4.10"
+    },
+    {
+      "path": "resourcepacks/FreshAnimations_v1.10.5.zip",
+      "url": "https://cdn.modrinth.com/data/50dA9Sha/versions/RGIzA5em/FreshAnimations_v1.10.5.zip",
+      "sha512": "f4f2a1d294c2e0afe245b6987fea4a84ff120f131a7f2cfb16779e9cc5d0a00b3d49bf1585ac827d6690c36421e8dda203b0c6e642bb0c6aa067c5921dd8dc30",
+      "size": 645816,
+      "comment": "fresh-animations 1.10.5"
     },
     {
       "path": "resourcepacks/Fyoncle's 3D Trims.zip",
@@ -1266,6 +1315,8 @@
   "resourcePacks": [
     "continuity:default",
     "continuity:glass_pane_culling_fix",
+    "file/FreshAnimations_v1.10.5.zip",
+    "file/FA+All_Extensions-v1.9.2.zip",
     "file/§2p1kl's 3D Items§r§0.zip",
     "file/Fresh Flowers and Plants.zip",
     "file/Refined Tools 3.0.zip",
