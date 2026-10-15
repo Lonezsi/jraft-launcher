@@ -149,12 +149,15 @@ type preset struct {
 var presets = map[string]preset{
 	tierLow: {
 		options: map[string]string{
-			"renderDistance": "6", "simulationDistance": "5", "graphicsPreset": `"custom"`,
+			"renderDistance": "3", "simulationDistance": "3", "graphicsPreset": `"custom"`,
 			"cutoutLeaves": "false", "improvedTransparency": "false", "biomeBlendRadius": "0",
 			"entityShadows": "false", "particles": "1", "renderClouds": `"false"`,
 			"weatherRadius": "5", "chunkSectionFadeInTime": "0", "entityDistanceScaling": "0.75",
 			"mipmapLevels": "2", "enableVsync": "false", "maxFps": "60",
 		},
+		// Distant Horizons on even here: a few real chunks plus cheap LODs draw faster
+		// than more real chunks, and look much further.
+		dh: true, dhRadius: 64, dhQuality: "LOW",
 	},
 	tierMedium: {
 		options: map[string]string{
@@ -182,7 +185,7 @@ var presets = map[string]preset{
 	},
 }
 
-const presetRevision = "3"
+const presetRevision = "4"
 
 // tune applies the preset for this PC if it hasn't been applied yet (or the
 // graphics card changed). It returns the memory to give Minecraft.
@@ -199,7 +202,8 @@ func tune(dataDir, gameDir string) int {
 	// Horizons' generator: a laptop copy of the configs had left SURFACE_ONLY in place.
 	// Raised to 3 when they started choosing its thread count, which the same copy had
 	// pinned at the laptop's 1: one thread on Tectonic and Terralith terrain builds far
-	// terrain so slowly that it looked like none was being built at all.
+	// terrain so slowly that it looked like none was being built at all. Raised to 4
+	// when the low preset switched Distant Horizons on with 3 real chunks instead of 6.
 	key := presetRevision + "|" + tier + "|" + gpu
 	if p.Tuned != key {
 		applyPreset(gameDir, presets[tier], hw.Cores, tier)
@@ -245,6 +249,14 @@ func applyPreset(gameDir string, p preset, cores int, tier string) {
 		}
 		if threads < 2 {
 			threads = 2
+		}
+		// A weak PC builds its far terrain slowly either way; one thread on a small
+		// CPU keeps that work from taking cores the game itself needs.
+		if tier == tierLow {
+			threads = 1
+			if cores > 4 {
+				threads = 2
+			}
 		}
 		dh["numberOfThreads"] = strconv.Itoa(threads)
 		// Pausing while moving quickly is what a weak PC wants. On a strong one it
