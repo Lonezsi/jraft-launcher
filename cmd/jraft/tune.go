@@ -182,7 +182,7 @@ var presets = map[string]preset{
 	},
 }
 
-const presetRevision = "2"
+const presetRevision = "3"
 
 // tune applies the preset for this PC if it hasn't been applied yet (or the
 // graphics card changed). It returns the memory to give Minecraft.
@@ -196,11 +196,13 @@ func tune(dataDir, gameDir string) int {
 	logf("PC: %s, %.0f GB RAM, %d threads -> %s preset", orUnknown(gpu), hw.RAM, hw.Cores, tier)
 	// The revision is part of the key so that a change to the presets themselves reaches
 	// PCs that were already tuned. Raised to 2 when the presets started choosing Distant
-	// Horizons' generator: a laptop copy of the configs had left SURFACE_ONLY in place,
-	// which drew no far terrain at all on the pack's modded world generation.
+	// Horizons' generator: a laptop copy of the configs had left SURFACE_ONLY in place.
+	// Raised to 3 when they started choosing its thread count, which the same copy had
+	// pinned at the laptop's 1: one thread on Tectonic and Terralith terrain builds far
+	// terrain so slowly that it looked like none was being built at all.
 	key := presetRevision + "|" + tier + "|" + gpu
 	if p.Tuned != key {
-		applyPreset(gameDir, presets[tier])
+		applyPreset(gameDir, presets[tier], hw.Cores, tier)
 		p.Tuned = key
 		savePrefs(dataDir, p)
 		logf("Applied %s graphics settings for this PC", tier)
@@ -216,7 +218,7 @@ func orUnknown(s string) string {
 	return s
 }
 
-func applyPreset(gameDir string, p preset) {
+func applyPreset(gameDir string, p preset, cores int, tier string) {
 	cfg := filepath.Join(gameDir, "config")
 	setOptions(filepath.Join(gameDir, "options.txt"), ":", p.options)
 	setOptions(filepath.Join(cfg, "iris.properties"), "=", map[string]string{"enableShaders": strconv.FormatBool(p.shaders)})
@@ -234,6 +236,20 @@ func applyPreset(gameDir string, p preset) {
 		// DH's own surface generator is approximate on modded terrain (Tectonic and
 		// Terralith reshape it), so let it fill in with real chunks afterwards.
 		dh["generatorPlan"] = `"SURFACE_THEN_CHUNKS"`
+		// Far terrain is built on these threads, and modded world generation is slow
+		// per chunk, so a stronger PC gets more of them. A third of the CPU leaves the
+		// game itself room on a mid-range machine; high and up get half.
+		threads := cores / 3
+		if tier == tierHigh || tier == tierUltra {
+			threads = cores / 2
+		}
+		if threads < 2 {
+			threads = 2
+		}
+		dh["numberOfThreads"] = strconv.Itoa(threads)
+		// Pausing while moving quickly is what a weak PC wants. On a strong one it
+		// means flying out to look at the horizon stops the horizon being built.
+		dh["pauseIfMovingQuickly"] = strconv.FormatBool(!(tier == tierHigh || tier == tierUltra))
 	}
 	setTOML(filepath.Join(cfg, "DistantHorizons.toml"), dh, map[string]string{
 		"rendererMode":                 "client.advanced.debugging",
@@ -242,6 +258,8 @@ func applyPreset(gameDir string, p preset) {
 		"verticalQuality":              "client.advanced.graphics.quality",
 		"enableSsao":                   "client.advanced.graphics",
 		"generatorPlan":                "common.worldGenerator",
+		"numberOfThreads":              "common.multiThreading",
+		"pauseIfMovingQuickly":         "common.worldGenerator",
 	})
 }
 
