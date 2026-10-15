@@ -781,34 +781,6 @@
       "comment": "refined-tools 3.0"
     },
     {
-      "path": "resourcepacks/connector-3.1.0-beta.2+26.2-full.jar",
-      "url": "https://cdn.modrinth.com/data/u58R1TMW/versions/n0TvO0jS/connector-3.1.0-beta.2%2B26.2-full.jar",
-      "sha512": "7a9bec15e6b5accb58f022aa8532174ae7c3404d0013942ae832bbad685bcab4ffbd148cca6c0ebbca2c300bed6c01514b38288cd6e16c28e35bc34eab23cecd",
-      "size": 1004109,
-      "comment": "u58R1TMW 3.1.0-beta.2+26.2"
-    },
-    {
-      "path": "resourcepacks/forgified-fabric-api-0.161.0+26.2+4.0.1.jar",
-      "url": "https://cdn.modrinth.com/data/Aqlf1Shp/versions/DHDjBGkU/forgified-fabric-api-0.161.0%2B26.2%2B4.0.1.jar",
-      "sha512": "8aa6fe8904624ac40542a88acab323205c474b40477e20fbef85455c907288cd5a44f82ca498d9d566131d91fe6c63248e990647d5d2f36f141e74e41b18dc5c",
-      "size": 3033926,
-      "comment": "Aqlf1Shp 0.161.0+26.2+4.0.1"
-    },
-    {
-      "path": "resourcepacks/launchpad-1.10.1+26.2-full.jar",
-      "url": "https://cdn.modrinth.com/data/voWgQoWV/versions/fS4WGZ2B/launchpad-1.10.1%2B26.2-full.jar",
-      "sha512": "932027252f892b077a4d58bc84a3c502af9fe2aaa5289c61696436b794b7f090f49afaaf3349ed488ddeb060159e644538246b561e949df912bcdd2e26254c5e",
-      "size": 464472,
-      "comment": "voWgQoWV 1.10.1+26.2"
-    },
-    {
-      "path": "resourcepacks/polytone-26.3-6.8.6-neoforge.jar",
-      "url": "https://cdn.modrinth.com/data/3qAYkBMB/versions/m5htxrkS/polytone-26.3-6.8.6-neoforge.jar",
-      "sha512": "7335d7b00ca3591a3abb57cb6b4825744399c7c762fe28086f98599432ab737082f610d34446e8604e8796060b16b194feb73b7c9e1efcfa1f3847f98ee7edcf",
-      "size": 1682935,
-      "comment": "3qAYkBMB 26.3-6.8.6-alpha"
-    },
-    {
       "path": "resourcepacks/refined torches 2.1.zip",
       "url": "https://cdn.modrinth.com/data/M6aa729D/versions/e7EW6ibn/refined%20torches%202.1.zip",
       "sha512": "0e0b7379c26523003e0c0084c0c1fa5b529bdec16c78552937769effae7a4855427a86fd3f91af252e601eb4c4992fa0537b76a721c32ef19ae37ad33065d069",
@@ -844,7 +816,7 @@
     },
     {
       "path": "config/DistantHorizons.toml",
-      "sha512": "a363ed3f0625c30c1774f83f2b5d6912b26fdee1105f96121eda9ab029e23e98323ec8eb5f6d9be5815ab4b09afc3754950b18442323e1bafcee312d477ecad3"
+      "sha512": "4744bff3415395ebc15fbb9ab58be7d44aa70f44449326f181d5e6657be3790ac50d3bcb9a9fcf51a4ad81bdb3dce49bfd7e358633bf6ac40a23a0649392fac4"
     },
     {
       "path": "config/MouseTweaks.cfg",

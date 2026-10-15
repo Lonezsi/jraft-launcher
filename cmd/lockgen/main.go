@@ -72,6 +72,11 @@ func (r *resolver) resolve(idOrSlug, kind string) bool {
 		q.Set("loaders", `["fabric"]`)
 	case "shaderpacks":
 		q.Set("loaders", `["iris"]`)
+	case "resourcepacks":
+		// "minecraft" is Modrinth's loader for resource packs. Without it a pack's
+		// listed dependencies resolve to whatever files those projects have, which for
+		// some is a NeoForge mod jar landing in resourcepacks/.
+		q.Set("loaders", `["minecraft"]`)
 	}
 	var versions []mrVersion
 	if err := getJSON(modrinth+"/project/"+idOrSlug+"/version?"+q.Encode(), &versions); err != nil {
@@ -88,7 +93,7 @@ func (r *resolver) resolve(idOrSlug, kind string) bool {
 			GameVersions []string `json:"game_versions"`
 		}
 		line := strings.SplitN(r.mc, ".", 2)[0] + "."
-		if getJSON(modrinth+"/project/"+idOrSlug+"/version", &all) == nil {
+		if getJSON(modrinth+"/project/"+idOrSlug+"/version?loaders="+url.QueryEscape(`["minecraft"]`), &all) == nil {
 			for _, v := range all {
 				for _, g := range v.GameVersions {
 					if strings.HasPrefix(g, line) && !strings.Contains(g, "-") {
@@ -127,7 +132,16 @@ func (r *resolver) resolve(idOrSlug, kind string) bool {
 	r.seen[idOrSlug], r.seen[v.ProjectID] = true, true
 
 	for _, d := range v.Dependencies {
-		if d.Type == "required" && d.ProjectID != "" && !r.ignore[d.ProjectID] && !r.resolve(d.ProjectID, kind) {
+		if d.Type != "required" || d.ProjectID == "" || r.ignore[d.ProjectID] {
+			continue
+		}
+		// A resource pack that lists a mod as required (Polytone, say) still works
+		// without it in this pack, or the mod is already in mods/; it is not a reason
+		// to drop the pack, and the mod is not a resource pack to download.
+		if kind == "resourcepacks" && !r.isResourcePack(d.ProjectID) {
+			continue
+		}
+		if !r.resolve(d.ProjectID, kind) {
 			r.skipped = append(r.skipped, idOrSlug+" (missing required dependency "+d.ProjectID+")")
 			return false
 		}
@@ -147,6 +161,14 @@ func (r *resolver) resolve(idOrSlug, kind string) bool {
 	})
 	fmt.Printf("  %-32s %s\n", idOrSlug, v.VersionNum)
 	return true
+}
+
+// isResourcePack asks Modrinth what kind of project an id is.
+func (r *resolver) isResourcePack(id string) bool {
+	var p struct {
+		Type string `json:"project_type"`
+	}
+	return getJSON(modrinth+"/project/"+id, &p) == nil && p.Type == "resourcepack"
 }
 
 func main() {

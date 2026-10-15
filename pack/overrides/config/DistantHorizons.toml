@@ -310,7 +310,7 @@ _version = 5
 		# 
 		# DISABLED 
 		# No distant terrain will be generated.
-		generatorPlan = "SURFACE_ONLY"
+		generatorPlan = "SURFACE_THEN_CHUNKS"
 		#
 		# If true and the player/camera is moving quickly 
 		# Distant Horizons will pause world gen to improve loading speed 

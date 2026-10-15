@@ -182,6 +182,8 @@ var presets = map[string]preset{
 	},
 }
 
+const presetRevision = "2"
+
 // tune applies the preset for this PC if it hasn't been applied yet (or the
 // graphics card changed). It returns the memory to give Minecraft.
 func tune(dataDir, gameDir string) int {
@@ -192,7 +194,11 @@ func tune(dataDir, gameDir string) int {
 		tier = p.Preset
 	}
 	logf("PC: %s, %.0f GB RAM, %d threads -> %s preset", orUnknown(gpu), hw.RAM, hw.Cores, tier)
-	key := tier + "|" + gpu
+	// The revision is part of the key so that a change to the presets themselves reaches
+	// PCs that were already tuned. Raised to 2 when the presets started choosing Distant
+	// Horizons' generator: a laptop copy of the configs had left SURFACE_ONLY in place,
+	// which drew no far terrain at all on the pack's modded world generation.
+	key := presetRevision + "|" + tier + "|" + gpu
 	if p.Tuned != key {
 		applyPreset(gameDir, presets[tier])
 		p.Tuned = key
@@ -225,6 +231,9 @@ func applyPreset(gameDir string, p preset) {
 		dh["horizontalQuality"] = `"` + p.dhQuality + `"`
 		dh["verticalQuality"] = `"` + p.dhQuality + `"`
 		dh["enableSsao"] = strconv.FormatBool(p.shaders)
+		// DH's own surface generator is approximate on modded terrain (Tectonic and
+		// Terralith reshape it), so let it fill in with real chunks afterwards.
+		dh["generatorPlan"] = `"SURFACE_THEN_CHUNKS"`
 	}
 	setTOML(filepath.Join(cfg, "DistantHorizons.toml"), dh, map[string]string{
 		"rendererMode":                 "client.advanced.debugging",
@@ -232,6 +241,7 @@ func applyPreset(gameDir string, p preset) {
 		"horizontalQuality":            "client.advanced.graphics.quality",
 		"verticalQuality":              "client.advanced.graphics.quality",
 		"enableSsao":                   "client.advanced.graphics",
+		"generatorPlan":                "common.worldGenerator",
 	})
 }
 
