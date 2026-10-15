@@ -54,6 +54,13 @@
       "comment": "OsZiaDHq 2.14.19"
     },
     {
+      "path": "mods/Distant Horizons SeedGen 0.9.1 for 26.3 Fabric.jar",
+      "url": "https://cdn.modrinth.com/data/iUGLCJTI/versions/7hGTqcL4/Distant%20Horizons%20SeedGen%200.9.1%20for%2026.3%20Fabric.jar",
+      "sha512": "9910277c6615a0e542e9ecd2a8ef184a0c076b249deff5fb94e2643883d121df1abefb455e1866848ff3e7fb98e9daddcd4e3c9934704f572fb5c015b15241c0",
+      "size": 1368099,
+      "comment": "distant-horizons-seedgen 0.9.1"
+    },
+    {
       "path": "mods/DistantHorizons-3.3.4-26.3-fabric-neoforge.jar",
       "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/TGgEbP9A/DistantHorizons-3.3.4-26.3-fabric-neoforge.jar",
       "sha512": "0b90b1b08d99974bfc3c8e86b2ceb252e2f91715ed66b925004c28335fb44e1bddbbb6b8043e4d4d53c87ed247789cd1788b1ba4e3f4394efe154e0c59cff236",
@@ -278,11 +285,11 @@
       "comment": "elytra-contrails-mod 1.6.8-26.3"
     },
     {
-      "path": "mods/entity_model_features-3.3.11-26.3-fabric.jar",
-      "url": "https://cdn.modrinth.com/data/4I1XuqiY/versions/N7d5LddE/entity_model_features-3.3.11-26.3-fabric.jar",
-      "sha512": "0c9a074518d01e4947adf7b5a9547c35f806bf936a51c721c4dd4c53517f61a7f4d3a8b66340521cd2aa564eb322826fe0c8003197635500f777a7ae9c6673f7",
-      "size": 664472,
-      "comment": "entity-model-features 3.3.11-fabric-26.3"
+      "path": "mods/entity_model_features-3.3.12-26.3-fabric.jar",
+      "url": "https://cdn.modrinth.com/data/4I1XuqiY/versions/vF6qLXsA/entity_model_features-3.3.12-26.3-fabric.jar",
+      "sha512": "4572fc065e757264947aff35a96d17d5e45d4b43e8e385b9a207f5380a8f43da5dbf8e10f30a7bc7cc4c0c8f7999717b4dd22d325667bdf8a0de6e839ad81efc",
+      "size": 665386,
+      "comment": "entity-model-features 3.3.12-fabric-26.3"
     },
     {
       "path": "mods/entity_sound_features-0.8.2-26.1-fabric.jar",
@@ -292,11 +299,11 @@
       "comment": "esf 0.8.2-fabric-26.1"
     },
     {
-      "path": "mods/entity_texture_features-7.2.5-26.3-fabric.jar",
-      "url": "https://cdn.modrinth.com/data/BVzZfTc1/versions/O8J3sxxp/entity_texture_features-7.2.5-26.3-fabric.jar",
-      "sha512": "6b03e523f27f0f001de48eaf771f81fba18cd072f60c0f9530023a7fdbd22aafa0953f3d3f9704930a625c982831e28c228798b82579e79938bb22fb46e59761",
-      "size": 792734,
-      "comment": "BVzZfTc1 7.2.5-fabric-26.3"
+      "path": "mods/entity_texture_features-7.2.6-26.3-fabric.jar",
+      "url": "https://cdn.modrinth.com/data/BVzZfTc1/versions/OOEycXyN/entity_texture_features-7.2.6-26.3-fabric.jar",
+      "sha512": "21ef9e7640a2e1e06f5dba10bcf830d6410255e9fdd204504f021c6e3c697d1b86203089b5b21dd99821a2b5f1a237ac4c798f3287562f160786572d6756c4ff",
+      "size": 793054,
+      "comment": "BVzZfTc1 7.2.6-fabric-26.3"
     },
     {
       "path": "mods/entityculling-fabric-1.11.3-mc26.3.jar",
@@ -522,11 +529,11 @@
       "comment": "punchy-fpa 2.8e"
     },
     {
-      "path": "mods/puzzleslib-v26.3.14-mc26.3.x+fabric.jar",
-      "url": "https://cdn.modrinth.com/data/QAGBst4M/versions/7SSd41Tf/puzzleslib-v26.3.14-mc26.3.x%2Bfabric.jar",
-      "sha512": "48a9a77a8c0bb3a0aa0738d1a36c3a185d561494d9cfebd23199f0643d557fdc4571073cd974af2a6ad81b7c9b381d5b1baf9c1249380123acec7af99a7d0d9a",
-      "size": 1092880,
-      "comment": "QAGBst4M 26.3.14"
+      "path": "mods/puzzleslib-v26.3.15-mc26.3.x+fabric.jar",
+      "url": "https://cdn.modrinth.com/data/QAGBst4M/versions/68hLXNWE/puzzleslib-v26.3.15-mc26.3.x%2Bfabric.jar",
+      "sha512": "de3f32b109c6305190b13e5526b98c9840348f33cb786b3d94a9566a337f73bb8d8e27aad6214f795ad0fa71a4889ca93fe11161386fd57ad703c6ef2c94abae",
+      "size": 1093312,
+      "comment": "QAGBst4M 26.3.15"
     },
     {
       "path": "mods/resourcepackoverrides-v26.3.0-mc26.3.x+fabric.jar",
