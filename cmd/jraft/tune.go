@@ -263,9 +263,34 @@ func applyPreset(gameDir string, p preset, cores int, tier string) {
 	})
 }
 
+// fixDHGenerator undoes one combination that is never wanted: Distant Horizons drawing
+// LODs with its generator plan set to DISABLED. Nothing far away is ever generated then,
+// and SeedGen reads that same plan, so it stops too. It turned up on a test laptop,
+// probably from the in-game menu, and looked exactly like "DH doesn't work with our
+// world generation".
+func fixDHGenerator(gameDir string) {
+	path := filepath.Join(gameDir, "config", "DistantHorizons.toml")
+	lines := readLines(path)
+	renderOn, genOff := true, false
+	for _, l := range lines {
+		t := strings.ReplaceAll(strings.TrimSpace(l), " ", "")
+		if t == `rendererMode="DISABLED"` {
+			renderOn = false
+		}
+		if t == `generatorPlan="DISABLED"` {
+			genOff = true
+		}
+	}
+	if renderOn && genOff {
+		setTOML(path, map[string]string{"generatorPlan": `"SURFACE_THEN_CHUNKS"`}, nil)
+		logf("Distant Horizons was set to draw far terrain but never generate it; turned generation back on")
+	}
+}
+
 // applyAlways enforces settings every run: no Distant Horizons self-updates
 // (the launcher manages mod versions) and no first-time chat messages.
 func applyAlways(gameDir string) {
+	fixDHGenerator(gameDir)
 	cfg := filepath.Join(gameDir, "config")
 	setTOML(filepath.Join(cfg, "DistantHorizons.toml"), map[string]string{
 		"enableAutoUpdater":                                    "false",
