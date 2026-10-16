@@ -180,6 +180,13 @@
       "comment": "lhGA9TYQ 22.0.5+fabric"
     },
     {
+      "path": "mods/baguettelib-26.3-Fabric-2.0.8.jar",
+      "url": "https://cdn.modrinth.com/data/OfKzpbRU/versions/T7PHIuOE/baguettelib-26.3-Fabric-2.0.8.jar",
+      "sha512": "d20b4f1483deb4031404885f45bb96788b891b60dcc6b4917586c993c6cbae385ad7cd45cfe8b05e9f57985f697b5ac090457474bce95ef04039713f6be77d4a",
+      "size": 106523,
+      "comment": "OfKzpbRU 2.0.8"
+    },
+    {
       "path": "mods/better-trees-2.0.0.jar",
       "url": "https://cdn.modrinth.com/data/cfXIpi12/versions/xoBqxOVe/better-trees-2.0.0.jar",
       "sha512": "857770176846aaf101390ad47f1ceea58ea27b692fab88f40513e3fcd45439a92bb0cad145fdf9c7362ec1a0eb6950178a167bd2abb9bb3e7c6982142d9818e9",
@@ -501,6 +508,13 @@
       "comment": "particle-rain v4.0.2+26.3-fabric"
     },
     {
+      "path": "mods/particular-26.3-Fabric-1.5.7.jar",
+      "url": "https://cdn.modrinth.com/data/pYFUU6cq/versions/erj2kjMs/particular-26.3-Fabric-1.5.7.jar",
+      "sha512": "01b656a45a6c31bd96ff513badd741696cf22860ef51b43d640a5fd6510298469c8cb32df59624fa3abfa04e2e2f5a37667b361f932c11a3648ee56b3904997a",
+      "size": 287956,
+      "comment": "particular-reforged 1.5.7"
+    },
+    {
       "path": "mods/placeholder-api-3.2.0+26.3.jar",
       "url": "https://cdn.modrinth.com/data/eXts2L7r/versions/lXytLqWj/placeholder-api-3.2.0%2B26.3.jar",
       "sha512": "eb2bb31e51068aad2581b7864ea7b11b1209ba1c2b27551cd5837d9b312b818b73bb47c06374b46b99b73401c62c6b6c115f702c55aed6afd467ad8ad6448de4",
@@ -569,6 +583,13 @@
       "sha512": "f8e4ddad9aa14339a15a9c6d70819d5045220fe56a2d03d87fd3eb3b4d312df93e24b99d892aacdc175f16de15a1024f87066478ad06d819792494f46b204594",
       "size": 56076,
       "comment": "smart-particles 1.16.0"
+    },
+    {
+      "path": "mods/sodium-extra-fabric-0.9.4+mc26.3.jar",
+      "url": "https://cdn.modrinth.com/data/PtjYWJkn/versions/te2y9qZn/sodium-extra-fabric-0.9.4%2Bmc26.3.jar",
+      "sha512": "a2e8d8416a556b7a351460a06407119eaba62f06636377001720bbda9b797dc881b2bb4528fb75a0459fee34475db529858633b6b86b545a72d0f13cf3c2b7bb",
+      "size": 465553,
+      "comment": "sodium-extra mc26.3-0.9.4+fabric"
     },
     {
       "path": "mods/sodium-fabric-0.9.2+mc26.3.jar",
@@ -662,6 +683,13 @@
       "comment": "3d-flint-steel-for-punchy 26.3"
     },
     {
+      "path": "resourcepacks/Actually 3D Stuff.zip",
+      "url": "https://cdn.modrinth.com/data/405SacPR/versions/4V80raWR/Actually%203D%20Stuff.zip",
+      "sha512": "59f982bf8a48d10d0b3330fe91defdceb460a83ae2934b3947402f709574a27f263554745d502c7368bfdc5633f1cf300bcdbef8af711f620b8a10317218c84e",
+      "size": 2935691,
+      "comment": "actually-3d-stuff 1.5"
+    },
+    {
       "path": "resourcepacks/Animated 3D Wind Charge [1.1].zip",
       "url": "https://cdn.modrinth.com/data/EHP4vB6U/versions/vihG9Bf4/Animated%203D%20Wind%20Charge%20%5B1.1%5D.zip",
       "sha512": "3af0ffc3d73b3818c62d8d2488ad1964c96ad8c014353d2a82786a52220ed9b25dd958895f4f3b8b41be2b6f91126d45d881553210e414b3b16f0bef897e051e",
@@ -669,11 +697,42 @@
       "comment": "animated-3d-wind-charge-compatible-with-punchy 1.1"
     },
     {
+      "path": "resourcepacks/Better-Leaves-9.6.zip",
+      "url": "https://cdn.modrinth.com/data/uvpymuxq/versions/w4ReEpuG/Better-Leaves-9.6.zip",
+      "sha512": "793dacaca4c200656e8875195e42975ecb628af114e13aad2059368b51cf45f00280f86075368e9adf492e847718a9d593bdf481664e10cf1aa9628d2a51a8d6",
+      "size": 1977146,
+      "comment": "better-leaves 9.6"
+    },
+    {
+      "path": "resourcepacks/Connected-Paths 26.2-26.3 v3.1.1.zip",
+      "url": "https://cdn.modrinth.com/data/Nyfj98b5/versions/Ta2igb3Q/Connected-Paths%2026.2-26.3%20v3.1.1.zip",
+      "sha512": "f0b04106f9a89220afb2bd3c5f4462488e9b3e23c24a929acb1e8b0e6c3d0f5e1f1f472149140b26ebd29f87ef6afe7ac55eae12675e254f4f2ea47871bed6a8",
+      "size": 589906,
+      "comment": "connected-paths 3.1.1+mc26.2-26.3"
+    },
+    {
       "path": "resourcepacks/Fresh Flowers and Plants.zip",
       "url": "https://cdn.modrinth.com/data/wyzOam9h/versions/MQ2mDJwU/Fresh%20Flowers%20and%20Plants.zip",
       "sha512": "aaab5469d9356c8475339f77051571ab0b49eb17b7a58ccb78033ed9d82b8a8f73f844f41176ae6094f01c1a14de53e74df8fa3aad98e36409f60726bfd4c6c3",
       "size": 846940,
       "comment": "fresh-flowers-and-plants 1.4.10",
+      "strip": [
+        "26.3/assets/minecraft/items/"
+      ]
+    },
+    {
+      "path": "resourcepacks/Fresh Food punchy fix.zip",
+      "url": "https://cdn.modrinth.com/data/I8c5dpiA/versions/c8Tqet2G/Fresh%20Food%20punchy%20fix.zip",
+      "sha512": "41bfc350ca77a8417317fc2b598a4172b46efcccfa10698871c53628da8a247c03b505b1783a632bb536e52343cf4717e7baf68bfe658baa4e169abeb11d1264",
+      "size": 9697,
+      "comment": "fresh-food-punchy-fix Release!"
+    },
+    {
+      "path": "resourcepacks/Fresh Food.zip",
+      "url": "https://cdn.modrinth.com/data/UoLAbzII/versions/zgUA58EZ/Fresh%20Food.zip",
+      "sha512": "a0e151d95dc6eaa7a4b2f22d31201b83177a171443a7057c23099356d77577f5f0f8b44f59ffd833553b511679801c7a256c3a9f2613a1e1aacb895c245d14ed",
+      "size": 1401467,
+      "comment": "fresh-food 1.3.6",
       "strip": [
         "26.3/assets/minecraft/items/"
       ]
@@ -700,6 +759,13 @@
       "comment": "glowing-3d-armor 1.2"
     },
     {
+      "path": "resourcepacks/Grass Clovers.zip",
+      "url": "https://cdn.modrinth.com/data/fSCYd3AA/versions/sH7d0MUh/Grass%20Clovers.zip",
+      "sha512": "7932f96da8d2f17c356821e2f822c3923a7d364656ea053ba1f7391fd34af5e57ef3820bf0ff16c14f77b3fe9ddee00e610604e9a5231c23a7627b5118dbd5d2",
+      "size": 116352,
+      "comment": "grass-clovers 2"
+    },
+    {
       "path": "resourcepacks/Grassrise-1.0.3-mc26.3.zip",
       "url": "https://cdn.modrinth.com/data/S5FvlY0N/versions/WFG9Lpck/Grassrise-1.0.3-mc26.3.zip",
       "sha512": "8e03a816e982adb2059a2472c81efaf8616396486d17b7c6c3df87b5eccdad7377666a85a55492cd6a8a5c3d3890ef00a2821fbec55cce4668ef798747567d82",
@@ -719,6 +785,20 @@
       "sha512": "04f6b4cfc1a2430b45efa51ac02b9c47467db916ad01a2d66dd5c1a56eb72bc2b73ee117e19df25c4391e715feaf602703ff8aa726715e7d1fcac421fd748a18",
       "size": 388215,
       "comment": "just-3d-potions 1.1(26.1x)"
+    },
+    {
+      "path": "resourcepacks/Os' Colorful Grasses (Tall).zip",
+      "url": "https://cdn.modrinth.com/data/O2zhH8n8/versions/PQqK5ppM/Os%27%20Colorful%20Grasses%20%28Tall%29.zip",
+      "sha512": "8fd6eb49d67030cd14a63a87a772e1e0b032d060b4009bbdc3f42245bd2816a18fc01795f771e169502e7d7333a88834289b2e13328e3c63353cd291c428d59e",
+      "size": 214646,
+      "comment": "os-colorful-grasses Tall-26.3"
+    },
+    {
+      "path": "resourcepacks/Os' Colorful Leaves.zip",
+      "url": "https://cdn.modrinth.com/data/4lCJnsug/versions/4QaJ8crQ/Os%27%20Colorful%20Leaves.zip",
+      "sha512": "2da12a7d3ea48da3fc4ac39d261b52ec77cf4edf05be42bec2d08804f797e786f50b0560de1b0633c1be4db299f14468066dadf35e325a8bd1ba58b99b65379a",
+      "size": 233612,
+      "comment": "os-colorful-leaves ColorfulLeaves-26.3"
     },
     {
       "path": "resourcepacks/Punched Better, Fresher 3D books.zip",
@@ -742,11 +822,32 @@
       "comment": "refined-buckets 2.4.1"
     },
     {
+      "path": "resourcepacks/Simple Foliage.zip",
+      "url": "https://cdn.modrinth.com/data/fFy1867z/versions/UnpQkd3q/Simple%20Foliage.zip",
+      "sha512": "1f86b935b144cdd99e884a55d5c8b702076b865239fcf38f359df9d0815380cce7e57bcbeeab605a0c9c4d1334b2b246e7a42ca23885641946e30514c9d6808f",
+      "size": 226673,
+      "comment": "simple-foliage 1.4"
+    },
+    {
+      "path": "resourcepacks/Simple Grass Flowers v2.0.0.zip",
+      "url": "https://cdn.modrinth.com/data/ti9KkMHm/versions/Cd4Xa7Sr/Simple%20Grass%20Flowers%20v2.0.0.zip",
+      "sha512": "9ad752e71feb8fea4ccf2ecb23eecb85d48285e95744f28902bf505423a849a2ff74da6273982e7d38f7ea74385c67a9c188beaff38dae6e23473fbbd8bc11b5",
+      "size": 208597,
+      "comment": "simple-grass-flowers 2.0.0"
+    },
+    {
       "path": "resourcepacks/Theone's Eating Animation Pack v1.0.zip",
       "url": "https://cdn.modrinth.com/data/OhzX8kDf/versions/laDCvp3K/Theone%27s%20Eating%20Animation%20Pack%20v1.0.zip",
       "sha512": "cc88acfe3136caa38a8ec44e1912e9534bf9c1b0d904f90fd796f46be4647750a378b5a2c1738b3db95397bd25d1aec98e959c85976c5aa47579ede9a2f1d268",
       "size": 133949,
       "comment": "theones-eating-animation-pack 1.0"
+    },
+    {
+      "path": "resourcepacks/enchant-icons-26.2-v1.3.zip",
+      "url": "https://cdn.modrinth.com/data/6vhHOIKw/versions/ri9HvO3m/enchant-icons-26.2-v1.3.zip",
+      "sha512": "a8df087328cda246de964c5d260dd71b5d81f00e17bb5f1e7f476b74d305ceee38742fbf65bf60e4b3b0a61dcc54a00992ac26ec6c248e7557a81fac82103c79",
+      "size": 182066,
+      "comment": "enchant-icons-countxd 1.3"
     },
     {
       "path": "resourcepacks/refined torches 2.1.zip",
@@ -756,11 +857,39 @@
       "comment": "refined-torches 2.1"
     },
     {
+      "path": "resourcepacks/visual_armor_trims_4.3.zip",
+      "url": "https://cdn.modrinth.com/data/tPtjib62/versions/fMircvox/visual_armor_trims_4.3.zip",
+      "sha512": "77f7a06e899ebd5f7a1db40d8f77cafd35285ea952b01c8343f13a50b2582c51f1aa5d3b1db97368bd302ad310e4f978323682315e1be542843587d3034c1321",
+      "size": 2880565,
+      "comment": "visual-armor-trims 4.3"
+    },
+    {
+      "path": "resourcepacks/§3Fresh §bEnvironment.zip",
+      "url": "https://cdn.modrinth.com/data/Aq4BlX86/versions/ojDp2s9S/%C2%A73Fresh%20%C2%A7bEnvironment.zip",
+      "sha512": "59ad1fba25520ea2db0709ea702bab0b4cbadb34ed554682ba9ee377311b2885e16fa3a3b67f30996c26946543cbd93b07ae29eefaf8d6c841e56ef43519eef5",
+      "size": 272979,
+      "comment": "fresh-environment 2.3.5"
+    },
+    {
+      "path": "resourcepacks/§6Bushier Bushes§r.zip",
+      "url": "https://cdn.modrinth.com/data/ukVOzUX4/versions/kS2zypdE/%C2%A76Bushier%20Bushes%C2%A7r.zip",
+      "sha512": "6812eec3d6685d5a702a807db7b682380e505554a9c78317056b81d0354c469fad9b6444e0fa597f42fa6a8f84bb73c8906b2d9a58da66082a4b7c01e5d6c323",
+      "size": 300453,
+      "comment": "bushier-bushes v3.2.0"
+    },
+    {
       "path": "resourcepacks/§aBetter Fresher 3D Books v1.5.1.zip",
       "url": "https://cdn.modrinth.com/data/PuwwhnS7/versions/PxP0VCwq/%C2%A7aBetter%20Fresher%203D%20Books%20v1.5.1.zip",
       "sha512": "36b69ac746f050af3ddda3e8251aa8e703d54465d139ffb67497ba27661d1f01ba60a5699aef14bffaf86a136f74cb935fac4e55b0a145f92885bdb92ec3ce62",
       "size": 732893,
       "comment": "PuwwhnS7 1.5.1"
+    },
+    {
+      "path": "resourcepacks/§lColourful Containers§8.zip",
+      "url": "https://cdn.modrinth.com/data/L85p0yMA/versions/qLi6CArI/%C2%A7lColourful%20Containers%C2%A78.zip",
+      "sha512": "8ce1100b90557cd5d9a93d069a21647953b22bf1c58bcbf861d74a98ee02df5afb7b61c02d5ce0ff5c040678ad46b07962e29ff3188a811bc62b00179ef59ac7",
+      "size": 629815,
+      "comment": "colourful-containers-gui 26.2"
     },
     {
       "path": "shaderpacks/ComplementaryReimagined_r5.9.3.zip",
@@ -1289,8 +1418,23 @@
     "elytratrails:allaytrails",
     "elytratrails:xptrails",
     "black_icons",
+    "file/§lColourful Containers§8.zip",
+    "file/enchant-icons-26.2-v1.3.zip",
+    "file/visual_armor_trims_4.3.zip",
     "file/Theone's Eating Animation Pack v1.0.zip",
+    "file/Fresh Food.zip",
+    "file/Fresh Food punchy fix.zip",
+    "file/Connected-Paths 26.2-26.3 v3.1.1.zip",
+    "file/Actually 3D Stuff.zip",
+    "file/Better-Leaves-9.6.zip",
+    "file/Os' Colorful Leaves.zip",
+    "file/§6Bushier Bushes§r.zip",
+    "file/Simple Foliage.zip",
+    "file/Grass Clovers.zip",
+    "file/Os' Colorful Grasses (Tall).zip",
+    "file/Simple Grass Flowers v2.0.0.zip",
     "file/Grassrise-1.0.3-mc26.3.zip",
+    "file/§3Fresh §bEnvironment.zip",
     "file/refined torches 2.1.zip",
     "file/Refined Buckets 2.4.1.zip",
     "file/Punchy Fix Swimming.zip",

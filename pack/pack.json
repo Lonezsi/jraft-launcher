@@ -65,6 +65,7 @@
     "packed-packs",
     "particle-core",
     "particle-rain",
+    "particular-reforged",
     "presence-footsteps",
     "punchy-fpa",
     "resource-pack-overrides",
@@ -78,6 +79,7 @@
     "simple-voice-chat",
     "smart-particles",
     "sodium",
+    "sodium-extra",
     "sound",
     "sound-physics-remastered",
     "structory",
@@ -104,7 +106,22 @@
     "punchy-swiming-fix",
     "hyper-punchy",
     "fresh-animations",
-    "theones-eating-animation-pack"
+    "theones-eating-animation-pack",
+    "fresh-food",
+    "fresh-food-punchy-fix",
+    "better-leaves",
+    "visual-armor-trims",
+    "os-colorful-leaves",
+    "bushier-bushes",
+    "simple-grass-flowers",
+    "grass-clovers",
+    "simple-foliage",
+    "fresh-environment",
+    "actually-3d-stuff",
+    "connected-paths",
+    "colourful-containers-gui",
+    "os-colorful-grasses",
+    "enchant-icons-countxd"
   ],
   "shaderpacks": [
     "complementary-reimagined"
@@ -115,8 +132,23 @@
     "elytratrails:allaytrails",
     "elytratrails:xptrails",
     "black_icons",
+    "colourful-containers-gui",
+    "enchant-icons-countxd",
+    "visual-armor-trims",
     "theones-eating-animation-pack",
+    "fresh-food",
+    "fresh-food-punchy-fix",
+    "connected-paths",
+    "actually-3d-stuff",
+    "better-leaves",
+    "os-colorful-leaves",
+    "bushier-bushes",
+    "simple-foliage",
+    "grass-clovers",
+    "os-colorful-grasses",
+    "simple-grass-flowers",
     "grassrise",
+    "fresh-environment",
     "refined-torches",
     "refined-buckets",
     "punchy-swiming-fix",
@@ -160,6 +192,9 @@
   ],
   "strip": {
     "fresh-flowers-and-plants": [
+      "26.3/assets/minecraft/items/"
+    ],
+    "fresh-food": [
       "26.3/assets/minecraft/items/"
     ]
   }
