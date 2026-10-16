@@ -19,6 +19,17 @@ $StartedFile = Join-Path $DataDir 'started-at.txt'
 # while it generates spawn. Until then "not answering" is expected, not a fault.
 $StartupGrace = [TimeSpan]::FromMinutes(8)
 
+# ── the relay ───────────────────────────────────────────────────────────────
+# jraft-relay is what Funnel hands players' connections to (see cmd/jraft-relay). It
+# is independent of the server's own state: kept running even while the server
+# restarts, so a reconnect only waits for the server.
+$relayExe = Join-Path $Root 'relay\jraft-relay.exe'
+if ((Test-Path $relayExe) -and -not (Get-Process -Name 'jraft-relay' -ErrorAction SilentlyContinue)) {
+    Start-Process -FilePath $relayExe -ArgumentList @('-listen', "127.0.0.1:$RelayPort", '-game', "127.0.0.1:$GamePort", '-voice', "127.0.0.1:$VoicePort") `
+        -WindowStyle Hidden -RedirectStandardOutput (Join-Path $DataDir 'relay.log') -RedirectStandardError (Join-Path $DataDir 'relay-error.log')
+    Say "started jraft-relay on 127.0.0.1:$RelayPort"
+}
+
 $proc = Get-ServerProcess
 if ($proc) {
     if (Test-ServerAnswering) { exit 0 }
@@ -120,6 +131,19 @@ try {
         if (-not $hit) { $lines += "$k=$($enforce[$k])" }
     }
     Set-Content -Path $props -Value $lines -Encoding ascii
+
+    # ── Simple Voice Chat ─────────────────────────────────────────────────────
+    # Voice listens on this machine only, and tells players to send to 127.0.0.1, which
+    # on their PC is the launcher's relay. The file exists after the first start.
+    $vc = Join-Path $ServerDir 'config\voicechat\voicechat-server.properties'
+    if (Test-Path $vc) {
+        $want = @{ 'port' = "$VoicePort"; 'bind_address' = '127.0.0.1'; 'voice_host' = "127.0.0.1:$VoicePort" }
+        $vlines = Get-Content $vc
+        foreach ($k in $want.Keys) {
+            $vlines = foreach ($l in $vlines) { if ($l -match "^$([regex]::Escape($k))=") { "$k=$($want[$k])" } else { $l } }
+        }
+        Set-Content -Path $vc -Value $vlines -Encoding ascii
+    }
 
     # ── start ─────────────────────────────────────────────────────────────────
     $jvmArgs = @(

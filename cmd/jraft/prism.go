@@ -383,10 +383,13 @@ func mergeCfg(path string, kv map[string]string, overwrite bool) error {
 	return os.WriteFile(path, []byte(strings.Join(lines, "\n")+"\n"), 0o644)
 }
 
-func launch(exe, prismData, account string) error {
+func launch(exe, prismData, account, server string) error {
 	args := []string{"--dir", prismData, "--launch", instanceID}
 	if account != "" {
 		args = append(args, "--profile", account)
+	}
+	if server != "" {
+		args = append(args, "--server", server)
 	}
 	parts := strings.Split(exe, "\x00") // flatpak: "flatpak\x00run\x00<app id>"
 	cmd := exec.Command(parts[0], append(parts[1:], args...)...)

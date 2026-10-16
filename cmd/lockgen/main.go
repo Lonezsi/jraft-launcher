@@ -204,7 +204,7 @@ func run() error {
 		return err
 	}
 	lock := pack.Lock{Name: src.Name, Minecraft: src.Minecraft, JavaArgs: src.JavaArgs,
-		ForceOverrides: src.ForceOverrides, OverridesRevision: src.OverridesRevision}
+		ForceOverrides: src.ForceOverrides, OverridesRevision: src.OverridesRevision, Server: src.Server}
 	for _, l := range loaders {
 		if l.Loader.Stable {
 			lock.LoaderVersion = l.Loader.Version

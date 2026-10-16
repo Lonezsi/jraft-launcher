@@ -197,5 +197,9 @@
     "fresh-food": [
       "26.3/assets/minecraft/items/"
     ]
+  },
+  "server": {
+    "name": "JRAFT",
+    "address": "jriter.dikdik-kettle.ts.net:10000"
   }
 }

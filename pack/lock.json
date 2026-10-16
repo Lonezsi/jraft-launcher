@@ -1454,6 +1454,10 @@
     "presets/low/DistantHorizons.toml"
   ],
   "overridesRevision": 2,
+  "server": {
+    "name": "JRAFT",
+    "address": "jriter.dikdik-kettle.ts.net:10000"
+  },
   "skipped": [
     "fast-block-placement (no 26.3 build yet)",
     "item-landing-sound (no 26.3 build yet)",

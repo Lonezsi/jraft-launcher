@@ -92,6 +92,41 @@ func run() error {
 		logf("(test mode) would launch %s as %q", prism, account)
 		return nil
 	}
+	// With a server in the pack, the game joins it straight away through a relay that
+	// this launcher runs for as long as the game is open.
+	var tun *tunnel
+	server := ""
+	if lock.Server != nil && lock.Server.Address != "" {
+		if tun, err = startTunnel(lock.Server.Address); err != nil {
+			return fmt.Errorf("starting the connection to the server: %w", err)
+		}
+		server = fmt.Sprintf("127.0.0.1:%d", tun.gamePort)
+	}
 	logf("Starting Minecraft...")
-	return launch(prism, prismData, account)
+	if err := launch(prism, prismData, account, server); err != nil {
+		return err
+	}
+	if tun == nil {
+		return nil
+	}
+	logf("Playing on %s. Keep this window open while you play (you can minimize it).", lock.Server.Name)
+	waitForGame(gameDir)
+	logf("Minecraft closed.")
+	return nil
+}
+
+// waitForGame returns once the game for this instance has started and then closed, or
+// if it never appears within ten minutes (a launch that failed, or a sign-in left open).
+func waitForGame(gameDir string) {
+	seen := false
+	start := time.Now()
+	for {
+		running := gameRunning(gameDir)
+		if running {
+			seen = true
+		} else if seen || time.Since(start) > 10*time.Minute {
+			return
+		}
+		time.Sleep(5 * time.Second)
+	}
 }

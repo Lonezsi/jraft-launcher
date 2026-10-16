@@ -16,6 +16,9 @@ $Log       = Join-Path $DataDir 'host-minecraft.log'
 $Repo      = 'Lonezsi/jraft-launcher'
 $GamePort  = 25565
 $RconPort  = 25575
+$VoicePort = 24454
+# Where Funnel hands players' TLS streams, decrypted, to jraft-relay.
+$RelayPort = 25600
 $Minecraft = '26.3'
 $JavaMajor = 25
 
