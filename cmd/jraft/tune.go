@@ -144,6 +144,24 @@ type preset struct {
 	dh        bool
 	dhRadius  int
 	dhQuality string
+	// dhConfig is a whole DistantHorizons.toml shipped in pack/overrides/presets,
+	// copied in as is. Used instead of setting single values when one known-good
+	// config is better than a recipe.
+	dhConfig string
+	// shaderOptions, when set, picks the plain Complementary pack and writes these
+	// values into its options file, so a preset decides the shader's quality too.
+	shaderOptions map[string]string
+}
+
+// complementaryLowest is Complementary's own POTATO profile, pushed further where the
+// shader allows it: no shadows, no SSAO, no reflections, no extra detail. It is what a
+// weak integrated GPU can run with shaders on at all.
+var complementaryLowest = map[string]string{
+	"SHADOW_QUALITY": "-1", "shadowDistance": "64.0", "ENTITY_SHADOW": "-1", "PLAYER_SHADOW": "-1",
+	"WATER_REFLECT_QUALITY": "-1", "BLOCK_REFLECT_QUALITY": "0", "WORLD_SPACE_REFLECTIONS": "-1",
+	"LIGHTSHAFT_QUALI_DEFINE": "0", "SSAO_QUALI_DEFINE": "0", "FXAA_DEFINE": "-1",
+	"DETAIL_QUALITY": "0", "CLOUD_QUALITY": "1", "ANISOTROPIC_FILTER": "0",
+	"COLORED_LIGHTING": "0", "RAIN_PUDDLES": "0", "SHADOW_SMOOTHING": "1",
 }
 
 var presets = map[string]preset{
@@ -156,8 +174,11 @@ var presets = map[string]preset{
 			"mipmapLevels": "2", "enableVsync": "false", "maxFps": "60",
 		},
 		// Distant Horizons on even here: a few real chunks plus cheap LODs draw faster
-		// than more real chunks, and look much further.
-		dh: true, dhRadius: 64, dhQuality: "LOW",
+		// than more real chunks, and look much further. Its config is the one that
+		// worked on the maintainer's weak test laptop, copied whole.
+		dh: true, dhConfig: "presets/low/DistantHorizons.toml",
+		// Shaders on too, at the lowest the shader goes.
+		shaders: true, shaderOptions: complementaryLowest,
 	},
 	tierMedium: {
 		options: map[string]string{
@@ -185,7 +206,7 @@ var presets = map[string]preset{
 	},
 }
 
-const presetRevision = "4"
+const presetRevision = "5"
 
 // tune applies the preset for this PC if it hasn't been applied yet (or the
 // graphics card changed). It returns the memory to give Minecraft.
@@ -203,7 +224,8 @@ func tune(dataDir, gameDir string) int {
 	// Raised to 3 when they started choosing its thread count, which the same copy had
 	// pinned at the laptop's 1: one thread on Tectonic and Terralith terrain builds far
 	// terrain so slowly that it looked like none was being built at all. Raised to 4
-	// when the low preset switched Distant Horizons on with 3 real chunks instead of 6.
+	// when the low preset switched Distant Horizons on with 3 real chunks instead of 6,
+	// and to 5 when it took a whole known-good DH config and lowest-quality shaders.
 	key := presetRevision + "|" + tier + "|" + gpu
 	if p.Tuned != key {
 		applyPreset(gameDir, presets[tier], hw.Cores, tier)
@@ -226,20 +248,28 @@ func applyPreset(gameDir string, p preset, cores int, tier string) {
 	cfg := filepath.Join(gameDir, "config")
 	setOptions(filepath.Join(gameDir, "options.txt"), ":", p.options)
 	setOptions(filepath.Join(cfg, "iris.properties"), "=", map[string]string{"enableShaders": strconv.FormatBool(p.shaders)})
+	if p.shaders && p.shaderOptions != nil {
+		if pack := plainComplementary(gameDir); pack != "" {
+			setOptions(filepath.Join(cfg, "iris.properties"), "=", map[string]string{"shaderPack": pack})
+			setOptions(filepath.Join(gameDir, "shaderpacks", pack+".txt"), "=", p.shaderOptions)
+		}
+	}
+	if p.dhConfig != "" {
+		if b, err := os.ReadFile(filepath.Join(gameDir, filepath.FromSlash(p.dhConfig))); err == nil {
+			os.WriteFile(filepath.Join(cfg, "DistantHorizons.toml"), b, 0o644)
+		}
+	}
 
 	renderer := "DISABLED"
 	if p.dh {
 		renderer = "DEFAULT"
 	}
 	dh := map[string]string{"rendererMode": `"` + renderer + `"`}
+	// Only on/off, far range and threads. Quality, SSAO and the generator plan are
+	// left to Distant Horizons, which picks them for the hardware: on a test laptop DH
+	// stopped working with the preset's values and worked again on its own defaults.
 	if p.dhRadius > 0 {
 		dh["lodChunkRenderDistanceRadius"] = strconv.Itoa(p.dhRadius)
-		dh["horizontalQuality"] = `"` + p.dhQuality + `"`
-		dh["verticalQuality"] = `"` + p.dhQuality + `"`
-		dh["enableSsao"] = strconv.FormatBool(p.shaders)
-		// DH's own surface generator is approximate on modded terrain (Tectonic and
-		// Terralith reshape it), so let it fill in with real chunks afterwards.
-		dh["generatorPlan"] = `"SURFACE_THEN_CHUNKS"`
 		// Far terrain is built on these threads, and modded world generation is slow
 		// per chunk, so a stronger PC gets more of them. A third of the CPU leaves the
 		// game itself room on a mid-range machine; high and up get half.
@@ -297,6 +327,19 @@ func fixDHGenerator(gameDir string) {
 		setTOML(path, map[string]string{"generatorPlan": `"SURFACE_THEN_CHUNKS"`}, nil)
 		logf("Distant Horizons was set to draw far terrain but never generate it; turned generation back on")
 	}
+}
+
+// plainComplementary finds the Complementary zip the pack ships, not Euphoria
+// Patches' heavier copy of it.
+func plainComplementary(gameDir string) string {
+	entries, _ := os.ReadDir(filepath.Join(gameDir, "shaderpacks"))
+	for _, e := range entries {
+		n := e.Name()
+		if strings.HasPrefix(n, "ComplementaryReimagined") && strings.HasSuffix(n, ".zip") && !strings.Contains(n, "Euphoria") {
+			return n
+		}
+	}
+	return ""
 }
 
 // applyAlways enforces settings every run: no Distant Horizons self-updates
