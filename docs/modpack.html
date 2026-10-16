@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JRAFT Modpack</title>
+<meta name="description" content="The JRAFT Minecraft 26.3 modpack at a glance.">
+<link rel="icon" href="icon.png">
+<style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single column. Shader slider up top as the thesis, then the pack in broad strokes:
+   what's in it, how it tunes itself, how you play. Moss on stone, same family as the pack shortlist. */
+:root {
+  --bg: #eef1ec; --surface: #ffffff; --fg: #1d2620; --muted: #5b675e; --line: #d5dcd3;
+  --accent: #3f7d3a; --glow: #c9822b; --shot-bg: #141a16;
+  --display: "Pixelify Sans", "Courier New", monospace;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #141a16; --surface: #1c241f; --fg: #e3eae3; --muted: #9aa89d; --line: #2e3a32;
+  --accent: #7cc36f; --glow: #e8a24f; --shot-bg: #0c100d; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #141a16; --surface: #1c241f; --fg: #e3eae3; --muted: #9aa89d; --line: #2e3a32;
+  --accent: #7cc36f; --glow: #e8a24f; --shot-bg: #0c100d; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font: 400 1rem/1.55 var(--body); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 72px; display: grid; gap: 56px; }
+h1, h2, h3 { text-wrap: balance; }
+.top { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; }
+.top img { width: 88px; height: 88px; image-rendering: pixelated; }
+.top h1 { font: 600 clamp(2.2rem, 6vw, 3.4rem)/1 var(--display); margin: 0 0 8px; letter-spacing: .01em; }
+.top p { margin: 0; color: var(--muted); max-width: 62ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 14px; font: 500 .9rem var(--mono); color: var(--muted); }
+.facts b { color: var(--fg); font-weight: 500; }
+section { display: grid; gap: 18px; }
+.sec h2 { font: 600 1.7rem/1.1 var(--display); margin: 0 0 6px; }
+.sec p { margin: 0; color: var(--muted); max-width: 70ch; }
+
+/* before/after slider */
+.compare { position: relative; aspect-ratio: 16 / 9; max-width: 100%; overflow: hidden; background: var(--shot-bg); border: 1px solid var(--line); user-select: none; touch-action: pan-y; --pos: 50%; }
+.compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.compare .over { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.compare .bar { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); pointer-events: none; }
+.compare .knob { position: absolute; top: 50%; left: var(--pos); width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.45); display: grid; place-items: center; pointer-events: none; }
+.compare .knob svg { width: 22px; height: 22px; }
+.compare .tag { position: absolute; top: 12px; font: 500 .78rem/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: #fff; background: rgba(10, 14, 11, .72); padding: 7px 9px; pointer-events: none; }
+.compare .tag.l { left: 12px; } .compare .tag.r { right: 12px; }
+.compare input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.compare:has(input:focus-visible) { outline: 3px solid var(--accent); outline-offset: 3px; }
+.cap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 18px; font-size: .9rem; color: var(--muted); }
+.cap code, code { font: .85rem var(--mono); }
+.pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.shader { background: var(--surface); border: 1px solid var(--line); padding: 14px 16px; display: grid; gap: 6px; }
+.shader h3 { margin: 0; font: 600 1.05rem/1.2 var(--body); }
+.shader p { margin: 0; font-size: .95rem; }
+.fps { font: 500 .85rem var(--mono); color: var(--glow); }
+
+/* what's in it */
+.groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.group { background: var(--surface); border: 1px solid var(--line); padding: 16px 18px; display: grid; gap: 8px; align-content: start; }
+.group h3 { margin: 0; font: 600 1.15rem/1.2 var(--display); color: var(--accent); }
+.group p { margin: 0; }
+.group .mods { font-size: .88rem; color: var(--muted); }
+
+/* presets */
+.presets { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+.preset { border: 1px solid var(--line); background: var(--surface); padding: 14px 16px; display: grid; gap: 6px; align-content: start; }
+.preset h3 { margin: 0; font: 600 1.05rem var(--display); }
+.preset .who { font-size: .85rem; color: var(--muted); }
+.preset dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: .88rem; }
+.preset dt { color: var(--muted); }
+.preset dd { margin: 0; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+.steps { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; max-width: 70ch; }
+.steps li::marker { font-family: var(--display); color: var(--accent); }
+.dl { display: inline-flex; gap: 10px; flex-wrap: wrap; }
+.dl a { font: 500 .95rem var(--display); color: var(--accent); text-decoration: none; border: 1px solid var(--line); background: var(--surface); padding: 6px 14px; }
+.dl a:hover, .dl a:focus-visible { border-color: var(--accent); }
+footer { color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); padding-top: 14px; }
+
+@media (max-width: 720px) {
+  .pair { grid-template-columns: 1fr; }
+  .top { grid-template-columns: 1fr; }
+  .top img { width: 64px; height: 64px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <img src="icon.png" alt="JRAFT icon">
+    <div>
+      <h1>JRAFT</h1>
+      <p>Minecraft 26.3 on Fabric with new worlds, shaders, 3D everything, real sounds and a lot of small comforts. One small app installs it, keeps it updated and puts you straight into the game.</p>
+      <div class="facts"><span><b>86</b> mods</span><span><b>37</b> resource packs on</span><span><b>2</b> shaders</span><span><b>4</b> graphics presets</span></div>
+    </div>
+  </header>
+
+  <section id="shaders">
+    <header class="sec"><h2>Two shaders, one cave</h2><p>The same spot in a lava-lit cave, a minute apart. Drag the line to compare.</p></header>
+    <div class="compare" id="cmp-clean">
+      <img src="shots/cave-complementary-euphoria.jpg" alt="Cave lit by lava with Complementary Reimagined and Euphoria Patches">
+      <img class="over" src="shots/cave-rethinking-voxels.jpg" alt="The same cave with Rethinking Voxels">
+      <span class="tag l">Rethinking Voxels</span><span class="tag r">Complementary + Euphoria</span>
+      <div class="bar"></div><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="#1d2620" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div>
+      <input type="range" id="slider-clean" min="0" max="100" step="0.1" value="50" aria-label="Compare Rethinking Voxels and Complementary plus Euphoria">
+    </div>
+    <div class="pair">
+      <div class="shader">
+        <h3>Rethinking Voxels</h3>
+        <p>Light travels through the world as voxels: lava and torches light up the walls around them, coloured and bouncing. Warm and bright underground.</p>
+      </div>
+      <div class="shader">
+        <h3>Complementary Reimagined + Euphoria Patches</h3>
+        <p>The default. Moodier and darker underground, with Euphoria's extra options on top. Pick the pack with <code>EuphoriaPatches</code> in its name.</p>
+      </div>
+    </div>
+    <div class="compare" id="cmp-hud">
+      <img src="shots/cave-hud-complementary-euphoria.jpg" alt="Same cave with the HUD, Complementary plus Euphoria, 21 FPS">
+      <img class="over" src="shots/cave-hud-rethinking-voxels.jpg" alt="Same cave with the HUD, Rethinking Voxels, 25 FPS">
+      <span class="tag l">Rethinking Voxels</span><span class="tag r">Complementary + Euphoria</span>
+      <div class="bar"></div><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="#1d2620" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div>
+      <input type="range" id="slider-hud" min="0" max="100" step="0.1" value="50" aria-label="Compare the two shaders with the HUD showing">
+    </div>
+    <div class="cap"><span>With the HUD on. The counter in the top left read <span class="fps">25 FPS</span> on Rethinking Voxels and <span class="fps">21 FPS</span> on Complementary + Euphoria.</span><span>One frame each on a GTX 1650, not a benchmark.</span></div>
+  </section>
+
+  <section id="inside">
+    <header class="sec"><h2>What's in it</h2><p>The broad strokes. All of it runs on your side; the JRAFT server runs the same world generation, plus voice chat.</p></header>
+    <div class="groups">
+      <div class="group"><h3>New worlds</h3><p>Bigger mountains and valleys, new biomes, a reworked Nether and End, more structures, and terrain drawn far past your render distance.</p><p class="mods">Terralith, Tectonic, Incendium, Nullscape, Structory, Better Trees, Distant Horizons</p></div>
+      <div class="group"><h3>Light and atmosphere</h3><p>Shaders, connected textures, dynamic light from held torches, and particles for leaves, rain, cave dust, waterfalls and splashes.</p><p class="mods">Iris, Complementary + Euphoria Patches, Rethinking Voxels, Continuity, LambDynamicLights, Visuality, Particular, Falling Leaves, Particle Rain, Cave Dust, Effectual</p></div>
+      <div class="group"><h3>Movement and animation</h3><p>Animated mobs, a body you can see in first person, 3D skins, a camera that leans and sways, Punchy's swings, and elytra that bank and leave trails.</p><p class="mods">Fresh Animations (EMF, ETF), Not Enough Animations, First-person Model, 3D Skin Layers, Camera Overhaul, Punchy, Elytra Physics, Cool Elytra Roll, Elytra Trails</p></div>
+      <div class="group"><h3>Sound</h3><p>Footsteps that match the block, biome ambience, sound that echoes and muffles with the space around you, and drips in caves.</p><p class="mods">Presence Footsteps, Ambient Sounds, Sound Physics Remastered, Entity Sound Features, Drip Sounds, Sounds</p></div>
+      <div class="group"><h3>3D and nature packs</h3><p>3D tools, armor, food, potions, books, trims and torches, plus fuller grass, flowers, bushes and leaves. JRAFT's own two packs combine the grass and leaf packs so all of them show at once.</p><p class="mods">Fresh Flowers, Fresh Food, Actually 3D Stuff, HyperPunchy, Glowing 3D Armor, Refined Torches, Grassrise, Os' Colorful Grasses and Leaves, Better Leaves, Bushier Bushes, JRAFT Grass, JRAFT Leaves</p></div>
+      <div class="group"><h3>Comfort</h3><p>Voice chat, a zoom key, food and saturation bars, shulker previews, walking with your inventory open, searchable menus, chat heads and a better debug screen.</p><p class="mods">Simple Voice Chat, Ok Zoomer, AppleSkin, Shulker Box Tooltip, InvMove, Mouse Tweaks, Searchables, Chat Heads, Chat Patches, BetterF3</p></div>
+      <div class="group"><h3>Speed</h3><p>All of the above has to run on ordinary PCs, so the pack carries the usual performance mods, and the game drops its frame rate when you tab out.</p><p class="mods">Sodium, Sodium Extra, ModernFix, FerriteCore, ImmediatelyFast, Entity Culling, More Culling, BadOptimizations, ScalableLux, Dynamic FPS, Particle Core</p></div>
+    </div>
+  </section>
+
+  <section id="presets">
+    <header class="sec"><h2>Tuned to your PC</h2><p>The first time you start it, the app reads your graphics card and picks one of four presets. After that your own settings stay.</p></header>
+    <div class="presets">
+      <div class="preset"><h3>Low</h3><span class="who">Integrated graphics, older cards</span><dl><dt>Chunks</dt><dd>3</dd><dt>Far terrain</dt><dd>Distant Horizons</dd><dt>Shaders</dt><dd>on, lowest</dd></dl></div>
+      <div class="preset"><h3>Medium</h3><span class="who">GTX 10 and 16 series, RX 470 to 5700</span><dl><dt>Chunks</dt><dd>8</dd><dt>Far terrain</dt><dd>64 chunks</dd><dt>Shaders</dt><dd>off</dd></dl></div>
+      <div class="preset"><h3>High</h3><span class="who">Most RTX and recent Radeon cards</span><dl><dt>Chunks</dt><dd>8</dd><dt>Far terrain</dt><dd>128 chunks</dd><dt>Shaders</dt><dd>on</dd></dl></div>
+      <div class="preset"><h3>Ultra</h3><span class="who">RTX 3080, 4070, 5060 and up, RX 7800 and up</span><dl><dt>Chunks</dt><dd>12</dd><dt>Far terrain</dt><dd>256 chunks</dd><dt>Shaders</dt><dd>on</dd></dl></div>
+    </div>
+  </section>
+
+  <section id="play">
+    <header class="sec"><h2>Playing</h2></header>
+    <ol class="steps">
+      <li>Download the app for your system.</li>
+      <li>Open it. Do this every time you play: that's how you get updates. It uses your Prism Launcher if you have one, or brings a portable one, and adds a JRAFT instance.</li>
+      <li>The first time, sign in with your Microsoft account in Prism. After that it goes straight into the game and joins the JRAFT server, voice chat included.</li>
+    </ol>
+    <div class="dl">
+      <a href="https://github.com/Lonezsi/jraft-launcher/releases/latest/download/jraft-windows.exe">Windows</a>
+      <a href="https://github.com/Lonezsi/jraft-launcher/releases/latest/download/jraft-macos.zip">Mac</a>
+      <a href="https://github.com/Lonezsi/jraft-launcher/releases/latest/download/jraft-linux-amd64">Linux</a>
+    </div>
+  </section>
+
+  <footer>Minecraft 26.3, Fabric. Mods and packs belong to their authors and download from Modrinth and CurseForge. Source: <a href="https://github.com/Lonezsi/jraft-launcher">github.com/Lonezsi/jraft-launcher</a></footer>
+</div>
+<script>
+document.querySelectorAll('.compare').forEach(function (box) {
+  var input = box.querySelector('input');
+  function set(v) { box.style.setProperty('--pos', v + '%'); }
+  input.addEventListener('input', function () { set(input.value); });
+  set(input.value);
+});
+</script>
+</body>
+</html>
