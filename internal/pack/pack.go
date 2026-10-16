@@ -72,6 +72,10 @@ type File struct {
 	Comment string `json:"comment,omitempty"`
 	// Strip is copied from Source.Strip: zip paths removed after download.
 	Strip []string `json:"strip,omitempty"`
+	// Local is a file kept in this repository, as a path under pack/ (the merge resource
+	// packs in pack/packs/). The launcher fetches it from its own repository and branch,
+	// or from JRAFT_PACK_DIR; URL is the same file on main, for older launchers.
+	Local string `json:"local,omitempty"`
 }
 
 // StateKey is what the launcher remembers for an installed file: its sha512, plus

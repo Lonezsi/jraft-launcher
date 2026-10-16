@@ -49,6 +49,7 @@ Everything lives in its own folder (`%APPDATA%\jraft` on Windows, `~/Library/App
 | `pack/pack.json` | The list you edit: Modrinth slugs for mods, resource packs and shaders, plus direct-URL extras (CurseForge). `strip` names paths inside a pack's zip that the launcher deletes after downloading it, for packs whose license doesn't allow hosting a fixed copy. |
 | `pack/lock.json` | Generated. Exact files, URLs and sha512 hashes. This is what the app downloads. |
 | `pack/overrides/` | Default configs and `options.txt` (taken from the maintainer's own setup). They're copied only if the player doesn't already have that file. |
+| `pack/packs/` | The JRAFT merge resource packs, `jraft-grass.zip` and `jraft-leaves.zip`, built by `tools/mergepacks/merge.py` (readable sources in `pack/packs-src/`). Downloaded from this repository. |
 
 **Updating mods:** run the **Update mods** action on GitHub (Actions tab → Update mods → Run workflow), or run it locally:
 
@@ -57,6 +58,8 @@ go run ./cmd/lockgen
 ```
 
 It picks the newest 26.3 Fabric build of every entry and pulls in required dependencies. Mods without a 26.3 build are listed under `skipped` in `lock.json`, and they're added automatically once they update. Editing `pack.json` on `main` also triggers the action.
+
+**Merge packs:** several grass and leaf packs replace the same files, so only the top one would show. `jraft-grass` and `jraft-leaves` sit above them and combine them: merged blockstates that use every pack's models (Grassrise, Simple Grass Flowers, Os' Colorful Grasses, Simple Foliage, Grass Clovers, Bushier Bushes, Connected Paths), and Better Leaves' bushy shape with Os' Colorful Leaves' textures. They only reference the other packs' models and textures by name; the only copied files are MIT-licensed Better Leaves ones. The packs they use are pinned in `pack.json`. Before changing one of those pins, run `python tools/mergepacks/merge.py --vanilla <26.3 client jar>`: it rebuilds both packs and fails if any model or texture they point at is missing or comes from the wrong pack. Then run lockgen.
 
 **Changing Minecraft version:** change `"minecraft"` in `pack.json` and regenerate the lock.
 

@@ -1,0 +1,7 @@
+{
+  "parent": "jraft:block/bushy_leaves2",
+  "textures": {
+    "all": "minecraft:block/jungle_leaves",
+    "fluff": "jraft:block/better_leaves/jungle_leaves"
+  }
+}

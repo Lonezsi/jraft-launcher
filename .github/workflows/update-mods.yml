@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["pack/pack.json", "pack/overrides/**"]
+    paths: ["pack/pack.json", "pack/overrides/**", "pack/packs/**"]
 
 permissions:
   contents: write

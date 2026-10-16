@@ -1,0 +1,7 @@
+{
+  "parent": "jraft:block/bushy_leaves_notint4",
+  "textures": {
+    "all": "minecraft:block/azalea_leaves",
+    "fluff": "jraft:block/better_leaves/azalea_leaves"
+  }
+}

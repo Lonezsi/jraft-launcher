@@ -20,6 +20,9 @@ import (
 
 const modrinth = "https://api.modrinth.com/v2"
 
+// rawBase is where launchers that predate File.Local fetch this repository's own files.
+const rawBase = "https://raw.githubusercontent.com/Lonezsi/jraft-launcher/main/"
+
 type mrVersion struct {
 	ID           string `json:"id"`
 	ProjectID    string `json:"project_id"`
@@ -241,6 +244,31 @@ func run() error {
 		}
 	}
 	lock.Files = append(r.files, src.Extra...)
+	// Resource packs made for this pack (built by tools/mergepacks) are committed as zips
+	// in packs/ and downloaded from the repository. They are only hashed here, never
+	// rebuilt, so the lock always matches the committed file.
+	built, _ := filepath.Glob(filepath.Join(*dir, "packs", "*.zip"))
+	sort.Strings(built)
+	for _, p := range built {
+		h, err := pack.HashFile(p)
+		if err != nil {
+			return err
+		}
+		st, err := os.Stat(p)
+		if err != nil {
+			return err
+		}
+		name := filepath.Base(p)
+		lock.Files = append(lock.Files, pack.File{
+			Path:    "resourcepacks/" + name,
+			URL:     rawBase + filepath.ToSlash(filepath.Join(*dir, "packs", name)),
+			Local:   "packs/" + name,
+			SHA512:  h,
+			Size:    st.Size(),
+			Comment: strings.TrimSuffix(name, ".zip") + " " + h[:12],
+		})
+		fmt.Printf("  %-32s %s (this repository)\n", strings.TrimSuffix(name, ".zip"), h[:12])
+	}
 	for slug, strip := range src.Strip {
 		for i, f := range lock.Files {
 			if strings.HasPrefix(f.Comment, slug+" ") {

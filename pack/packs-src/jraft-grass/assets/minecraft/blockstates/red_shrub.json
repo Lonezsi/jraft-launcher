@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "block/red_shrub",
+        "weight": 1
+      },
+      {
+        "model": "block/red_shrub_blue",
+        "weight": 1
+      },
+      {
+        "model": "block/red_shrub_pink",
+        "weight": 1
+      },
+      {
+        "model": "block/red_shrub_yellow",
+        "weight": 1
+      }
+    ]
+  }
+}

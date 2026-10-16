@@ -1,0 +1,70 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "block/grass",
+        "weight": 4
+      },
+      {
+        "model": "block/grass2",
+        "weight": 4
+      },
+      {
+        "model": "block/grass3",
+        "weight": 4
+      },
+      {
+        "model": "block/grass4",
+        "weight": 4
+      },
+      {
+        "model": "block/short/short_grass_0",
+        "weight": 5
+      },
+      {
+        "model": "block/short/short_grass_1",
+        "weight": 2
+      },
+      {
+        "model": "block/short/short_grass_2",
+        "weight": 1
+      },
+      {
+        "model": "block/short/short_grass_3",
+        "weight": 1
+      },
+      {
+        "model": "block/tall/short_grass_0",
+        "weight": 3
+      },
+      {
+        "model": "block/tall/short_grass_1",
+        "weight": 2
+      },
+      {
+        "model": "block/tall/short_grass_2",
+        "weight": 1
+      },
+      {
+        "model": "block/tall/short_grass_3",
+        "weight": 1
+      },
+      {
+        "model": "block/clover_1",
+        "weight": 2
+      },
+      {
+        "model": "block/clover_2",
+        "weight": 2
+      },
+      {
+        "model": "block/clover_3",
+        "weight": 2
+      },
+      {
+        "model": "block/clover_4",
+        "weight": 2
+      }
+    ]
+  }
+}

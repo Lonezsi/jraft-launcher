@@ -160,7 +160,14 @@ func syncFiles(gameDir string, lock pack.Lock) error {
 		if h, err := pack.HashFile(local); err == nil && h == f.SHA512 && len(f.Strip) == 0 {
 			continue
 		}
-		jobs = append(jobs, job{f, f.URL})
+		url := f.URL
+		if f.Local != "" {
+			if err := pack.SafePath(f.Local); err != nil {
+				return err
+			}
+			url = rawURL(f.Local)
+		}
+		jobs = append(jobs, job{f, url})
 	}
 	for _, f := range lock.Overrides {
 		if err := pack.SafePath(f.Path); err != nil {
