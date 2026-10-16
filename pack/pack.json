@@ -92,49 +92,44 @@
   ],
   "resourcepacks": [
     "grassrise",
-    "p1kls-3d-items",
     "fresh-flowers-and-plants",
-    "refined-tools",
     "refined-buckets",
     "refined-torches",
-    "drigo-3d-lanterns-x-punchy",
     "just-3d-potions",
     "punched-better-fresher-3d-books",
     "glowing-3d-armor",
     "fyoncles-3d-trims",
-    "glowing-3d-totem",
     "animated-3d-wind-charge-compatible-with-punchy",
     "3d-flint-steel-for-punchy",
     "punchy-swiming-fix",
     "hyper-punchy",
     "fresh-animations",
-    "fresh-animations-extensions"
+    "theones-eating-animation-pack"
   ],
   "shaderpacks": [
     "complementary-reimagined"
   ],
   "enabledResourcepacks": [
     "continuity:default",
-    "continuity:glass_pane_culling_fix",
-    "fresh-animations",
-    "fresh-animations-extensions",
-    "p1kls-3d-items",
-    "fresh-flowers-and-plants",
-    "refined-tools",
-    "refined-buckets",
+    "elytratrails:arrowtrails",
+    "elytratrails:allaytrails",
+    "elytratrails:xptrails",
+    "black_icons",
+    "theones-eating-animation-pack",
+    "grassrise",
     "refined-torches",
-    "drigo-3d-lanterns-x-punchy",
-    "just-3d-potions",
+    "refined-buckets",
+    "punchy-swiming-fix",
     "punched-better-fresher-3d-books",
+    "just-3d-potions",
+    "hyper-punchy",
+    "fresh-animations",
     "glowing-3d-armor",
-    "fyoncles-3d-trims",
-    "glowing-3d-totem",
     "animated-3d-wind-charge-compatible-with-punchy",
     "3d-flint-steel-for-punchy",
-    "punchy:punchy",
-    "punchy-swiming-fix",
-    "hyper-punchy",
-    "grassrise"
+    "fyoncles-3d-trims",
+    "PuwwhnS7",
+    "fresh-flowers-and-plants"
   ],
   "extra": [
     {
@@ -142,6 +137,13 @@
       "path": "mods/grassrise-better-lighting-1.0.0+mc26.3.jar",
       "url": "https://mediafilez.forgecdn.net/files/8897/806/grassrise-better-lighting-1.0.0%2Bmc26.3.jar",
       "sha512": "8aacbd2d841c0c0f9d2237b3f3420ec22b6aa062b395dccacbc9ed651a7eadca89ee087e0964a930dc3b697deaacabdd56b16eb29c5fd43c108cdf914224274f"
+    },
+    {
+      "comment": "rethinking-voxels r0.1-beta9 (Rethinking Voxels; Modrinth only tags it for 1.21.x, works on 26.3)",
+      "path": "shaderpacks/rethinking-voxels_r0.1-beta9.zip",
+      "url": "https://cdn.modrinth.com/data/kmwfVOoi/versions/cpD4esk9/rethinking-voxels_r0.1-beta9.zip",
+      "sha512": "1e32f41e67e527c3c60149677a05b61c6d305e440812e29abba745b8ed304954780ca48d58b834c49835790bc3c4d38f37c893c5cbdfea9edc07b72e1dabd296",
+      "size": 8301317
     }
   ],
   "pins": {
@@ -155,5 +157,10 @@
   "overridesRevision": 2,
   "ignoreDependencies": [
     "qjlkcVfy"
-  ]
+  ],
+  "strip": {
+    "fresh-flowers-and-plants": [
+      "26.3/assets/minecraft/items/"
+    ]
+  }
 }

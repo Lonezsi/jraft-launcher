@@ -1,0 +1,10 @@
+{
+    useModelsWhen: {
+        ground: true,
+        itemFrames: false,
+        gui: false
+    },
+    extraOptions: {
+        Outlines: true
+    }
+}

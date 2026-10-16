@@ -26,7 +26,7 @@ Client-side JRAFT mods for **Minecraft 26.3 (Fabric)**, plus Grassrise, Grassris
 
 The app:
 
-- downloads or updates the mods, resource pack and shaders,
+- downloads or updates the mods, resource packs and shaders,
 - uses your Prism Launcher if you already have one (your accounts and other instances stay as they are), or downloads a portable [Prism Launcher](https://prismlauncher.org) if you don't (nothing gets installed, and the app keeps it updated for you),
 - adds a JRAFT instance to it,
 - starts the game.
@@ -40,13 +40,13 @@ Everything lives in its own folder (`%APPDATA%\jraft` on Windows, `~/Library/App
 **Mac:** the first time, right-click `JRAFT.app`, choose *Open*, then *Open* again (it isn't notarized by Apple). If macOS says it's damaged, run `xattr -cr ~/Downloads/JRAFT.app` in Terminal once.
 **Linux:** `chmod +x jraft-linux-amd64`, then double-click it or run `./jraft-linux-amd64`.
 
-**Shaders:** go to Options → Video Settings → Shader Packs and pick the Complementary pack that has *EuphoriaPatches* in its name. Euphoria Patches creates that pack the first time the game starts.
+**Shaders:** go to Options → Video Settings → Shader Packs and pick the Complementary pack that has *EuphoriaPatches* in its name. Euphoria Patches creates that pack the first time the game starts. Rethinking Voxels is also included, for voxel lighting (Euphoria Patches doesn't work on it).
 
 ## For the maintainer
 
 | File | What it is |
 |---|---|
-| `pack/pack.json` | The list you edit: Modrinth slugs for mods, resource packs and shaders, plus direct-URL extras (CurseForge). |
+| `pack/pack.json` | The list you edit: Modrinth slugs for mods, resource packs and shaders, plus direct-URL extras (CurseForge). `strip` names paths inside a pack's zip that the launcher deletes after downloading it, for packs whose license doesn't allow hosting a fixed copy. |
 | `pack/lock.json` | Generated. Exact files, URLs and sha512 hashes. This is what the app downloads. |
 | `pack/overrides/` | Default configs and `options.txt` (taken from the maintainer's own setup). They're copied only if the player doesn't already have that file. |
 

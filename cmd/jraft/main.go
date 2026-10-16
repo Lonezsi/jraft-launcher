@@ -153,10 +153,11 @@ func syncFiles(gameDir string, lock pack.Lock) error {
 		}
 		want[f.Path] = true
 		local := filepath.Join(gameDir, filepath.FromSlash(f.Path))
-		if st := stamp(local); st != "" && old.Files[f.Path] == f.SHA512 && old.Stamps[f.Path] == st {
+		if st := stamp(local); st != "" && old.Files[f.Path] == f.StateKey() && old.Stamps[f.Path] == st {
 			continue
 		}
-		if h, err := pack.HashFile(local); err == nil && h == f.SHA512 {
+		// A stripped file no longer matches its sha512, so it is only trusted by stamp.
+		if h, err := pack.HashFile(local); err == nil && h == f.SHA512 && len(f.Strip) == 0 {
 			continue
 		}
 		jobs = append(jobs, job{f, f.URL})
@@ -207,7 +208,11 @@ func syncFiles(gameDir string, lock pack.Lock) error {
 		go func() {
 			defer wg.Done()
 			for j := range ch {
-				err := download(j.url, filepath.Join(gameDir, filepath.FromSlash(j.f.Path)), j.f.SHA512)
+				dest := filepath.Join(gameDir, filepath.FromSlash(j.f.Path))
+				err := download(j.url, dest, j.f.SHA512)
+				if err == nil && len(j.f.Strip) > 0 {
+					err = pack.StripZip(dest, j.f.Strip)
+				}
 				mu.Lock()
 				done++
 				setProgress(int64(done), int64(len(jobs)))
@@ -236,7 +241,7 @@ func syncFiles(gameDir string, lock pack.Lock) error {
 		failed[strings.SplitN(e.Error(), ":", 2)[0]] = true
 	}
 	for _, f := range lock.Files {
-		newState.Files[f.Path] = f.SHA512
+		newState.Files[f.Path] = f.StateKey()
 		if !failed[f.Path] {
 			newState.Stamps[f.Path] = stamp(filepath.Join(gameDir, filepath.FromSlash(f.Path)))
 		}

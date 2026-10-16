@@ -1,0 +1,30 @@
+{
+    compatOptions: {
+        fa_Player: false,
+        not_Enough_Animations: false,
+        joyful_Motions: false,
+        fire_Rekindled_Flames: false
+    },
+    polytone: {
+        smokeParticlesOnThirdPerson: true,
+        torchParticlesOnThirdPerson: true
+    },
+    holdMyItems: {
+        campfireSmoke: true,
+        campfireSparkParticles: true,
+        torchSparkParticles: true,
+        redstoneTorchDustParticles: true,
+        soulParticles: true,
+        torchSounds: false,
+        campfireSounds: false,
+        torchHandSwayOnlyWhenSprinting: false
+    },
+    punchy: {
+        glowParticles: true,
+        sparkParticles: true,
+        redstoneTorchDustParticles: true,
+        smokeParticles: true,
+        campfireSmokeParticles: true,
+        campfireSparkParticles: true
+    }
+}

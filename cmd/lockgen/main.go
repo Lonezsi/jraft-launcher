@@ -235,6 +235,13 @@ func run() error {
 		}
 	}
 	lock.Files = append(r.files, src.Extra...)
+	for slug, strip := range src.Strip {
+		for i, f := range lock.Files {
+			if strings.HasPrefix(f.Comment, slug+" ") {
+				lock.Files[i].Strip = strip
+			}
+		}
+	}
 	sort.Slice(lock.Files, func(i, j int) bool { return lock.Files[i].Path < lock.Files[j].Path })
 	lock.Skipped = r.skipped
 
@@ -244,10 +251,17 @@ func run() error {
 			lock.ResourcePacks = append(lock.ResourcePacks, slug)
 			continue
 		}
+		found := false
 		for _, f := range lock.Files {
 			if strings.HasPrefix(f.Path, "resourcepacks/") && strings.HasPrefix(f.Comment, slug+" ") {
 				lock.ResourcePacks = append(lock.ResourcePacks, "file/"+strings.TrimPrefix(f.Path, "resourcepacks/"))
+				found = true
 			}
+		}
+		// Some built-in packs have no namespace (Simple Voice Chat's black_icons).
+		if !found {
+			fmt.Printf("enabledResourcepacks: %q is not a pack in the lock, writing it as a built-in pack id\n", slug)
+			lock.ResourcePacks = append(lock.ResourcePacks, slug)
 		}
 	}
 
