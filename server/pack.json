@@ -1,0 +1,17 @@
+{
+  "name": "JRAFT Server",
+  "minecraft": "26.3",
+  "loader": "fabric",
+  "comment": "The dedicated server's mods. go run ./cmd/lockgen -dir server writes server/lock.json, which the host's Start-JraftServer.ps1 syncs from GitHub. World generation mods must match the client pack exactly, or players' terrain and the server's disagree.",
+  "mods": [
+    "fabric-api",
+    "simple-voice-chat",
+    "distanthorizons",
+    "appleskin",
+    "chunky",
+    "tectonic", "terralith", "better-trees", "tree-vein-miner",
+    "incendium", "nullscape", "structory",
+    "lithium", "c2me-fabric", "ferrite-core", "krypton", "scalablelux",
+    "modernfix-mvus", "alternate-current", "spark"
+  ]
+}

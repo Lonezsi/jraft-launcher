@@ -5,3 +5,4 @@
 pack/overrides/** -text
 cmd/jraft/*.syso binary
 docs/*.png binary
+server/hostsetup/*.ps1 text eol=crlf

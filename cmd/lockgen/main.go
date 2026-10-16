@@ -5,6 +5,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"io/fs"
 	"net/http"
@@ -178,8 +179,13 @@ func main() {
 	}
 }
 
+// The client pack is the default. The server has its own list in server/, with the
+// same format: go run ./cmd/lockgen -dir server
+var dir = flag.String("dir", "pack", "folder holding pack.json; lock.json and overrides/ live next to it")
+
 func run() error {
-	raw, err := os.ReadFile("pack/pack.json")
+	flag.Parse()
+	raw, err := os.ReadFile(filepath.Join(*dir, "pack.json"))
 	if err != nil {
 		return err
 	}
@@ -265,7 +271,11 @@ func run() error {
 		}
 	}
 
-	err = filepath.WalkDir("pack/overrides", func(p string, d fs.DirEntry, err error) error {
+	overrides := filepath.Join(*dir, "overrides")
+	err = filepath.WalkDir(overrides, func(p string, d fs.DirEntry, err error) error {
+		if os.IsNotExist(err) {
+			return filepath.SkipDir
+		}
 		if err != nil || d.IsDir() {
 			return err
 		}
@@ -273,7 +283,7 @@ func run() error {
 		if err != nil {
 			return err
 		}
-		rel, _ := filepath.Rel("pack/overrides", p)
+		rel, _ := filepath.Rel(overrides, p)
 		lock.Overrides = append(lock.Overrides, pack.File{Path: filepath.ToSlash(rel), SHA512: h})
 		return nil
 	})
@@ -282,7 +292,7 @@ func run() error {
 	}
 
 	out, _ := json.MarshalIndent(lock, "", "  ")
-	if err := os.WriteFile("pack/lock.json", append(out, '\n'), 0o644); err != nil {
+	if err := os.WriteFile(filepath.Join(*dir, "lock.json"), append(out, '\n'), 0o644); err != nil {
 		return err
 	}
 	fmt.Printf("\nWrote pack/lock.json: %d files, %d overrides\n", len(lock.Files), len(lock.Overrides))
