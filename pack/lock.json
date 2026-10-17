@@ -1,6 +1,7 @@
 {
   "name": "JRAFT",
   "minecraft": "26.3",
+  "resourceFormat": "97.1",
   "loaderVersion": "0.19.5",
   "javaArgs": "-XX:+UseZGC",
   "files": [

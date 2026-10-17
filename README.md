@@ -61,7 +61,7 @@ It picks the newest 26.3 Fabric build of every entry and pulls in required depen
 
 **Merge packs:** several grass and leaf packs replace the same files, so only the top one would show. `jraft-grass` and `jraft-leaves` sit above them and combine them: merged blockstates that use every pack's models (Grassrise, Simple Grass Flowers, Os' Colorful Grasses, Simple Foliage, Grass Clovers, Bushier Bushes, Connected Paths), and Better Leaves' bushy shape with Os' Colorful Leaves' textures. They only reference the other packs' models and textures by name; the only copied files are MIT-licensed Better Leaves ones. The packs they use are pinned in `pack.json`. Before changing one of those pins, run `python tools/mergepacks/merge.py --vanilla <26.3 client jar>`: it rebuilds both packs and fails if any model or texture they point at is missing or comes from the wrong pack. Then run lockgen.
 
-**Changing Minecraft version:** change `"minecraft"` in `pack.json` and regenerate the lock.
+**Changing Minecraft version:** change `"minecraft"` and `"resourceFormat"` (the client jar's `version.json` `pack_version`, e.g. `97.1` for 26.3) in `pack.json` and regenerate the lock.
 
 **Releasing the app:** `git tag v1.0.0 && git push --tags`. The Release action builds the Windows exe, the Mac app and the Linux binaries. You only need a new release when the app itself changes, not when mods change.
 

@@ -206,7 +206,7 @@ func run() error {
 	if err := getJSON("https://meta.fabricmc.net/v2/versions/loader/"+src.Minecraft, &loaders); err != nil {
 		return err
 	}
-	lock := pack.Lock{Name: src.Name, Minecraft: src.Minecraft, JavaArgs: src.JavaArgs,
+	lock := pack.Lock{Name: src.Name, Minecraft: src.Minecraft, ResourceFormat: src.ResourceFormat, JavaArgs: src.JavaArgs,
 		ForceOverrides: src.ForceOverrides, OverridesRevision: src.OverridesRevision, Server: src.Server}
 	for _, l := range loaders {
 		if l.Loader.Stable {

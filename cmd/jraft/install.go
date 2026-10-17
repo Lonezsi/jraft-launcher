@@ -17,6 +17,9 @@ import (
 // a newly downloaded version replaces the installed one. Shortcuts are made only once:
 // someone who deletes the desktop icon does not want it back on every launch.
 func install(dataDir string) {
+	if version == "dev" { // a local build must not replace the installed release
+		return
+	}
 	self, err := os.Executable()
 	if err != nil {
 		return

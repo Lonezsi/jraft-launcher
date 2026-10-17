@@ -3,6 +3,7 @@
 package main
 
 import (
+	"archive/zip"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -306,7 +307,9 @@ func applyResourcePacks(gameDir string, lock pack.Lock) error {
 		return nil
 	}
 	stampPath := filepath.Join(gameDir, ".jraft-packs")
-	stamp := strings.Join(lock.ResourcePacks, "\n")
+	// The first line versions how the options are written: raising it makes every install
+	// write them again once (v2: compatible packs are no longer listed as incompatible).
+	stamp := "v2\n" + strings.Join(lock.ResourcePacks, "\n")
 	optPath := filepath.Join(gameDir, "options.txt")
 	if b, err := os.ReadFile(stampPath); err == nil && string(b) == stamp && exists(optPath) {
 		return nil
@@ -344,18 +347,31 @@ func applyResourcePacks(gameDir string, lock pack.Lock) error {
 	order := append([]string{"vanilla"}, lock.ResourcePacks[:len(lock.ResourcePacks)-1]...)
 	order = append(append(order, extras...), top)
 
-	// Packs made for an older 26.x are "incompatible" to Minecraft, which turns them
-	// off at startup unless they are listed here, the list the game itself keeps for
-	// packs a player said yes to.
-	seenInc := map[string]bool{}
-	for _, p := range incompatible {
-		seenInc[p] = true
-	}
+	// Packs made for another resource format are "incompatible" to Minecraft, which turns
+	// them off at startup unless they are listed in incompatibleResourcePacks, the list
+	// the game keeps for packs a player said yes to. Only those may be listed: when a
+	// compatible pack is on that list, the game takes it off the list, leaves the pack
+	// off for that start, and then saves options without it.
+	ourInc := map[string]bool{}
 	for _, p := range lock.ResourcePacks {
-		if strings.HasPrefix(p, "file/") && !seenInc[p] {
-			incompatible = append(incompatible, p)
+		name, ok := strings.CutPrefix(p, "file/")
+		if ok && !packsAlwaysCompatible(gameDir, lock) && packIncompatible(filepath.Join(gameDir, "resourcepacks", name), lock.ResourceFormat) {
+			ourInc[p] = true
 		}
 	}
+	keep := []string{}
+	for _, p := range incompatible {
+		if !ours[p] || ourInc[p] {
+			keep = append(keep, p)
+			delete(ourInc, p)
+		}
+	}
+	for _, p := range lock.ResourcePacks {
+		if ourInc[p] {
+			keep = append(keep, p)
+		}
+	}
+	incompatible = keep
 	rp, _ := json.Marshal(order)
 	ip, _ := json.Marshal(incompatible)
 	setOptions(optPath, ":", map[string]string{
@@ -364,6 +380,53 @@ func applyResourcePacks(gameDir string, lock pack.Lock) error {
 	})
 	logf("Turned on %d resource packs, %s on top", len(lock.ResourcePacks), strings.TrimPrefix(top, "file/"))
 	return os.WriteFile(stampPath, []byte(stamp), 0o644)
+}
+
+// packsAlwaysCompatible reports whether No More Popups is in the pack with its
+// resource_pack_warnings option on. It then makes Minecraft treat every resource pack
+// as compatible, so none of them may be listed as incompatible.
+func packsAlwaysCompatible(gameDir string, lock pack.Lock) bool {
+	found := false
+	for _, f := range lock.Files {
+		found = found || strings.HasPrefix(f.Path, "mods/nomorepopups")
+	}
+	if !found {
+		return false
+	}
+	var cfg struct {
+		General map[string]bool `json:"general"`
+	}
+	b, err := os.ReadFile(filepath.Join(gameDir, "config", "no-more-popups.json"))
+	if err != nil || json.Unmarshal(b, &cfg) != nil {
+		return true // the mod's default has the option on
+	}
+	on, set := cfg.General["resource_pack_warnings"]
+	return !set || on
+}
+
+// packIncompatible reports whether the resource pack zip at path is made for another
+// resource format than format. Anything unreadable counts as compatible, because listing
+// a compatible pack as incompatible turns it off (see applyResourcePacks).
+func packIncompatible(path, format string) bool {
+	if format == "" {
+		return false
+	}
+	z, err := zip.OpenReader(path)
+	if err != nil {
+		return false
+	}
+	defer z.Close()
+	f, err := z.Open("pack.mcmeta")
+	if err != nil {
+		return false
+	}
+	defer f.Close()
+	b, err := io.ReadAll(f)
+	if err != nil {
+		return false
+	}
+	ok, err := pack.PackCompatible(b, format)
+	return err == nil && !ok
 }
 
 type progressReader struct {
