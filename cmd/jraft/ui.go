@@ -53,10 +53,12 @@ type uiState struct {
 	showLog  bool
 	failed   bool
 	pick     *picker
+	shader   *shaderPicker
 	switchTo chan bool // non-nil while offering "Switch account"
 	// wantHeight asks the event loop to resize the window; resizing from
 	// inside a frame or from another goroutine can deadlock.
 	wantHeight int
+	wantWidth  int // 0 keeps the usual 560
 
 	toggle, closeBtn, switchBtn, copyBtn widget.Clickable
 	copiedAt                             time.Time
@@ -107,12 +109,15 @@ func loop(w *app.Window) {
 			gtx := app.NewContext(&ops, e)
 			ui.mu.Lock()
 			ui.frame(gtx, th)
-			h := ui.wantHeight
-			ui.wantHeight = 0
+			h, wd := ui.wantHeight, ui.wantWidth
+			ui.wantHeight, ui.wantWidth = 0, 0
 			ui.mu.Unlock()
 			e.Frame(gtx.Ops)
 			if h > 0 {
-				w.Option(app.Size(unit.Dp(560), unit.Dp(float32(h))))
+				if wd == 0 {
+					wd = 560
+				}
+				w.Option(app.Size(unit.Dp(float32(wd)), unit.Dp(float32(h))))
 			}
 		}
 	}
@@ -156,6 +161,9 @@ func (u *uiState) frame(gtx layout.Context, th *material.Theme) {
 	layout.UniformInset(unit.Dp(18)).Layout(gtx, func(gtx layout.Context) layout.Dimensions {
 		if u.pick != nil {
 			return u.pickerView(gtx, th)
+		}
+		if u.shader != nil {
+			return u.shaderView(gtx, th)
 		}
 		return layout.Flex{Axis: layout.Vertical}.Layout(gtx,
 			layout.Rigid(func(gtx layout.Context) layout.Dimensions {

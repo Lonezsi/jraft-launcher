@@ -83,8 +83,8 @@ Get-ItemProperty 'HKLM:\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-b
 
 // Tiers, from weakest to strongest.
 const (
-	tierLow    = "low"    // integrated graphics and old/entry cards: no shaders, no LODs
-	tierMedium = "medium" // decent cards: LODs, no shaders
+	tierLow    = "low"    // integrated graphics and old/entry cards: few chunks, LODs, no shaders
+	tierMedium = "medium" // decent cards: LODs, shaders at reduced settings
 	tierHigh   = "high"   // gaming cards: shaders and LODs
 	tierUltra  = "ultra"  // high-end cards: everything up
 )
@@ -154,8 +154,8 @@ type preset struct {
 }
 
 // complementaryLowest is Complementary's own POTATO profile, pushed further where the
-// shader allows it: no shadows, no SSAO, no reflections, no extra detail. It is what a
-// weak integrated GPU can run with shaders on at all.
+// shader allows it: no shadows, no SSAO, no reflections, no extra detail. The medium
+// preset uses it, so mid-range cards get shaders at a frame rate they can hold.
 var complementaryLowest = map[string]string{
 	"SHADOW_QUALITY": "-1", "shadowDistance": "64.0", "ENTITY_SHADOW": "-1", "PLAYER_SHADOW": "-1",
 	"WATER_REFLECT_QUALITY": "-1", "BLOCK_REFLECT_QUALITY": "0", "WORLD_SPACE_REFLECTIONS": "-1",
@@ -177,8 +177,6 @@ var presets = map[string]preset{
 		// than more real chunks, and look much further. Its config is the one that
 		// worked on the maintainer's weak test laptop, copied whole.
 		dh: true, dhConfig: "presets/low/DistantHorizons.toml",
-		// Shaders on too, at the lowest the shader goes.
-		shaders: true, shaderOptions: complementaryLowest,
 	},
 	tierMedium: {
 		options: map[string]string{
@@ -189,6 +187,7 @@ var presets = map[string]preset{
 			"mipmapLevels": "4", "maxFps": "120",
 		},
 		dh: true, dhRadius: 64, dhQuality: "LOW",
+		shaders: true, shaderOptions: complementaryLowest,
 	},
 	tierHigh: {
 		options: map[string]string{
@@ -206,7 +205,7 @@ var presets = map[string]preset{
 	},
 }
 
-const presetRevision = "5"
+const presetRevision = "6"
 
 // tune applies the preset for this PC if it hasn't been applied yet (or the
 // graphics card changed). It returns the memory to give Minecraft.
@@ -226,12 +225,18 @@ func tune(dataDir, gameDir string) int {
 	// terrain so slowly that it looked like none was being built at all. Raised to 4
 	// when the low preset switched Distant Horizons on with 3 real chunks instead of 6,
 	// and to 5 when it took a whole known-good DH config and lowest-quality shaders.
+	// Raised to 6 when shaders moved from the low preset to the medium one.
 	key := presetRevision + "|" + tier + "|" + gpu
+	applied := false
 	if p.Tuned != key {
 		applyPreset(gameDir, presets[tier], hw.Cores, tier)
 		p.Tuned = key
 		savePrefs(dataDir, p)
 		logf("Applied %s graphics settings for this PC", tier)
+		applied = true
+	}
+	if presets[tier].shaders {
+		chooseShader(dataDir, gameDir, applied, presets[tier].shaderOptions)
 	}
 	applyAlways(gameDir)
 	return memoryMB(hw)

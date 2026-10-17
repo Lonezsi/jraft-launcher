@@ -16,6 +16,10 @@ type prefs struct {
 	Tuned  string `json:"tuned,omitempty"`
 	// Shortcuts is set once the desktop and menu shortcuts have been made.
 	Shortcuts bool `json:"shortcuts,omitempty"`
+	// Shader is the shader picked the first time (complementary or rethinking-voxels).
+	// ShaderPending is set while Euphoria's copy of Complementary isn't built yet.
+	Shader        string `json:"shader,omitempty"`
+	ShaderPending bool   `json:"shaderPending,omitempty"`
 }
 
 func loadPrefs(dataDir string) prefs {
