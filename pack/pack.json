@@ -4,7 +4,7 @@
   "resourceFormat": "97.1",
   "loader": "fabric",
   "javaArgs": "-XX:+UseZGC",
-  "comment": "Edit this file, then run: go run ./cmd/lockgen  (or the 'Update mods' GitHub Action). Entries with no 26.3 build are skipped with a warning and picked up automatically once they update. Client-side only: mods that need the server too are left out; libraries come in automatically as dependencies. Sodium is pinned to 0.9.2 because Grassrise Better Lighting only turns its shader support on with exactly that version. qjlkcVfy is the item model definition backport, which 26.3 has built in; two packs still list it as required. Punchy is pinned to 2.8e: 2.8f (2026-10-14) crashes 26.3 on startup in its drop-key mixin. Left out on purpose: Distant Horizons SeedGen (falls back to vanilla terrain on this pack's world generation; the server pre-generates far terrain instead) and Inspect Animations (Distant Horizons worked again once it was removed).",
+  "comment": "Edit this file, then run: go run ./cmd/lockgen  (or the 'Update mods' GitHub Action). Entries with no 26.3 build are skipped with a warning and picked up automatically once they update. Client-side only: mods that need the server too are left out; libraries come in automatically as dependencies. Sodium is pinned to 0.9.2 because Grassrise Better Lighting only turns its shader support on with exactly that version. qjlkcVfy is the item model definition backport, which 26.3 has built in; two packs still list it as required. Punchy is pinned to 2.8e: 2.8f (2026-10-14) crashes 26.3 on startup in its drop-key mixin. Left out on purpose: Distant Horizons SeedGen (falls back to vanilla terrain on this pack's world generation; the server pre-generates far terrain instead) and Inspect Animations (Distant Horizons worked again once it was removed). RRLS hides only in-game reloads (config/rrls.toml, forced): when it also hid the startup load, the launcher's auto-join connected before the particle textures had loaded, and the first mob death poof crashed the client with Network Protocol Error.",
   "mods": [
     "3dskinlayers",
     "ambient-environment",
@@ -196,9 +196,10 @@
   },
   "forceOverrides": [
     "config/cameraoverhaul.toml",
-    "presets/low/DistantHorizons.toml"
+    "presets/low/DistantHorizons.toml",
+    "config/rrls.toml"
   ],
-  "overridesRevision": 2,
+  "overridesRevision": 3,
   "ignoreDependencies": [
     "qjlkcVfy"
   ],

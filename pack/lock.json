@@ -1278,7 +1278,7 @@
     },
     {
       "path": "config/rrls.toml",
-      "sha512": "7389b673a7b11c156af8f3459cff1f921c4a8da0402b285368c1f88f85a227264c40d199001df8bccf2683fc85fcec5974188dabadc8fcdfd1de6b620eccabc4"
+      "sha512": "4d8d5ea0d31ef7edf16f3b2807c6c33f93f6f4226b4fb0ce6fea3deaba4748b131a439617bfd09dec9d7a6538c7ee4c06223931909d29572b1c958e94aa8ef87"
     },
     {
       "path": "config/scalablelux.properties",
@@ -1470,9 +1470,10 @@
   ],
   "forceOverrides": [
     "config/cameraoverhaul.toml",
-    "presets/low/DistantHorizons.toml"
+    "presets/low/DistantHorizons.toml",
+    "config/rrls.toml"
   ],
-  "overridesRevision": 2,
+  "overridesRevision": 3,
   "server": {
     "name": "JRAFT",
     "address": "jriter.dikdik-kettle.ts.net:10000"
