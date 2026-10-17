@@ -158,6 +158,13 @@ code { font: 500 .9em ui-monospace, "SF Mono", Consolas, monospace; }
 .shot:hover img { transform: scale(1.025); }
 .shot figcaption { font-size: 14px; color: var(--fg3); line-height: 1.4; }
 .shot figcaption a { font-weight: 500; }
+.merge { display: grid; gap: 22px; margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--line); }
+.merge-head h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 600; letter-spacing: -.02em; margin-bottom: 8px; }
+.merge-head p { color: var(--fg2); font-size: 17px; max-width: 70ch; }
+.pairs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.pair { margin: 0; display: grid; gap: 10px; min-width: 0; }
+.pair figcaption { font-size: 14px; color: var(--fg3); line-height: 1.4; }
+@media (max-width: 733px) { .pairs { grid-template-columns: minmax(0, 1fr); } .merge { margin-top: 48px; padding-top: 36px; } }
 @media (max-width: 733px) { .bento { grid-template-columns: minmax(0, 1fr); gap: 24px; } .shot, .shot.third { grid-column: 1 / -1; } .shot.full .frame { aspect-ratio: 16 / 9; } }
 
 /* two-up text panels */
@@ -404,6 +411,54 @@ footer .content { display: grid; gap: 8px; max-width: var(--max-wide); }
         <figcaption><a href="https://modrinth.com/resourcepack/glowing-3d-armor">Glowing 3D Armor</a> &middot; armour with depth and glow</figcaption>
       </figure>
     </div>
+    <div class="merge" id="merge">
+      <div class="merge-head">
+        <h3>All the packs. All at once.</h3>
+        <p>Normally, when two packs change the same block, only the top one shows. JRAFT Grass and JRAFT Leaves combine them instead: Grassrise's blades and Simple Grass Flowers' clovers on the same grass, three grass packs mixed in one meadow, and Better Leaves' round shape wearing Os' colours. Drag the lines to compare. These are from JRAFT's own test world, with shaders off, so you see the packs themselves.</p>
+      </div>
+      <div class="pairs">
+        <figure class="pair">
+        <div class="compare" id="merge-grass">
+          <img src="shots/merge-grass-after.jpg" alt="The same grass with Grassrise's blades plus small white flowers and clovers" width="1600" height="900" loading="lazy" decoding="async">
+          <img class="over" src="shots/merge-grass-before.jpg" alt="Grass blocks with Grassrise's blades and nothing else" width="1600" height="900" loading="lazy" decoding="async">
+          <span class="tag l">Without</span><span class="tag r">With JRAFT's pack</span>
+          <div class="bar"></div>
+          <div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div>
+          <input type="range" id="merge-grass-slider" min="0" max="100" step="0.5" value="50" aria-label="Compare grass without and with JRAFT Grass">
+        </div>
+          <figcaption>Grass. Without the merge, Grassrise hides Simple Grass Flowers. With it, the blades and the little flowers share every block.</figcaption>
+        </figure>
+        <figure class="pair">
+        <div class="compare" id="merge-leaves">
+          <img src="shots/merge-leaves-after.jpg" alt="The same leaf block, round and fluffy, with fine colourful leaf detail" width="1600" height="900" loading="lazy" decoding="async">
+          <img class="over" src="shots/merge-leaves-before.jpg" alt="A leaf block with blocky, oversized pixels and square sheets sticking out" width="1600" height="900" loading="lazy" decoding="async">
+          <span class="tag l">Without</span><span class="tag r">With JRAFT's pack</span>
+          <div class="bar"></div>
+          <div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div>
+          <input type="range" id="merge-leaves-slider" min="0" max="100" step="0.5" value="50" aria-label="Compare leaves without and with JRAFT Leaves">
+        </div>
+          <figcaption>Leaves. Without the merge, Os' textures land on Better Leaves' fluff as square sheets. With it, the fluff stays round and the colours stay.</figcaption>
+        </figure>
+      </div>
+      <div class="bento">
+        <figure class="shot">
+          <div class="frame"><img src="shots/garden-tall-grass.jpg" alt="A row of tall grass with cream flowering tops, every top on its own stem" width="1600" height="900" loading="lazy" decoding="async"></div>
+          <figcaption>Tall grass from two packs, each top on its own stem</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="frame"><img src="shots/garden-shrubs-bushes.jpg" alt="Red shrubs in several shades next to fuller green bushes, leaf blocks behind" width="1600" height="900" loading="lazy" decoding="async"></div>
+          <figcaption>3D red shrubs and bushes from Bushier Bushes, mixed with Os' and Simple Foliage's</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="frame"><img src="shots/garden-podzol-mycelium.jpg" alt="Patches of mycelium and podzol with small clovers and flowers, snowy grass behind" width="1600" height="900" loading="lazy" decoding="async"></div>
+          <figcaption>Podzol and mycelium get flowers too; paths still connect under snow</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="frame"><img src="shots/garden-leaves.jpg" alt="Bushy blocks of pale oak, flowering azalea with purple and orange blooms, azalea and pink cherry leaves" width="1600" height="900" loading="lazy" decoding="async"></div>
+          <figcaption>Pale oak, flowering azalea, azalea and cherry: every leaf type round and in colour</figcaption>
+        </figure>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -563,13 +618,12 @@ footer .content { display: grid; gap: 8px; max-width: var(--max-wide); }
 </footer>
 
 <script>
-(function () {
-  var box = document.getElementById('cave');
-  var input = document.getElementById('cave-slider');
+document.querySelectorAll('.compare').forEach(function (box) {
+  var input = box.querySelector('input');
   function set() { box.style.setProperty('--pos', input.value + '%'); }
   input.addEventListener('input', set);
   set();
-})();
+});
 </script>
 </body>
 </html>
