@@ -16,7 +16,7 @@ func main() {
 
 func run() error {
 	logf("JRAFT launcher %s", version)
-	checkSelfUpdate()
+	selfUpdate()
 
 	dataDir, err := dataDir()
 	if err != nil {
@@ -101,6 +101,9 @@ func run() error {
 			return fmt.Errorf("starting the connection to the server: %w", err)
 		}
 		server = fmt.Sprintf("127.0.0.1:%d", tun.gamePort)
+		if err := addServerEntry(gameDir, tun.gamePort); err != nil {
+			logf("Couldn't add JRAFT to the server list: %v", err)
+		}
 	}
 	logf("Starting Minecraft...")
 	if err := launch(prism, prismData, account, server); err != nil {

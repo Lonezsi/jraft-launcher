@@ -73,24 +73,6 @@ func get(u string) (*http.Response, error) {
 	return nil, lastErr
 }
 
-func checkSelfUpdate() {
-	if version == "dev" {
-		return
-	}
-	resp, err := get("https://api.github.com/repos/" + repo + "/releases/latest")
-	if err != nil {
-		return
-	}
-	defer resp.Body.Close()
-	var rel struct {
-		Tag string `json:"tag_name"`
-		URL string `json:"html_url"`
-	}
-	if json.NewDecoder(resp.Body).Decode(&rel) == nil && rel.Tag != "" && rel.Tag != version {
-		logf("A newer launcher (%s) is available: %s", rel.Tag, rel.URL)
-	}
-}
-
 func dataDir() (string, error) {
 	if d := os.Getenv("JRAFT_DIR"); d != "" {
 		return d, nil
