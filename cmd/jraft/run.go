@@ -113,23 +113,38 @@ func run() error {
 		return nil
 	}
 	logf("Playing on %s. Keep this window open while you play (you can minimize it).", lock.Server.Name)
-	waitForGame(gameDir)
+	waitForGame(func() bool { return gameRunning(gameDir) }, tun, 5*time.Second, 10*time.Minute)
 	logf("Minecraft closed.")
+	tun.close()
 	return nil
 }
 
-// waitForGame returns once the game for this instance has started and then closed, or
-// if it never appears within ten minutes (a launch that failed, or a sign-in left open).
-func waitForGame(gameDir string) {
-	seen := false
+// waitForGame returns once the game for this instance has started and then closed, or if
+// it never appears within launchWait (a launch that failed, or a sign-in left open). The
+// tunnel has to outlive every connection the game makes, including a rejoin after the
+// server drops the player, so this never returns while the game is connected through it.
+//
+// If the game connected through the tunnel but its process was never found, there is no
+// telling when it closes, so the launcher stays until its window is closed: quitting on a
+// guess would cut the player off the server.
+func waitForGame(running func() bool, tun *tunnel, poll, launchWait time.Duration) {
+	seen, misses := false, 0
 	start := time.Now()
 	for {
-		running := gameRunning(gameDir)
-		if running {
-			seen = true
-		} else if seen || time.Since(start) > 10*time.Minute {
+		switch {
+		case running():
+			seen, misses = true, 0
+		case tun.inUse():
+			misses = 0
+		case seen:
+			// Twice in a row, so one failed look at the process list isn't taken
+			// for the game closing.
+			if misses++; misses >= 2 {
+				return
+			}
+		case !tun.used.Load() && time.Since(start) > launchWait:
 			return
 		}
-		time.Sleep(5 * time.Second)
+		time.Sleep(poll)
 	}
 }

@@ -338,7 +338,7 @@ func writeInstance(prismData, instDir string, lock pack.Lock, memMB int, java st
 		"JavaPath":             java,
 		"AutomaticJava":        "false",
 		"OverrideJavaArgs":     "true",
-		"JvmArgs":              stripMemoryArgs(lock.JavaArgs),
+		"JvmArgs":              strings.TrimSpace(stripMemoryArgs(lock.JavaArgs) + " " + gameMarker),
 	}, true)
 	if err != nil {
 		return err

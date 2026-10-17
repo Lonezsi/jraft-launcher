@@ -2,9 +2,12 @@ package main
 
 import (
 	"crypto/tls"
+	"crypto/x509"
+	"errors"
 	"net"
 	"strings"
 	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/Lonezsi/jraft-launcher/internal/relay"
@@ -21,11 +24,20 @@ type tunnel struct {
 	mu       sync.Mutex
 	voiceTo  *net.UDPAddr // where the game's voice chat last sent from
 	voice    net.Conn     // the TLS voice stream, opened on first use
+
+	game net.Listener
+	udp  *net.UDPConn
+	open atomic.Int32 // game connections being carried right now
+	used atomic.Bool  // whether the game has connected at all
 }
 
 // relayIP, when set (tests only), is dialled instead of the name's address, so a PC on
-// the tailnet can still test the public Funnel path.
-var relayIP string
+// the tailnet can still test the public Funnel path. relayRoots, also for tests, replaces
+// the system's certificate authorities.
+var (
+	relayIP    string
+	relayRoots *x509.CertPool
+)
 
 func dialRelay(remote string, kind byte) (net.Conn, error) {
 	host, port, _ := strings.Cut(remote, ":")
@@ -34,7 +46,7 @@ func dialRelay(remote string, kind byte) (net.Conn, error) {
 		addr = relayIP + ":" + port
 	}
 	c, err := tls.DialWithDialer(&net.Dialer{Timeout: 15 * time.Second}, "tcp", addr,
-		&tls.Config{ServerName: host, MinVersion: tls.VersionTLS12})
+		&tls.Config{ServerName: host, MinVersion: tls.VersionTLS12, RootCAs: relayRoots})
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +58,8 @@ func dialRelay(remote string, kind byte) (net.Conn, error) {
 }
 
 // startTunnel opens the local listeners. The game listener prefers 25565, so "localhost"
-// in the server list works too, and falls back to any free port.
+// in the server list works too, and falls back to any free port. Every connection the
+// game makes, the first or a rejoin after a kick, gets its own stream to the server.
 func startTunnel(remote string) (*tunnel, error) {
 	t := &tunnel{remote: remote}
 	l, err := net.Listen("tcp", "127.0.0.1:25565")
@@ -55,14 +68,24 @@ func startTunnel(remote string) (*tunnel, error) {
 			return nil, err
 		}
 	}
+	t.game = l
 	t.gamePort = l.Addr().(*net.TCPAddr).Port
 	go func() {
 		for {
 			c, err := l.Accept()
-			if err != nil {
+			if errors.Is(err, net.ErrClosed) {
 				return
 			}
+			if err != nil {
+				// Only a closed listener ends this loop: a failed accept (out of
+				// file handles, say) mustn't leave the game unable to rejoin.
+				time.Sleep(100 * time.Millisecond)
+				continue
+			}
+			t.used.Store(true)
+			t.open.Add(1)
 			go func() {
+				defer t.open.Add(-1)
 				r, err := dialRelay(t.remote, relay.Game)
 				if err != nil {
 					logf("Couldn't reach the JRAFT server: %v", err)
@@ -82,8 +105,25 @@ func startTunnel(remote string) (*tunnel, error) {
 		logf("Voice chat relay unavailable: %v", err)
 		return t, nil
 	}
+	t.udp = u
 	go t.voiceLoop(u)
 	return t, nil
+}
+
+// inUse reports whether the game is connected through the tunnel right now.
+func (t *tunnel) inUse() bool { return t.open.Load() > 0 }
+
+// close stops listening. Streams already open carry on until they end.
+func (t *tunnel) close() {
+	t.game.Close()
+	if t.udp != nil {
+		t.udp.Close()
+	}
+	t.mu.Lock()
+	if t.voice != nil {
+		t.voice.Close()
+	}
+	t.mu.Unlock()
 }
 
 func (t *tunnel) voiceLoop(u *net.UDPConn) {
