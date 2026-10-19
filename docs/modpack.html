@@ -64,7 +64,12 @@
 html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.53 var(--body); -webkit-font-smoothing: antialiased; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
+/* The small links above the menu: back to Foyer, and the plain download page. */
+.crumbs { font-size: 12px; opacity: .7; }
+.crumbs .wrap { display: flex; justify-content: space-between; gap: 16px; padding-top: 8px; padding-bottom: 8px; }
+.crumbs a { color: var(--fg); }
+.crumbs a:hover { opacity: 1; }
 h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
 p { margin: 0; }
 a { color: var(--link); text-decoration: none; }
@@ -231,6 +236,13 @@ dialog .close:hover { background: rgba(255,255,255,.3); }
 </style>
 </head>
 <body>
+
+<div class="crumbs">
+  <div class="wrap">
+    <a href="https://jriter.dikdik-kettle.ts.net/foyer/">&larr; Foyer</a>
+    <a href="https://jriter.dikdik-kettle.ts.net/foyer/jraft">simplified page</a>
+  </div>
+</div>
 
 <nav class="nav" aria-label="Page">
   <div class="wrap">
